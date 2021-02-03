@@ -1,0 +1,111 @@
+/*하단의 footer 기본 틀*/
+.Wrapper {
+    border-top: 5px solid orange;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    
+  }
+  /*하단의 footer 에서 버튼들의 디자인*/
+  .linkc {
+    text-decoration: none;
+    color: gray;
+    font-size: 3px;
+    margin-left: 15px;
+    margin-top: 100px;
+    border-right: solid 2px gray;
+    margin-bottom: 3px;
+    font-size: 18px;
+  }
+  .linkd {
+   margin-left: 15%;
+  }
+  .linke{
+    text-decoration: none;
+    color: gray;
+    font-size: 3px;
+    margin-left: 20px;
+    margin-top: 100px;
+    margin-bottom: 3px;
+    font-size: 18px;
+  }
+  /*선생성을 위한 클래스*/
+  .liner{
+    border-top: 2px solid gray;
+  }
+  /*하단의 footer 소제목 생성을 위한 디자인 클래스*/
+  .Title {
+    font-size: 16px;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  .Title2 {
+    font-size: 16px;
+    margin-top: 1%;
+    margin-left: 50%;
+    font-weight: bold;
+  }
+  .Title3 {
+    margin-top: 10%;
+    font-size: 16px;
+    margin-bottom: 3%;
+    font-weight: bold;
+  }
+/*하단의 행렬 정렬을위한 row와 col*/
+  .Row {
+    margin-left: 160px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 20px;
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  .Column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 3%;
+  }
+  /*작은글씨 위한 클래스*/
+  .smallletter{
+    font-size: 1px;
+  }
+  /*하단의 아이콘 디자인*/
+  .lineno{
+    text-decoration:none;
+    color:brown
+  }
+  
+  /*아이디어스 문구 디자인*/
+  .iduslogo{
+    margin-left: 30%;
+    font-size: 40px;
+    width:100px;
+    color: gray;
+    font-weight: bold;
+    font-style: initial;
+    text-align: right;
+  }
+  /*하단의 가입사실확인 버튼*/
+  .gaipbtn{
+    height: 30px;
+    color: black;
+    background: white;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid gray;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    width: 70%;
+  }
+
+  .footerindex {
+    color: gray;
+    margin-left: 1px;
+    text-decoration: none;
+  }
+
+  .footercolumn{
+    margin-left: 1px;
+  }
