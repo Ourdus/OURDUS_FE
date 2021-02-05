@@ -29,13 +29,13 @@ function Myinfo() {
         더보기☞{' '}
       </a>
       <div className="orderlist">
-        <button className="btn" onClick={onclickwork}>
+        <button className="btn3" onClick={onclickwork}>
           작품
         </button>
-        <button className="btn" onClick={onclickonline}>
+        <button className="btn3" onClick={onclickonline}>
           온라인 클래스
         </button>
-        <button className="btn" onClick={onclickoffline}>
+        <button className="btn3" onClick={onclickoffline}>
           오프라인 클래스
         </button>
         <div className="shoplist">최근 1개월이내에 주문한 작품이 없습니다.</div>

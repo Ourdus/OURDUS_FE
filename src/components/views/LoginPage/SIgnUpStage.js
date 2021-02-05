@@ -1,22 +1,45 @@
-import { Checkbox } from '@material-ui/core';
 import React from 'react';
-import '../../css/Login.css';
+import { Checkbox } from '@material-ui/core';
+import styled from 'styled-components';
+import '../../css/SignUpStage.css';
 import Loginbtn from '../../img/login.png';
+
+const CircleDiv = styled.div`
+  display: flex;
+  margin: 10% 0% 0% 5%;
+  padding: 3% 0% 5% 0%;
+`;
+
+const BtnSign = styled.button`
+  margin-top: 20px;
+  width: 450px;
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: coral;
+  &:hover {
+  }
+`;
 
 function SignUpStage() {
   return (
-    <div className="SignUpWrapper">
+    <div className="StageWrapper">
       <div className="SignInfo">
-        <button className="btn" onClick="location.href='https://www.idus.com/' ">
+        <button className="LogoBtn" onClick="location.href='https://www.idus.com/' ">
           <img src={Loginbtn} />
         </button>
         <p></p>
-        <h5>&nbsp;정말 간단한 회원가입하기</h5>
-        <div className="choice">
-          <div id="_circle">1</div>
-          <div id="_circleC">2</div>
+        <div className="SignText">
+          <hr className="SignHr"></hr>
+          &nbsp;&nbsp;정말 간단한 회원가입하기&nbsp;&nbsp;
+          <hr className="SignHr"></hr>
         </div>
-        <h5>&emsp;&nbsp;&nbsp;가입 정보 입력하기</h5>
+        <CircleDiv>
+          <div className="Circle">1</div>
+          <div className="CircleC">2</div>
+        </CircleDiv>
+        <h5>&emsp;&emsp;&nbsp;가입 정보 입력하기</h5>
         <form>
           ∗ 이메일
           <br />
@@ -44,7 +67,7 @@ function SignUpStage() {
           추천인코드
           <br />
           <input placeholder="선택사항" />
-          <button className="btnSign">회원가입 하기</button>
+          <BtnSign>회원가입 하기</BtnSign>
           <br />
         </form>
       </div>

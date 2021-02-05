@@ -1,48 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../../css/LoginPage.css';
+import '../../css/SignUpPage.css';
 import styled from 'styled-components';
-import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
+import kakaoLogo from '../../img/kakaologo.svg';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  heigh: 100vh;
   margin: 0% 0% 0% 0%;
   padding: 5% 5% 25% 5%;
 `;
 
-const LoginBtn = styled.button`
-  width: 100%;
-  height: 6vh;
-  text-align: center;
-  margin: 3% 0% 0% 0%;
-  border-radius: 3%;
-  display: inline-block;
-  border: 1px solid coral;
-  background-color: white;
-  color: coral;
-`;
-
-const OtherBtn = styled.button`
-  width: 100%;
-  height: 6vh;
-  text-align: center;
-  margin: 3% 0% 0% 0%;
-  border-radius: 3%;
-  display: inline-block;
-  border: 1px solid lightgrey;
-  background-color: white;
-`;
-
 const KakaoBtn = styled.button`
-  width: 100%;
-  height: 6vh;
+  width: 90%;
+  height: 5vh;
   background-color: #f6e24b;
   border: 0;
   outline: 0;
   text-align: center;
+  margin: 5% 0% 0% 5%;
   cursor: pointer;
   &:hover {
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.2);
@@ -74,7 +51,7 @@ const KakaoBtn = styled.button`
   }
 `;
 
-function LoginPage() {
+function SignUpPage() {
   return (
     <SingUpWrapper>
       <div className="SignUp">
@@ -83,23 +60,30 @@ function LoginPage() {
         </button>
         <p></p>
         <img src={PromoLogin} className="PromoLogin" />
-        <Link to="./">
-          <LoginBtn onClick="location.href='SignUpPage.js'">회원가입 하기</LoginBtn>
-        </Link>
         <p></p>
-        <div className="loginText">
-          <hr className="loginHr"></hr>
-          &emsp;로그인 &emsp;
-          <hr className="loginHr"></hr>
+        <div className="SignText">
+          <hr className="SignHr"></hr>
+          &nbsp;&nbsp;정말 간단한 회원가입하기 &emsp;
+          <hr className="SignHr"></hr>
         </div>
+        <div className="choice">
+          <div id="circleC">1</div>
+          <div id="circle">2</div>
+        </div>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;회원가입 방법 선택하기
+        <br />
         <KakaoBtn>
           <img src={kakaoLogo} alt="kakao" className="icon" />
           <span className="buttonText">카카오톡으로 로그인하기</span>
         </KakaoBtn>
-        <OtherBtn>다른 아이디로 로그인하기</OtherBtn>
+        <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        &emsp;&emsp;&emsp;&emsp;&emsp;이미 가입하셨다면{' '}
+        <a className="aTag" href="/user/join/login">
+          바로 로그인 하기
+        </a>
       </div>
     </SingUpWrapper>
   );
 }
 
-export default LoginPage;
+export default SignUpPage;

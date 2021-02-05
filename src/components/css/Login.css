@@ -13,13 +13,6 @@
   background-color: #fff;
   border-radius: 3%;
 }
-
-.btn {
-  margin: 0% 0% 0% 31%;
-  background-color: white;
-  border: none;
-}
-
 /*  회원가입 css */
 .SignUp h5 {
   padding: 10px 10px 20px 90px;
@@ -33,22 +26,8 @@
   font-weight: 400;
 }
 
-.SignInfo input {
-  width: 420px;
-  height: 50px;
-}
-
 .SignInfo form {
   margin: 0% 0% 0% 1.5%;
-}
-
-.btnSign {
-  margin-top: 20px;
-  width: 420px;
-  height: 50px;
-  color: white;
-  border: none;
-  background-color: coral;
 }
 
 /* */
@@ -57,21 +36,6 @@
   height: auto;
   max-width: 400px;
   max-height: 400px;
-}
-
-.choice {
-  display: flex;
-}
-
-.choice_btn {
-  display: inline-block;
-  width: 90%;
-  text-align: center;
-  margin: 0px 30% 30px 5%;
-  padding: 8px 6px;
-  border: 1px solid lightgrey;
-  border-radius: 5%;
-  background-color: white;
 }
 
 /* 주소(배송지) 관리 => Create, Delivery, Show Address*/
@@ -144,34 +108,6 @@
 }
 
 /* 회원 진행 상태 1-2 */
-#circleC {
-  background-color: coral;
-  float: left;
-  border: 1px lightgrey;
-  width: 30px;
-  height: 30px;
-  border-radius: 75px;
-  text-align: center;
-  margin-left: 150px;
-  font-size: 15px;
-  color: #fff;
-  line-height: 30px;
-}
-
-#circle {
-  background-color: #fff;
-  float: right;
-  border: 1px solid lightgrey;
-  width: 30px;
-  height: 30px;
-  border-radius: 75px;
-  text-align: center;
-  margin-left: 40px;
-  font-size: 15px;
-  color: grey;
-  line-height: 30px;
-}
-
 #_circleC {
   background-color: coral;
   float: left;

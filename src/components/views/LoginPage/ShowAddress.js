@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import data from '../../data/AddressData';
 
 // showAddress는 주소(배송지)관리에 대한 정보를 저장 해놓은 곳
-
 function ShowDetail() {
   let [count, setCount] = useState(0);
 
@@ -90,5 +89,4 @@ function ShowAddress() {
     </div>
   );
 }
-
 export default ShowAddress;

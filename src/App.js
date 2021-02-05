@@ -17,12 +17,13 @@ import Popular from './components/views/ClassPage/PopularClass';
 import MyPage from './components/views/MyPage/MyPage';
 
 // 로그인 및 회원정보 Directory
-import Login from './components/views/LoginPage/LoginPage';
+import SignUpPage from './components/views/LoginPage/SignUpPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
-import SignUp from './components/views/LoginPage/SIgnUpStage';
+import SignUpStage from './components/views/LoginPage/SIgnUpStage';
 import Personal from './components/views/LoginPage/Personal';
 import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
 import MyInfo from './components/views/myinfo/myinfo';
+
 // Cart 관련 category
 import Cart_W from './components/views/CartPage/CartPage_W';
 import Pay_W from './components/views/CartPage/Pay_W';
@@ -38,14 +39,14 @@ function App() {
           <Route exact path="/main/work/category/:id" component={WorkCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
           <Route exact path="/main/class" component={ClassPage} />
-          <Route exact path="/main/login" component={LoginPage} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
           <Route exact path="/main/myInfo" component={MyInfo} />
           <Route exact path="/w/pay/:id" component={Pay_W} />
           <Route exact path="/main/class/popular" component={Popular} />
-          <Route exact path="/user/join" component={Login} />
-          <Route exact path="/user/join/signup" component={SignUp} />
+          <Route exact path="/user/join" component={SignUpPage} />
+          <Route exact path="/user/join/login" component={LoginPage} />
+          <Route exact path="/user/join/signup" component={SignUpStage} />
           <Route exact path="/user/personal" component={Personal} />
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
         </Switch>
