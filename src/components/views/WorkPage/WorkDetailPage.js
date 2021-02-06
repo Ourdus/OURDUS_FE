@@ -1,17 +1,22 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import data from '../../data/WorkData';
+//import data from '../../data/WorkData';
+import data from '../../data/WorkDetailData';  //상품 상세 정보 (데이터)
 import '../../css/WorkDetailPage.css';
+import IMG1 from '../../img/DetailIMG1.jpg';
+
 
 function WorkDetailPage({match}) {
 
+    //const [product, setProduct] = useState(data);
     const [product, setProduct] = useState(data);
     const i = match.params.id; //주소 (work/detail/:id) 중 id 값 받아온 것
 
     return (
         <div className="WorkDetail">
                 <div className="Content1">
-                    <div className="Img">IMG</div>
+                    <div className="Img_big"><img src={IMG1} /></div>
+                    <div className="Img_small"><img src={IMG1} /></div>
                     <div className="menu">
                         <div className="menu_1">
                             <p>
@@ -50,13 +55,18 @@ function WorkDetailPage({match}) {
                 </div>
 
                 <div className="Content2">
-                    <div className="made_by">작가</div>
-                    <div className="title">제목</div>
-                    <div className="discount_per"></div>
-                    <div className="discount_price"></div>
-                    <div className="price"></div>
-                    <div className="information"></div>
+                    {/* 작가 / 상품제목 / 할인률 / 할인가 / 원가 / 적립금액 / 구매후기 / 배송비 / 남은수량 */}
+                    <div className="made_by">{product[i].made_by} {'>'}</div>
+                    <div className="title">{product[i].product_title}</div>
+                    <div className="discount_per">{product[i].discount_percent}</div>
+                    <div className="discount_price">{product[i].discount_price}원</div>
+                    <div className="price">{product[i].price}원</div>
+                    <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{product[i].reserves}p</p></div>
+                    <div className="review_count"><p>구매후기</p> <p>{product[i].review_count}개</p></div>
+                    <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product[i].shipping_fee}원</p></div>
+                    <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div>
                     <Link to={`/w/cart/${i}`}> 장바구니 </Link>
+                    <Link to={`/w/pay/${i}`}> 구매하기 </Link>
                 </div>
         </div>
     );
