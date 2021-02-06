@@ -1,17 +1,66 @@
 .WorkDetail {
     width: 60%;
     margin: auto;
+    padding-top: 50px;
 }
 
+/* Content 1 = page's left side */
 .Content1 {
-    width: 48%;
+    width: 60%;
     height: 1000px;
     display: inline-block;
 }
+.Img_big img {
+    width: 600px;
+    height: 600px;
+    padding: 10px;
+}
+.Img_small img {
+    width: 60px;
+    height: 60px;
+}
 
-
+/* Content 2 = page's right side */
 .Content2 {
-    width: 48%;
+    width: 25%;
     display: inline-block;
     position: fixed;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: white;
 }
+.Content2 p {
+    display: inline-block;
+    padding: 5px 15px 5px 20px;
+    font-size: 15px;
+}
+.made_by {
+    font-size: 15px;
+    padding: 20px 10px 10px 20px;
+}
+.title {
+    font-size: 23px;
+    font-weight: 500;
+    padding: 10px 10px 10px 20px;
+}
+.discount_per {
+    display: inline-flex;
+    padding: 10px 5px 10px 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+}
+.discount_price {
+    display: inline-flex;
+    padding: 10px 5px 10px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.price {
+    display: inline-flex;
+    padding: 10px 10px 40px 10px;
+    font-size: 15px;
+    text-decoration: line-through;
+    color: lightslategray;
+} 
