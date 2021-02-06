@@ -1,0 +1,17 @@
+.WorkDetail {
+    width: 60%;
+    margin: auto;
+}
+
+.Content1 {
+    width: 48%;
+    height: 1000px;
+    display: inline-block;
+}
+
+
+.Content2 {
+    width: 48%;
+    display: inline-block;
+    position: fixed;
+}
