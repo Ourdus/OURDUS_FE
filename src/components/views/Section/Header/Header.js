@@ -1,9 +1,12 @@
 import React from 'react';
 import '../../../css/Header.css';
-
+//import ReactHoverObserver from 'react-hover-observer';
 import idusimage from '../../../img/idus.png';
 import { BsPerson } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
+
+//npm install --save react-hover-observer hover 기능 활용을 위한 npm 설치!
+
 //import Jumbotron from 'react-bootstrap/Jumbotron'
 //import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 //css 디자인에 앞써 npm install --save styled-components 설치 css적용을 위해
@@ -33,14 +36,19 @@ function Header() {
               <hr className="header-top__seperator" />
             </section>
           </section>
+          
           <section className="header-bottom">
-            <section className="header-bottom__info">
-              <BsPerson size="20" color="steelblue" />
-              &nbsp;&nbsp;내정보
+            <a href="/"  className="idusappdown">아이디어스 앱 설치하기</a>
+            
+          <section className="header-bottom__info">
+            
+            &nbsp;&nbsp;<BsPerson size="20" color="steelblue" />
+              <a href="/" className="header-bottom">내정보</a>
             </section>
             <section className="header-bottom__shop">
-              <FiShoppingCart size="20" color="steelblue" />
-              &nbsp;&nbsp;장바구니
+            &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
+             
+              <a href="/" className="header-bottom">장바구니</a>
             </section>
           </section>
         </section>
@@ -52,18 +60,22 @@ function Header() {
 
           <div className="leftSide">
             <a href="/class" className="linka">
-              클래스
-            </a>
-            <a href="/work" className="linka">
               작품
             </a>
-            <div className="links"></div>
+            <a href="/work" className="linka">
+              클래스
+            </a>
+            
+
           </div>
           <div className="rightSide">
             <input type="text" placeholder="작품/클래스 검색하기" />
             <button className="btn2">검색</button>
+            
           </div>
+          
         </div>
+        
 
         <div className="Navbar">
           <div className="links">

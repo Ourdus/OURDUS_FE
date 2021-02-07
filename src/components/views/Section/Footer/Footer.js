@@ -1,5 +1,11 @@
 import React from 'react';
 import '../../../css/Footer.css';
+import kakaoimage from '../../../img/kakao.png';
+import twitterimage from '../../../img/twitter.png';
+import instagramimage from '../../../img/instagram.png';
+import facebookimage from '../../../img/facebook.png';
+import blogimage from '../../../img/blog.png';
+import gumeimage from '../../../img/gume.png';
 import { IoLogoTwitter } from 'react-icons/io';
 import { IoLogoFacebook } from 'react-icons/io';
 import { IoLogoInstagram } from 'react-icons/io';
@@ -82,28 +88,46 @@ function Footer() {
             </div>
             <div className="Column">
               <div className="Title">Follow Us</div>
-              <IoLogoFacebook size="24" color="orange" />
-              <a href="https://www.facebook.com/idus.me" className="lineno">
-                facebook
-              </a>
-              <IoLogoInstagram size="24" color="orange" />
-              <a href="https://www.instagram.com/idus.me/" className="lineno">
-                instagram
-              </a>
-              <ImBlogger2 size="24" color="orange" />
-              <a href="https://post.naver.com/idus_me" className="lineno">
-                post
-              </a>
-              <IoLogoTwitter size="24" color="orange" />
-              <a href="https://twitter.com/IDus_kr" className="lineno">
-                twitter
-              </a>
-              <FaKickstarter size="24" color="orange" />
+              <div className="iconColumn">
               <a href="https://story.kakao.com/ch/idusme" className="lineno">
-                kakaopage
+             
+              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+            <img src={kakaoimage} />
+             </button>
               </a>
+
+              <a href="https://twitter.com/IDus_kr" className="lineno">
+              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+            <img src={twitterimage} />
+             </button>
+              </a>
+
+              <a href="https://post.naver.com/idus_me" className="lineno">
+              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+            <img src={blogimage} />
+             </button>
+              </a>
+              <a href="https://www.facebook.com/idus.me" className="lineno">
+              
+              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+            <img src={facebookimage} />
+             </button>
+              </a>
+
+              
+              <a href="https://www.instagram.com/idus.me/" className="lineno">
+              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+            <img src={instagramimage} />
+             </button>
+              </a>
+              </div>
               <div className="Title3">구매안전거래사이트</div>
+              <div className="sortgaip">
               <button className="gaipbtn">가입사실 확인▶</button>
+              <button className="iconbutton2">
+                <img src={gumeimage} />
+              </button>
+              </div>
               <div className="smallletter">
                 고객님은 현금 등으로 결제시 당사에서 가입한 구매안전서비스를 이용하실 수 있습니다.
                 <br />
