@@ -13,7 +13,7 @@ content > div {
   padding: 2% 17%;
 }
 
-/* nav 프로모션 */
+/* nav 프로모션 
 .promotion {
   width: 60%;
   margin: auto;
@@ -22,6 +22,7 @@ content > div {
   border: 1px solid lightgrey;
   border-radius: 3%;
 }
+*/
 
 /* 카테고리 버튼 */
 .category_button {

@@ -6,7 +6,10 @@ import '../../css/Product.css';
 import categoryData from '../../data/categoryData';
 import data from '../../data/WorkData';
 import Product from '../Section/Product/Product';
+import Silder from '../ImgSlider/Silder';
 
+// WorkPage Css는 Section 에 있는 product에 각각 입혀서 진행
+// ../section/Product/product <=> WorkPage.css
 function WorkPage() {
   let [product, setProduct] = useState(data);
   let [category, setCategory] = useState(categoryData);
@@ -14,8 +17,7 @@ function WorkPage() {
   return (
     <div className="WorkPage">
       <nav className="promotion">
-        <h3> 입점 할인 </h3>
-        <p> 최대 60 % </p>
+        <Silder />
       </nav>
 
       <content>
@@ -28,7 +30,7 @@ function WorkPage() {
 
         <div className="popular">
           <h4>인기상품</h4>
-          {product.map((a, i) => {
+          {product.slice(0, 10).map((a, i) => {
             return <Product product={product[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
@@ -39,7 +41,7 @@ function WorkPage() {
 
         <div className="recommend">
           <h4>추천상품</h4>
-          {product.map((a, i) => {
+          {product.slice(0, 10).map((a, i) => {
             return <Product product={product[i]} i={i} key={i} />;
           })}
           <button className="showMore" onclick>
@@ -50,7 +52,7 @@ function WorkPage() {
 
         <div className="new">
           <h4>최신상품</h4>
-          {product.map((a, i) => {
+          {product.slice(0, 10).map((a, i) => {
             return <Product product={product[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
@@ -61,7 +63,7 @@ function WorkPage() {
 
         <div className="review">
           <h4>상품후기</h4>
-          {product.map((a, i) => {
+          {product.slice(0, 10).map((a, i) => {
             return <Product product={product[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>

@@ -8,6 +8,16 @@
   border-radius: 3%;
 }
 
+._product hr {
+  margin: 0% 0% 0% 0%;
+}
+
+.ShopTag {
+  color: black;
+  font-size: 12px;
+  text-decoration: none;
+}
+
 /* 상품 후기 디자인 */
 .review > ._product {
   width: 44%;

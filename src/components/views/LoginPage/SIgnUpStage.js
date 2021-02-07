@@ -25,7 +25,7 @@ const BtnSign = styled.button`
 function SignUpStage() {
   return (
     <div className="StageWrapper">
-      <div className="SignInfo">
+      <div className="StageInfo">
         <button className="LogoBtn" onClick="location.href='https://www.idus.com/' ">
           <img src={Loginbtn} />
         </button>
@@ -40,7 +40,7 @@ function SignUpStage() {
           <div className="CircleC">2</div>
         </CircleDiv>
         <h5>&emsp;&emsp;&nbsp;가입 정보 입력하기</h5>
-        <form>
+        <form method="submit">
           ∗ 이메일
           <br />
           <input placeholder="이메일을 입력해주세요." required />
