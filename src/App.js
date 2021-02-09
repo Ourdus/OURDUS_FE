@@ -25,8 +25,9 @@ import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
 import MyInfo from './components/views/Myinfo/Myinfo';
 
 // Cart 관련 category
-import Cart_W from './components/views/CartPage/CartPage_W';
-import Pay_W from './components/views/CartPage/Pay_W';
+import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
+import DirectPay_W from './components/views/CartPage/Pay_W';  //바로결제
+import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
 
 function App() {
   return (
@@ -41,7 +42,8 @@ function App() {
           <Route exact path="/main/class" component={ClassPage} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
-          <Route exact path="/w/pay/:id" component={Pay_W} />
+          <Route exact path="/w/direct_pay/:id" component={DirectPay_W} />
+          <Route exact path="/w/payment/:id" component={Payment_W} />
           <Route exact path="/main/myInfo" component={MyInfo} />
           <Route exact path="/main/class/popular" component={Popular} />
           <Route exact path="/user/join" component={SignUpPage} />
