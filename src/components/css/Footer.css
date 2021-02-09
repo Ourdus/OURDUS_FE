@@ -18,6 +18,22 @@
   margin-bottom: 3px;
   font-size: 18px;
 }
+.linkd {
+  margin-left: 15%;
+}
+.linke {
+  text-decoration: none;
+  color: gray;
+  font-size: 3px;
+  margin-left: 20px;
+  margin-top: 100px;
+  margin-bottom: 3px;
+  font-size: 18px;
+}
+/*선생성을 위한 클래스*/
+.liner {
+  border-top: 2px solid gray;
+}
 
 /*하단의 footer 소제목 생성을 위한 디자인 클래스*/
 .Title {
