@@ -1,10 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-// Header & Footer
-import Header from './components/views/Section/Header/Header';
-import Footer from './components/views/Section/Footer/Footer';
-
 // Work Page
 import IdusPage from './components/views/IdusPage/IdusPage';
 import WorkPage from './components/views/WorkPage/WorkPage';
@@ -19,7 +15,7 @@ import MyPage from './components/views/MyPage/MyPage';
 // 로그인 및 회원정보 Directory
 import SignUpPage from './components/views/LoginPage/SignUpPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
-import SignUpStage from './components/views/LoginPage/SIgnUpStage';
+import SignUpStage from './components/views/LoginPage/SignForm';
 import Personal from './components/views/LoginPage/Personal';
 import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
 import MyInfo from './components/views/Myinfo/Myinfo';
@@ -32,7 +28,6 @@ function App() {
   return (
     <Router>
       <div>
-        <Header />
         <Switch>
           <Route exact path="/main" component={IdusPage} />
           <Route exact path="/main/work" component={WorkPage} />
@@ -50,7 +45,6 @@ function App() {
           <Route exact path="/user/personal" component={Personal} />
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

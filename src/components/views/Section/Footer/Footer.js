@@ -89,44 +89,41 @@ function Footer() {
             <div className="Column">
               <div className="Title">Follow Us</div>
               <div className="iconColumn">
-              <a href="https://story.kakao.com/ch/idusme" className="lineno">
-             
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={kakaoimage} />
-             </button>
-              </a>
+                <a href="https://story.kakao.com/ch/idusme" className="lineno">
+                  <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+                    <img src={kakaoimage} />
+                  </button>
+                </a>
 
-              <a href="https://twitter.com/IDus_kr" className="lineno">
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={twitterimage} />
-             </button>
-              </a>
+                <a href="https://twitter.com/IDus_kr" className="lineno">
+                  <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+                    <img src={twitterimage} />
+                  </button>
+                </a>
 
-              <a href="https://post.naver.com/idus_me" className="lineno">
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={blogimage} />
-             </button>
-              </a>
-              <a href="https://www.facebook.com/idus.me" className="lineno">
-              
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={facebookimage} />
-             </button>
-              </a>
+                <a href="https://post.naver.com/idus_me" className="lineno">
+                  <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+                    <img src={blogimage} />
+                  </button>
+                </a>
+                <a href="https://www.facebook.com/idus.me" className="lineno">
+                  <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+                    <img src={facebookimage} />
+                  </button>
+                </a>
 
-              
-              <a href="https://www.instagram.com/idus.me/" className="lineno">
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={instagramimage} />
-             </button>
-              </a>
+                <a href="https://www.instagram.com/idus.me/" className="lineno">
+                  <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
+                    <img src={instagramimage} />
+                  </button>
+                </a>
               </div>
               <div className="Title3">구매안전거래사이트</div>
               <div className="sortgaip">
-              <button className="gaipbtn">가입사실 확인▶</button>
-              <button className="iconbutton2">
-                <img src={gumeimage} />
-              </button>
+                <button className="gaipbtn">가입사실 확인▶</button>
+                <button className="iconbutton2">
+                  <img src={gumeimage} />
+                </button>
               </div>
               <div className="smallletter">
                 고객님은 현금 등으로 결제시 당사에서 가입한 구매안전서비스를 이용하실 수 있습니다.
