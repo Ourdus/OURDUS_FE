@@ -89,7 +89,7 @@ function Footer() {
             <div className="Column">
               <div className="Title">Follow Us</div>
               <div className="iconColumn">
-              <a href="https://story.kakao.com/ch/idusme" className="lineno">
+                <a href="https://story.kakao.com/ch/idusme" className="lineno">
                   <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
                     <img src={kakaoimage} />
                   </button>
