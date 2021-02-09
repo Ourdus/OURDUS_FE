@@ -36,7 +36,8 @@ function Header() {
               <hr className="header-top__seperator" />
             </section>
           </section>
-          
+
+
           <section className="header-bottom">
             <a href="/" className="idusappdown">
               아이디어스 앱 설치하기
