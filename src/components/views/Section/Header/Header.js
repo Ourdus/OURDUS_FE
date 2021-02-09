@@ -36,19 +36,24 @@ function Header() {
               <hr className="header-top__seperator" />
             </section>
           </section>
-          
+
           <section className="header-bottom">
-            <a href="/"  className="idusappdown">아이디어스 앱 설치하기</a>
-            
-          <section className="header-bottom__info">
-            
-            &nbsp;&nbsp;<BsPerson size="20" color="steelblue" />
-              <a href="/" className="header-bottom">내정보</a>
+            <a href="/" className="idusappdown">
+              아이디어스 앱 설치하기
+            </a>
+
+            <section className="header-bottom__info">
+              &nbsp;&nbsp;
+              <BsPerson size="20" color="steelblue" />
+              <a href="/" className="header-bottom">
+                내정보
+              </a>
             </section>
             <section className="header-bottom__shop">
-            &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
-             
-              <a href="/" className="header-bottom">장바구니</a>
+              &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
+              <a href="/" className="header-bottom">
+                장바구니
+              </a>
             </section>
           </section>
         </section>
@@ -65,17 +70,12 @@ function Header() {
             <a href="/work" className="linka">
               클래스
             </a>
-            
-
           </div>
           <div className="rightSide">
             <input type="text" placeholder="작품/클래스 검색하기" />
             <button className="btn2">검색</button>
-            
           </div>
-          
         </div>
-        
 
         <div className="Navbar">
           <div className="links">
