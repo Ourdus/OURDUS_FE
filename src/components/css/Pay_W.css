@@ -1,0 +1,127 @@
+.PayPage {
+    width: 50%;
+    margin: auto;
+    padding: 10px 30px;
+}
+
+/* Nav */
+.P_Nav {
+    padding: 10px 30px;
+    display: flex;
+}
+.P_Nav h4 {
+    display: inline-block;
+    font-size: 20px;
+}
+.P_Nav p {
+    display: inline-block;
+    margin-left: auto;
+}
+
+/* Main 1 */
+.P_Main1 {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    padding: 0px 0px 0px 0px;
+    margin: 30px 0px 40px 0px;
+}
+.P_Author {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    background-color: lightgray;
+}
+.P_Product {
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+/* 작품 가격 출력 */
+.P_Price {
+    border-bottom: 1px solid lightgray;
+}
+.P_Price {
+    display: flex;
+}
+.P_Price h4 {
+    padding: 0px 20px;
+    font-size: 15px;
+}
+.P_Price h5 {
+    padding: 0px 20px;
+    margin-left: auto;
+}
+
+/* 배송비 출력 */
+.P_DPrice {
+    display: flex;
+}
+.P_DPrice h4 {
+    padding: 0px 20px;
+    font-size: 15px;
+}
+.P_DPrice h5 {
+    padding: 0px 20px;
+    margin-left: auto;
+}
+
+/* .C_Select h5 {
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+    display: inline;
+    float: left;
+}
+.C_Select button {
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+    display: inline;
+    float: right;
+} */
+
+/* Main 2 */
+.P_Main2 {
+    /* position: fixed; */
+    width: 100%;
+    /* top: 680px; */
+    border: 2px solid gray;
+    border-radius: 2px;
+    padding: 20px 0px 40px 0px;
+    margin: 40px 0px 0px 0px;
+    background-color: white;
+}
+.P_Main2 pre {
+    display: inline-block;
+    padding: 0px 13% 10px 14%;
+}
+.P_Main2 val {
+    padding-left: 30px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0px 0px 0px 12%;
+}
+
+/* Main 3 ------- width 50% = width 896px */
+.P_Main3 {
+    /* top: 861px; */
+    width: 100%;           
+    margin: 0;
+    padding: 0;
+}
+.Pay_Button {
+    display: block;
+    padding: 30px 0px;
+    text-align: center;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+.Pay_Button p {
+    margin: 0px 20%;
+    padding: 20px 25%;
+    color: rgb(60, 60, 60);
+    background-color: rgb(230, 221, 230);
+}
+.Pay_Button p:hover {
+    background: rgb(211, 196, 211);
+    font-weight: bolder;
+}

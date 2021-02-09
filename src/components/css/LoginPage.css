@@ -1,0 +1,65 @@
+.loginHr {
+  width: 43%;
+  border: 1px solid black;
+  margin: 2.5% 0% 0% 0%;
+}
+
+.loginText {
+  display: flex;
+  font-size: 15px;
+}
+
+.BtnLogo {
+  margin: 0% 0% 0% 40%;
+  background-color: white;
+  border: none;
+}
+
+.BtnSign {
+  margin-top: 20px;
+  width: 420px;
+  height: 50px;
+  color: white;
+  border: none;
+  background-color: coral;
+}
+
+.choice_btn {
+  display: inline-block;
+  width: 90%;
+  height: 5vh;
+  text-align: center;
+  margin: 5% 30% 30px 5%;
+  padding: 8px 6px;
+  border: 1px solid lightgrey;
+  border-radius: 5%;
+  background-color: white;
+}
+
+.Circle {
+  background-color: #fff;
+  float: right;
+  border: 1px solid lightgrey;
+  width: 40px;
+  height: 40px;
+  border-radius: 75px;
+  text-align: center;
+  margin-left: 40%;
+  font-size: 20px;
+  color: grey;
+  padding: 1.5% 0% 0% 0.5%;
+}
+
+.CircleC {
+  background-color: coral;
+  float: left;
+  border: 1px lightgrey;
+  width: 40px;
+  height: 40px;
+  border-radius: 75px;
+  text-align: center;
+  margin-left: 15%;
+  font-size: 20px;
+  color: #fff;
+  padding: 1.5% 0% 0% 0.5%;
+}

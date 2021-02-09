@@ -1,2 +1,6 @@
 node_modules
+<<<<<<< HEAD
 .eslintcache
+=======
+.eslintcache
+>>>>>>> 24c3e8e73b9cb2ee158b251eec39f6d25d7f6405

@@ -1,0 +1,87 @@
+.StageInfo {
+  width: 350px;
+  margin: 0% 0% 0% 35%;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 3%;
+}
+
+.SignInfo input {
+  width: 450px;
+  height: 50px;
+  border: 1px solid lightgrey;
+}
+.SignHr {
+  width: 20%;
+  border: 1px thin black;
+  margin: 2% 0% 0% 0%;
+}
+
+.SignText {
+  width: 600px;
+  display: flex;
+  font-size: 16px;
+  margin: 0% 0% 0% 0%;
+}
+
+.LogoBtn {
+  margin: 0% 0% 0% 40%;
+  background-color: white;
+  border: none;
+}
+
+.choice_btn {
+  display: inline-block;
+  width: 90%;
+  height: 5vh;
+  text-align: center;
+  margin: 5% 30% 30px 5%;
+  padding: 8px 6px;
+  border: 1px solid lightgrey;
+  border-radius: 5%;
+  background-color: white;
+}
+
+.BtnSign {
+  margin-top: 20px;
+  width: 450px;
+  height: 50px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: coral;
+}
+
+.CircleDiv {
+  display: flex;
+  margin: 10% 0% 0% 5%;
+  padding: 3% 0% 5% 0%;
+}
+
+.Circle {
+  background-color: #fff;
+  float: right;
+  border: 1px solid lightgrey;
+  width: 40px;
+  height: 40px;
+  border-radius: 75px;
+  text-align: center;
+  margin-left: 40%;
+  font-size: 20px;
+  color: grey;
+  padding: 1.5% 0% 0% 0.5%;
+}
+
+.CircleC {
+  background-color: coral;
+  float: left;
+  border: 1px lightgrey;
+  width: 40px;
+  height: 40px;
+  border-radius: 75px;
+  text-align: center;
+  margin-left: 15%;
+  font-size: 20px;
+  color: #fff;
+  padding: 1.5% 0% 0% 0.5%;
+}
