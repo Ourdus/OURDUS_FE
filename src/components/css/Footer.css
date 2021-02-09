@@ -33,7 +33,8 @@
 /*선생성을 위한 클래스*/
 .liner {
   border-top: 2px solid gray;
-}/*하단의 footer 소제목 생성을 위한 디자인 클래스*/
+}
+/*하단의 footer 소제목 생성을 위한 디자인 클래스*/
 .Title {
   font-size: 16px;
   margin-bottom: 40px;
