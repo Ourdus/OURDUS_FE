@@ -1,11 +1,4 @@
 /*하단의 footer 기본 틀*/
-.Wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 10%;
-}
 /*하단의 footer 에서 버튼들의 디자인*/
 .linkc {
   text-decoration: none;
