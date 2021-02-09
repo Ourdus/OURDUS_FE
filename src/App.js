@@ -28,6 +28,9 @@ import MyInfo from './components/views/Myinfo/Myinfo';
 import Cart_W from './components/views/CartPage/CartPage_W';
 import Pay_W from './components/views/CartPage/Pay_W';
 
+//sidebar 관련
+import Sidebar from './components/views/Sidebar/Sidebar'
+
 function App() {
   return (
     <Router>
@@ -49,6 +52,7 @@ function App() {
           <Route exact path="/user/join/signup" component={SignUpStage} />
           <Route exact path="/user/personal" component={Personal} />
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
+          <Route exact path="/main/sidebar" component={Sidebar} />
         </Switch>
         <Footer />
       </div>

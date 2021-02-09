@@ -4,7 +4,7 @@ import '../../../css/Header.css';
 import idusimage from '../../../img/idus.png';
 import { BsPerson } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
-
+import { Link } from 'react-router-dom';
 //npm install --save react-hover-observer hover 기능 활용을 위한 npm 설치!
 
 //import Jumbotron from 'react-bootstrap/Jumbotron'
@@ -43,7 +43,8 @@ function Header() {
           <section className="header-bottom__info">
             
             &nbsp;&nbsp;<BsPerson size="20" color="steelblue" />
-              <a href="/" className="header-bottom">내정보</a>
+            <Link to="/main/myInfo" className="header-bottom">내정보</Link>
+              {/*<a href="/" className="header-bottom"> 내정보</a> */}
             </section>
             <section className="header-bottom__shop">
             &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
