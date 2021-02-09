@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/SignForm.css';
+import axios from 'axios';
 import styled from 'styled-components';
 import Loginbtn from '../../img/login.png';
 
@@ -37,6 +38,26 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
+const PostUserInfo = async (email, name, password, Pnumber, recommended) => {
+  try {
+    axios
+      .post('/api/user/join', {
+        email: 'ehehdgus11@naver.com',
+        name: '김동현',
+        Pnumber: '010-5517-8496',
+        recommended: '',
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log('error : ', error.response);
+      });
+  } catch (e) {
+    console.log('error');
+  }
+};
+
 function SignForm() {
   return (
     <div className="StageWrapper">
@@ -59,12 +80,12 @@ function SignForm() {
         <form method="submit">
           ∗ 이메일
           <br />
-          <SignInput type="email" placeholder="이메일을 입력해주세요" required />
+          <SignInput className="email" type="email" placeholder="이메일을 입력해주세요" required />
           <br />
           <br />
           ∗ 비밀번호
           <br />
-          <SignInput type="password" placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)" required />
+          <SignInput className="password" type="password" placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)" required />
           <br />
           <br />
           <SignInput type="password" placeholder="비밀번호 확인" required />
@@ -72,18 +93,18 @@ function SignForm() {
           <br />
           ∗ 이름
           <br />
-          <SignInput placeholder="이름을 입력해주세요." required />
+          <SignInput className="name" placeholder="이름을 입력해주세요." required />
           <br />
           <br />
           ∗ 전화번호
           <br />
-          <SignInput placeholder="010-1234-5678" required />
+          <SignInput className="Pnumber" placeholder="010-1234-5678" required />
           <br />
           <br />
           추천인코드
           <br />
-          <SignInput placeholder="선택 사항" />
-          <BtnSign>회원가입하기</BtnSign>
+          <SignInput className="recommended" placeholder="선택 사항" />
+          <BtnSign onClick={PostUserInfo}>회원가입하기</BtnSign>
           <br />
         </form>
       </div>
