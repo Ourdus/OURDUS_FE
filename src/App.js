@@ -24,6 +24,7 @@ import MyInfo from './components/views/Myinfo/Myinfo';
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
 import DirectPay_W from './components/views/CartPage/Pay_W';  //바로결제
 import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
+import Sidebar from './components/views/Sidebar/Sidebar'
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route exact path="/user/join/signup" component={SignUpStage} />
           <Route exact path="/user/personal" component={Personal} />
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
+          <Route exact path="/user/sidebar/sidebar" component={Sidebar} />
         </Switch>
       </div>
     </Router>

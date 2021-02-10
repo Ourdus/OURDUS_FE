@@ -71,13 +71,21 @@
 button:hover {
   cursor: pointer;
 }
-
-.button {
+.showMoreorder{
+  margin-left: 25%;
+  height: 20%;
+  width: 30%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+}
+/*.button {
   height: 30px;
   width: 200px;
   font-size: 16px;
   font-weight: bold;
-}
+}*/
+
 /* 더보기란디자인을 위한 css*/
 .moreinfo {
   margin-left: 92%;
@@ -168,3 +176,31 @@ button:hover {
   display: flex;
   height: max-content;
 }
+.sidebar
+{ margin-left: 5%;
+  margin-right: 2%;
+  width:10%;
+  border: 1px solid lightgrey;
+  border-radius: 3%;
+  height: max-content;}
+   
+.topsidebar{ font-size: smaller;
+  font-style: inherit;
+  text-align: center;
+  border: 1px solid orange;}
+.headsidebar{padding:10%;
+  padding-left:20%;
+  background-color: orange;
+  color: white;}
+.smallsidebar{ margin-top: 1%;
+  padding:10%;
+  line-height: 200%;
+  border-bottom: 1px solid lightgray;
+  font-size: smaller;}
+.orderlist{ margin-left: 10%;}
+.smallsidebartopic{text-shadow: lightgreen;
+  font-weight: bolder;}
+.sidebarbutton{ background: white;
+  text-decoration: none;
+  border: 0;
+  outline: 0;}
