@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../../css/SignUpPage.css';
 import styled from 'styled-components';
 import PromoLogin from '../../img/Promo_login.png';
@@ -50,6 +51,27 @@ const KakaoBtn = styled.button`
     color: #000000;
   }
 `;
+
+const PostSingUpInfo = async (props) => {
+  try {
+    axios
+      .post('/api/user/join', {
+        email: props.email,
+        name: props.name,
+        Pnumber: props.name,
+        recommended: props.recommended,
+      })
+      .then((response) => {
+        const { accessToken } = response.data;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+      })
+      .catch((error) => {
+        console.log('error : ', error.response);
+      });
+  } catch (e) {
+    console.log('error');
+  }
+};
 
 function SignUpPage() {
   return (
