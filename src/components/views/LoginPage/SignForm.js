@@ -38,17 +38,19 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-const PostUserInfo = async (email, name, password, Pnumber, recommended) => {
+const PostUserInfo = async ({ inputs }) => {
   try {
     axios
       .post('/api/user/join', {
-        email: 'ehehdgus11@naver.com',
-        name: '김동현',
-        Pnumber: '010-5517-8496',
-        recommended: '',
+        email: inputs.email,
+        password: inputs.password,
+        name: inputs.name,
+        tel: inputs.tel,
+        writerFlag: false,
       })
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        const { accessToken } = response.data;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
       })
       .catch((error) => {
         console.log('error : ', error.response);
@@ -59,10 +61,25 @@ const PostUserInfo = async (email, name, password, Pnumber, recommended) => {
 };
 
 function SignForm() {
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: '',
+    name: '',
+    tel: '',
+  });
+  const { email, password, name, tel } = inputs;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
   return (
     <div className="StageWrapper">
       <div className="StageInfo">
-        <button className="LogoBtn" onClick="location.href='https://www.idus.com/' ">
+        <button className="LogoBtn">
           <img src={Loginbtn} alt="loginbtn" />
         </button>
         <p></p>
@@ -80,31 +97,37 @@ function SignForm() {
         <form method="submit">
           ∗ 이메일
           <br />
-          <SignInput className="email" type="email" placeholder="이메일을 입력해주세요" required />
+          <SignInput name="email" type="email" placeholder="이메일을 입력해주세요" onChange={onChange} value={email} />
           <br />
           <br />
           ∗ 비밀번호
           <br />
-          <SignInput className="password" type="password" placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)" required />
+          <SignInput
+            name="password"
+            type="password"
+            placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)"
+            onChange={onChange}
+            required
+          />
           <br />
           <br />
-          <SignInput type="password" placeholder="비밀번호 확인" required />
+          <SignInput type="password" placeholder="비밀번호 확인" onChange={onChange} value={password} required />
           <br />
           <br />
           ∗ 이름
           <br />
-          <SignInput className="name" placeholder="이름을 입력해주세요." required />
+          <SignInput name="name" placeholder="이름을 입력해주세요." onChange={onChange} value={name} required />
           <br />
           <br />
           ∗ 전화번호
           <br />
-          <SignInput className="Pnumber" placeholder="010-1234-5678" required />
+          <SignInput name="tel" placeholder="010-1234-5678" onChange={onChange} value={tel} required />
           <br />
           <br />
           추천인코드
           <br />
-          <SignInput className="recommended" placeholder="선택 사항" />
-          <BtnSign onClick={PostUserInfo}>회원가입하기</BtnSign>
+          <SignInput name="recommended" placeholder="선택 사항" onChange={onChange} />
+          <BtnSign onClick={() => PostUserInfo(inputs)}>회원가입하기</BtnSign>
           <br />
         </form>
       </div>
