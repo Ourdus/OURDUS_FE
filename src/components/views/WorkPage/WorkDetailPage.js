@@ -29,6 +29,12 @@ function WorkDetailPage({match}, props) {
                     <div className="Img_small"><img src={IMG1} /></div>
                     <div className="Img_small"><img src={IMG1} /></div>
                     <div className="menu">
+                        <div className="menubar_W">
+                            <div>작품정보</div>
+                            <div>배송 / 교환 / 환불</div>
+                            <div>구매후기</div>
+                            <div>댓글</div>
+                        </div>
                         <div className="menu_1">
                             <h5>작품정보</h5>
                             <p>
@@ -42,16 +48,31 @@ function WorkDetailPage({match}, props) {
                         </div>
                         <div className="menu_2">
                             <h5>배송 / 교환 / 환불</h5>
-                            <p>          
-                                [배송] 5일 이내<br />
-                                주문 후 제작에 들어가는 작품입니다.<br />
-                                주말공휴일 제외하고 2~5일정도 제작기간이 소요됩니다.<br />
-                                당일발송은 어려우니 양해부탁드립니다.<br />
+                            <p>
+                                <div className="delivery1">
+                                    <h3>
+                                        <p>배송비</p>
+                                    </h3>
+                                    <h4>
+                                        <p>기본료 : {product.deliveryfee}</p><br/>
+                                        {/* <p>배송비 무료조건 : {product.deliveryfree}</p>
+                                        <p>제주 / 도서산간 추가비용 : {product.deliveryoverfee}</p> */}
+                                    </h4>
+                                </div>
+                                <div className="delivery2">
+                                    <h3>제작 / 배송</h3>
+                                    <h4>n 일 이내</h4>
+                                </div>
+                                <div className="delivery3">
+                                    <h3>교환 / 환불</h3>
+                                    <h4>가능</h4>
+                                </div>
                             </p>
                         </div>
                         <div className="menu_3">
-                            {/* <h5>구매후기 ({product.name})</h5> */}
+                            <h5>구매후기 ({product.review_count})</h5>
                             <p>
+                                {product.review}
                                 배송진짜빠르고 이뻐요 근데 사이즈미스여서ㅠㅠ <br />
                                 검지용으로 산건데 약지에 끼는게 이쁘네요<br />
 
@@ -73,6 +94,7 @@ function WorkDetailPage({match}, props) {
                
                 <div className="Content2">
                         {/* 작가 / 상품제목 / 할인률 / 할인가 / 원가 / 적립금액 / 구매후기 / 배송비 / 남은수량 */}
+
                         <div className="made_by">{product.authorName} {'>'}</div>
                         <div className="title">{product.name}</div>
                         <div className="discount_per">{product.discount_percent}</div>
@@ -80,23 +102,15 @@ function WorkDetailPage({match}, props) {
                         <div className="price">{product.price}원</div>
                         {/* <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{product[i].reserves}p</p></div> */}
                         <div className="review_count"><p>구매후기</p> <p>{product.purchase}개</p></div>
-                        {/* <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product[i].shipping_fee}원</p></div> */}
+                        <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product.shipping_fee}원</p></div>
                         {/* <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div> */}
                         <div className="total_amount"><p>총 작품금액</p><span>{product.price}원</span></div>
                         <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>
-                        <div className="pay_button"><Link to={`/w/direct_pay/${i}`}> <p>구매하기</p> </Link></div>
-                        {/* <div className="made_by">{product[i].made_by} {'>'}</div>
-                        <div className="title">{product[i].product_title}</div>
-                        <div className="discount_per">{product[i].discount_percent}</div>
-                        <div className="discount_price">{product[i].discount_price}원</div>
-                        <div className="price">{product[i].price}원</div>
-                        <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{product[i].reserves}p</p></div>
-                        <div className="review_count"><p>구매후기</p> <p>{product[i].review_count}개</p></div>
-                        <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product[i].shipping_fee}원</p></div>
-                        <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div>
-                        <div className="total_amount"><p>총 작품금액</p><span>{product[i].discount_price}원</span></div>
-                        <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>
-                        <div className="pay_button"><Link to={`/w/direct_pay/${i}`}> <p>구매하기</p> </Link></div> */}
+                        {/* <button className="cart_button" onClick={()=>{
+                            axios.post('장바구니에 상품 추가할 경로', {id:상품아이디}, {options:옵션}, {등등})
+                            }}> 장바구니 </button> ---------- 장바구니 추가한 상품 목록 axios로 전송 */}
+                        <div className="pay_button"><Link to={`/w/directPay`}> <p>구매하기</p> </Link></div>
+                        
                 </div>
         </div>
     );
@@ -107,6 +121,26 @@ export default WorkDetailPage;
 
 
 
+
+
+
+
+
+
+
+
+    {/* <div className="made_by">{product[i].made_by} {'>'}</div>
+    <div className="title">{product[i].product_title}</div>
+    <div className="discount_per">{product[i].discount_percent}</div>
+    <div className="discount_price">{product[i].discount_price}원</div>
+    <div className="price">{product[i].price}원</div>
+    <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{product[i].reserves}p</p></div>
+    <div className="review_count"><p>구매후기</p> <p>{product[i].review_count}개</p></div>
+    <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product[i].shipping_fee}원</p></div>
+    <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div>
+    <div className="total_amount"><p>총 작품금액</p><span>{product[i].discount_price}원</span></div>
+    <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>
+    <div className="pay_button"><Link to={`/w/direct_pay/${i}`}> <p>구매하기</p> </Link></div> */}
 
 
 
@@ -199,18 +233,6 @@ export default WorkDetailPage;
 //                         <div className="total_amount"><p>총 작품금액</p><span>{product.price}원</span></div>
 //                         <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>
 //                         <div className="pay_button"><Link to={`/w/direct_pay/${i}`}> <p>구매하기</p> </Link></div>
-//                         {/* <div className="made_by">{product[i].made_by} {'>'}</div>
-//                         <div className="title">{product[i].product_title}</div>
-//                         <div className="discount_per">{product[i].discount_percent}</div>
-//                         <div className="discount_price">{product[i].discount_price}원</div>
-//                         <div className="price">{product[i].price}원</div>
-//                         <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{product[i].reserves}p</p></div>
-//                         <div className="review_count"><p>구매후기</p> <p>{product[i].review_count}개</p></div>
-//                         <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product[i].shipping_fee}원</p></div>
-//                         <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div>
-//                         <div className="total_amount"><p>총 작품금액</p><span>{product[i].discount_price}원</span></div>
-//                         <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>
-//                         <div className="pay_button"><Link to={`/w/direct_pay/${i}`}> <p>구매하기</p> </Link></div> */}
 //                 </div>
 //         </div>
 //     );

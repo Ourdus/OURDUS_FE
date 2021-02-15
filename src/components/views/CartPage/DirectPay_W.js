@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../../css/Pay_W.css';
 // import data from '../../data/CartData';
 
-function Pay_W({match}) {
+function DirectPay_W({match}) {
 
     const [product, setProduct] = useState([]);
     const i = match.params.id;
@@ -87,4 +87,4 @@ function Remove() {
     )
 }
 
-export default Pay_W;
+export default DirectPay_W;

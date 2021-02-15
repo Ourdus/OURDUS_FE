@@ -64,7 +64,7 @@ function CartPage_W({match}) {
                     <val> {allProduct + allDProduct} 원</val>
                 </div>
                 <div className="C_Main3">
-                    <Link to="/w/payment/:id" className="Pay_Button"> <p> 주문하기 </p> </Link>
+                    <Link to="/w/payment" className="Pay_Button"> <p> 주문하기 </p> </Link>
                 </div>
             </content>
 
