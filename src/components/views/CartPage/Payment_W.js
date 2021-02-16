@@ -2,6 +2,8 @@ import react, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import IMG1 from '../../img/DetailIMG1.jpg';
+import { Phone } from '@material-ui/icons';
 
 function Payment_W() {
     const price = 43200;
@@ -19,7 +21,26 @@ function Payment_W() {
                            "‣ 보유기간 : 발송완료 후 15일",
                            "아이디어스는 통신판매중개자이며 통신판매의 당사자가 아닙니다.",
                            "따라서 아이디어스는 상품 거래정보 및 거래에 대하여 책임을 지지 않습니다. "];
- 
+
+    // 고객 정보 (가상 데이터)
+    const informations = [
+        {
+            name: "chlthf",
+            PhoneNum: "010-3145-0137",
+            address: "서울특별시"
+        },
+        {
+            title: "각인 써지컬 3mm 반지",
+            option: "옵션 블라블라",
+            price: 21000
+        },
+        {
+            title: "레터링 케이크 캔들",
+            option: "옵션 뭐라뭐라",
+            price: 36000
+        }
+    ];
+
 
     return (
         <Payment>
@@ -29,9 +50,54 @@ function Payment_W() {
             </Navbar>
             {/* 왼쪽 사이드 바 */}
             <Content_1>
-
-
-
+                <Customer>
+                    <Title>주문고객</Title>
+                    <h2>주문자 정보</h2>
+                    <h3>{informations[0].name}</h3>
+                    <h2><Important>*</Important> 전화번호</h2>
+                    <h3>{informations[0].PhoneNum}</h3>
+                </Customer>
+                <Address>
+                    <Title>배송 주소</Title>
+                    <h2><Important>*</Important> 받는 분</h2>
+                    <input type="text" name="text" placeholder={informations[0].name} />
+                    {/* <Input>{informations[0].name}</Input> */}
+                    <h2><Important>*</Important> 전화번호</h2>
+                    <input type="text" name="text" placeholder={informations[0].PhoneNum} />
+                    {/* <Input>{informations[0].PhoneNum}</Input> */}
+                    <h2><Important>*</Important> 주소</h2>
+                    <input type="text" name="text" placeholder={informations[0].address} />
+                    {/* <Input>{informations[0].address}</Input> */}
+                </Address>
+                <WorkInfo>
+                    <Title>주문 작품 정보</Title>
+                    <p>N 개</p>
+                    <Works>
+                        <img src={IMG1} />
+                        <h1>{informations[1].title}</h1>
+                        <h2>• {informations[1].option}</h2>
+                        <h3>작품 금액</h3>
+                        <h4>{informations[1].price} 원</h4>
+                        <h3>배송비</h3>
+                        <h4>3000 원</h4>
+                    </Works>
+                    <Works>
+                        <img src={IMG1} />
+                        <h1>{informations[2].title}</h1>
+                        <h2>• {informations[2].option}</h2>
+                        <h3>작품 금액</h3>
+                        <h4>{informations[2].price} 원</h4>
+                        <h3>배송비</h3>
+                        <h4>3000 원</h4>
+                    </Works>
+                </WorkInfo>
+                <PaymentMethod>
+                    <Title>결제 수단</Title><br />
+                    <input name="radio" id="radio1" type="radio" />간편하게 카드 결제<br />
+                    <input name="radio" id="radio1" type="radio" />복잡하게 카드 결제<br />
+                    <input name="radio" id="radio1" type="radio" />계좌이체 / 무통장입금<br />
+                    <input name="radio" id="radio1" type="radio" />휴대폰 결제<br />
+                </PaymentMethod>
 
 
             </Content_1>
@@ -93,7 +159,7 @@ function Payment_W() {
                     }}><h1>더보기</h1><h2>{showMore}</h2></button>
                 </PrivacyButton>
                 <PayButtonLast>
-                    <button onClick={() => {alert("신용카드를 등록해주세요.")}}>{price_support}원 간편하게 카드 결제</button>
+                    <button onClick={() => {alert("신용카드를 등록해주세요.")}}>{price_support}원 바로 결제</button>
                 </PayButtonLast>
             </Content_2>
         </Payment>
@@ -104,18 +170,15 @@ function Payment_W() {
 // 전체 틀 디자인
 const Payment = styled.div`
 width: 800px;
-height: 1600px;
 margin: auto;
 margin-top: 30px;
-border: 1px solid lightgrey;
 `
 
 // 상단 바 디자인
 const Navbar = styled.div`
 width: 100%;
 padding-top: 10px;
-padding-bottom: 50px;
-border: 1px solid lightpink;
+padding-bottom: 40px;
 `
 const NavName = styled.div`
 width: 50%;
@@ -137,19 +200,143 @@ display: inline-block;
 `
 
 
-// 왼쪽 사이드 다지인
+// 왼쪽 사이드 다지인 --------------------------------------------------
 const Content_1 = styled.div`
 width: 440px;
-height: 1000px;
 display: inline-block;
-border: 1px solid lightcoral;
 `
+// 별에 빨간색 표시
+const Important = styled.span`
+color: red;
+`
+// 박스마다 적힌 상단 정보 css
+const Title = styled.div`
+width: 90%;
+padding-bottom: 20px;
+display: inline-block;
+font-size: 18px;
+font-weight: bolder;
+`
+
+// 주문 고객
+const Customer = styled.div`
+width: 100%;
+padding: 15px;
+margin-bottom: 20px;
+border: 1px solid lightgray;
+border-radius: 3px;
+box-shadow: 3px 3px 5px lightgray;
+h2 {
+    width: 20%;
+    padding: 0px 5px;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+}
+h3 {
+    width: 80%;
+    padding: 0px 10px;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+}
+`
+// 주소
+const Address = styled.div`
+width: 100%;
+padding: 15px;
+margin-bottom: 20px;
+border: 1px solid lightgray;
+border-radius: 3px;
+box-shadow: 3px 3px 5px lightgray;
+h2 {
+    width: 20%;
+    padding: 0px 5px;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+}
+input {
+    width: 70%;
+    padding: 0px 10px;
+    margin-left: 10px;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+}
+`
+// 주문 작품 정보
+const WorkInfo = styled.div`
+width: 100%;
+padding: 15px 15px 5px 15px;
+margin-bottom: 20px;
+border: 1px solid lightgray;
+border-radius: 3px;
+box-shadow: 3px 3px 5px lightgray;
+p {
+    width: 10%;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+}
+img {
+    width: 90px;
+    padding: 10px 5px 5px 5px;
+    display: inline-block;
+}
+h1 {
+    display: inline-block;
+    padding: 0px 0px 0px 15px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+}
+h2 {
+    padding: 30px 0px 0px 5px;
+    padding-bottom: 20px;
+    text-align: left;
+    border-bottom: 1px solid lightgray;
+    font-size: 13px;
+}
+h3 {
+    padding: 0px 0px 0px 10px;
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+    font-size: 13px;
+}
+h4 {
+    padding: 0px 10px 0px 0px;
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+    font-size: 13px;
+}
+`
+const Works = styled.div`
+width: 100%;
+padding: 10px 0px;
+margin-bottom: 10px;
+border-top: 2px solid gray;
+`
+// 결제 수단
+const PaymentMethod = styled.div`
+width: 100%;
+padding: 15px;
+margin-bottom: 20px;
+border: 1px solid lightgray;
+border-radius: 3px;
+box-shadow: 3px 3px 5px lightgray;
+input {
+    margin: 5px 10px 15px 5px;
+}
+`
+
 
 
 // 오른쪽 사이드 디자인
 const Content_2 = styled.div`
 width: 335px;
-height: 500px;
 margin: 0px 0px 10px 24px;
 display: inline-block;
 position: absolute;
@@ -163,7 +350,7 @@ h1 {
     font-size: 18px;
     font-weight: 600;
     text-align: center;
-    padding: 15px 0px 15px 0px;
+    padding: 20px 0px 20px 0px;
     border-bottom: 1px solid grey;
 }
 h2 {
@@ -242,6 +429,7 @@ h2 {
 const PayButtonLast = styled.div`
 width: 80%;
 margin: auto;
+margin-bottom: 30px;
 background-color: lightgray;
 button {
     width: 100%;
@@ -249,6 +437,7 @@ button {
     margin: auto;
     appearance: none;
     border: 1px lightgray;
+    font-size: 18px;
     font-weight: 500;
 }
 `
