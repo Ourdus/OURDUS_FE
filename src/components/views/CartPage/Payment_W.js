@@ -11,6 +11,15 @@ function Payment_W() {
     const [support, setSupport] = useState(false);
     const [privacyComment, setPrivacyComment] = useState("✔️ 개인정보 제공 동의");
     const [privacy, setPrivacy] = useState(false);
+    const [show, setShow] = useState(false);
+    const [showMore, setShowMore] = useState([]);
+    const showMoretext = [ "‣ 제공받는 자 : 투링각인반지샵, 플로썸, 소블링커피, 그랑캔들 ",
+                           "‣ 목적 : 판매자와 구매자 사이의 원활한 거래 진행, 상품의 배송을 위한 배송지 확인, 고객상담 및 불만처리 등 ",
+                           "‣ 정보 : 별명, 이름, 전화, 주소 ",
+                           "‣ 보유기간 : 발송완료 후 15일",
+                           "아이디어스는 통신판매중개자이며 통신판매의 당사자가 아닙니다.",
+                           "따라서 아이디어스는 상품 거래정보 및 거래에 대하여 책임을 지지 않습니다. "];
+ 
 
     return (
         <Payment>
@@ -18,8 +27,15 @@ function Payment_W() {
                 <NavName>주문 결제하기</NavName>
                 <NavSide>1. 장바구니 {'>'} <NavSideBorder>2. 주문결제 </NavSideBorder> {'>'} 3. 주문완료</NavSide>
             </Navbar>
+            {/* 왼쪽 사이드 바 */}
             <Content_1>
+
+
+
+
+
             </Content_1>
+            {/* 오른쪽 사이드 바 */}
             <Content_2>
                 <p>
                 <h1>결제 정보</h1>
@@ -37,6 +53,7 @@ function Payment_W() {
                 </p>
                 <h4>최종 결제 금액</h4>
                 <h5>{price_support} 원</h5>
+                {/* 작가님 후원 버튼 */}
                 <SupportButton>
                     <button onClick={() => {
                         if (support == false){
@@ -49,30 +66,40 @@ function Payment_W() {
                         }
                     }}>✔️ 작가님을 후원합니다</button>
                 </SupportButton>
+                {/* 개인정보제공 버튼 */}
                 <PrivacyButton>
                     <button onClick={() => {
                         if (privacy == false){
                             setPrivacy(true)
-                            setPrivacyComment("✔️ 개인정보 제공 동의")
+                            setPrivacyComment("❍ 개인정보 제공 동의")
                         }
                         else if (privacy == true){
                             setPrivacy(false)
-                            setPrivacyComment("✔️ 개인정보 제공 미동의")
+                            setPrivacyComment("✖️ 개인정보 제공 미동의")
                         }
                     }}>{privacyComment}</button>
                     <button onClick={() => {
-                        if (privacy == false){
-                            setPrivacy(true)
+                        if (show == false){
+                            setShow(true)
+                            setShowMore("")
                         }
-                        else if (privacy == true){
-                            setPrivacy(false)
+                        else if (show == true){
+                            setShow(false)
+                            // setShowMore(showMoretext)
+                            showMoretext.map((i)=>{
+                                setShowMore(...showMore, showMoretext)
+                            })
                         }
-                    }}><h1>더보기</h1></button>
+                    }}><h1>더보기</h1><h2>{showMore}</h2></button>
                 </PrivacyButton>
+                <PayButtonLast>
+                    <button onClick={() => {alert("신용카드를 등록해주세요.")}}>{price_support}원 간편하게 카드 결제</button>
+                </PayButtonLast>
             </Content_2>
         </Payment>
     );
 }
+
 
 // 전체 틀 디자인
 const Payment = styled.div`
@@ -185,7 +212,7 @@ button {
 // 개인정보 제공 버튼
 const PrivacyButton = styled.div`
 padding: 0px 0px;
-margin: 10px 25px 20px 25px;
+margin: 10px 25px 10px 25px;
 button {
     width: 50%;
     border: none;
@@ -196,7 +223,7 @@ button {
 }
 h1 {
     width: 100%;
-    padding-right: 20px;
+    padding-right: 10px;
     border: none;
     background-color: white;
     display: inline-block;
@@ -204,7 +231,26 @@ h1 {
     font-weight: 500;
     text-align: right;
 }
+h2 {
+    width: 400px;
+    padding: 15px 50px;
+    position: absolute;
+    font-weight: lighter;
+}
 `
-
+// 최종 결제 버튼
+const PayButtonLast = styled.div`
+width: 80%;
+margin: auto;
+background-color: lightgray;
+button {
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+    appearance: none;
+    border: 1px lightgray;
+    font-weight: 500;
+}
+`
 
 export default Payment_W;
