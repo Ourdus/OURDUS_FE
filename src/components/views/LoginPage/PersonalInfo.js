@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import '../../css/Login.css';
@@ -99,69 +99,35 @@ const SaveBtn = styled.button`
   font-size: 13px;
 `;
 
-const PostUserInfo = async (inputs) => {
-  try {
+function PersonalInfo() {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
     axios
-      .post('/api/user/id-finding', {
-        name: inputs.name,
-        email: inputs.email,
-        tel: inputs.tel,
-        sex: inputs.sex,
-        birth: inputs.birth,
-      })
+      .get('/api/user/join')
       .then(function (response) {
-        const status = JSON.parse(response.data.response.status);
-        if (status === ' 200 ') {
-          useHistory.push('./personalinfo');
-        }
+        setProduct(response);
       })
-      .catch((error) => {
-        console.log('error : ', error.response);
+      .catch(function (error) {
+        console.log('실패');
       });
-  } catch (e) {
-    console.log('error');
-  }
-};
-
-function Personal() {
-  const [inputs, setInputs] = useState({
-    name: '',
-    email: '',
-    tel: '',
-    sex: '',
-    birth: '',
-  });
-  const { name, email, tel, sex, birth } = inputs;
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
+  }, []);
   return (
     <PersonalWrapper>
       <PersonalDiv>
         <PersonalTop>
           <PersonalFtop>이름</PersonalFtop>
-          <div>
-            <PersonalInput name="name" placeholder="이름" onChange={onChange} value={name} />
-          </div>
+          <div>{product.name}</div>
         </PersonalTop>
 
         <PersonalSection>
           <PersonalFront>이메일</PersonalFront>
-          <div>
-            <PersonalInput type="email" name="email" placeholder="이메일" onChange={onChange} value={email} />
-          </div>
+          <div>{product.email}</div>
         </PersonalSection>
 
         <PersonalSection>
           <PersonalFront>전화</PersonalFront>
-          <div>
-            <PersonalInput name="tel" placeholder="전화번호" onChange={onChange} value={tel} />
-          </div>
+          <div>{product.tel}</div>
         </PersonalSection>
 
         <PersonalSection>
@@ -169,12 +135,12 @@ function Personal() {
           <LabelDiv>
             <form>
               <label>
-                <input type="radio" name="sex" value={sex} />
+                <input type="radio" name="sex" />
                 &nbsp;여성
               </label>
               &emsp;
               <label>
-                <input type="radio" name="sex" value={sex} checked />
+                <input type="radio" name="sex" checked />
                 &nbsp;남성
               </label>
             </form>
@@ -183,9 +149,7 @@ function Personal() {
 
         <PersonalSection>
           <PersonalFront>생일</PersonalFront>
-          <div>
-            <PersonalInput name="birth" placeholder="2021-01-01" onChange={onChange} value={birth} />
-          </div>
+          <div>{product.birth}</div>
         </PersonalSection>
 
         <PersonalSection>
@@ -208,10 +172,10 @@ function Personal() {
         <Link to="./leave">
           <OutButton>회원탈퇴</OutButton>
         </Link>
-        <SaveBtn onClick={() => PostUserInfo(inputs)}>회원정보 수정하기</SaveBtn>
+        <SaveBtn>회원정보 수정하기</SaveBtn>
       </PersonalDiv>
     </PersonalWrapper>
   );
 }
 
-export default Personal;
+export default PersonalInfo;

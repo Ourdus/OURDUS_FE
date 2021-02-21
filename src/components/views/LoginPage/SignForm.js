@@ -40,7 +40,6 @@ const BtnSign = styled.button`
 `;
 
 const PostUserInfo = async (inputs) => {
-  const Message = '필수 항목입니다.';
   try {
     axios
       .post('/api/user/join', {
@@ -52,8 +51,11 @@ const PostUserInfo = async (inputs) => {
       })
       .then((response) => {
         const { accessToken } = response.data;
+        const status = JSON.parse(response.data.response.status);
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-        useHistory.push('/');
+        if (status === '200') {
+          useHistory.push('../main');
+        }
       })
       .catch((error) => {
         console.log('error : ', error.response);
@@ -122,7 +124,7 @@ function SignForm() {
             type="password"
             placeholder="비밀번호 확인"
             onChange={onChange}
-            oninvalid="this.setCustomValidity({Message})"
+            oninvalid="this.setCustomValidity({M  essage})"
             oninput="setCustomValidity('값은 값을 다시 입력하세요.')"
             required
           />

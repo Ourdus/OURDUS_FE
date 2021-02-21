@@ -70,12 +70,12 @@ const FormDiv = styled.div`
 const PostUserInfo = async (tel) => {
   try {
     axios
-      .post('/api/user/join', {
-        tel,
+      .post('/api/user/id-finding', {
+        tel: tel,
       })
       .then(function (response) {
         console.log(response);
-        useHistory.push('/');
+        useHistory.push('./');
       })
       .catch((error) => {
         console.log('error : ', error.response);
@@ -111,7 +111,7 @@ function SignForm() {
         <FormDiv>
           <form method="submit">
             <SignInput className="AuthInput" placeholder="010-1234-5678" onChange={onChange} value={tel} required />
-            <BtnSign onClick={PostUserInfo(tel)}>인증요청</BtnSign>
+            <BtnSign onClick={() => PostUserInfo(tel)}>인증요청</BtnSign>
           </form>
         </FormDiv>
       </StageInfo>

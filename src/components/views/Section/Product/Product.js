@@ -53,7 +53,7 @@ function Product(props) {
   return (
     <Wrapper>
       <ImageBox>
-        <img src={img1} /> {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
+        <img src={props.product.url} /> {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
       </ImageBox>
       <br />
       <ShopTag>{props.product.made_by}</ShopTag>

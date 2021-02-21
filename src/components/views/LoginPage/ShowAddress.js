@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
 
@@ -48,6 +49,17 @@ const UpdataBtn = styled.button`
 
 // showAddress는 주소(배송지)관리에 대한 정보를 저장 해놓은 곳
 function ShowDetail() {
+  const [product, setProduct] = useState([
+    {
+      id: 1,
+      user: '',
+    },
+    {},
+    {},
+  ]);
+  useEffect(() => {
+    axios.get(`/api/t/user/address`).then((result) => setProduct(result.data));
+  }, []);
   return (
     <div>
       <BoxDiv>
@@ -56,21 +68,21 @@ function ShowDetail() {
         </BoxTop>
         <BoxBottom>
           <p>
-            <span className="star">*</span>받는분 &emsp;&emsp; <span className="DataSpan">{data[0].username}</span>{' '}
+            <span className="star">*</span>받는분 &emsp;&emsp; <span className="DataSpan">{product[0].username}</span>{' '}
           </p>
           <p>
-            <span className="star">*</span>전화번호 &emsp;<span className="DataSpan"> {data[0].Pnumber}</span>
+            <span className="star">*</span>전화번호 &emsp;<span className="DataSpan"> {product[0].Pnumber}</span>
           </p>
           <AddAd>
-            <span className="star">*</span>주소&emsp;&emsp;&emsp;&nbsp;<span className="DataSpan">{data[0].ZipCode} </span>
+            <span className="star">*</span>주소&emsp;&emsp;&emsp;&nbsp;<span className="DataSpan">{product[0].ZipCode} </span>
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{data[0].Address}</span>
+            <span className="DataSpan">{product[0].Address}</span>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{data[0].AddDetail}</span>
+            <span className="DataSpan">{product[0].AddDetail}</span>
           </p>
           <Link to="./addad">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<UpdataBtn>수정</UpdataBtn>
@@ -84,21 +96,21 @@ function ShowDetail() {
         </BoxTop>
         <BoxBottom>
           <p>
-            <span className="star">*</span>받는분 &emsp;&emsp; <span className="DataSpan">{data[1].username}</span>
+            <span className="star">*</span>받는분 &emsp;&emsp; <span className="DataSpan">{product[1].username}</span>
           </p>
           <p>
-            <span className="star">*</span>전화번호 &emsp; <span className="DataSpan">{data[1].Pnumber}</span>
+            <span className="star">*</span>전화번호 &emsp; <span className="DataSpan">{product[1].Pnumber}</span>
           </p>
           <AddAd>
-            <span className="star">*</span>주소&emsp;&emsp;&emsp;&nbsp;<span className="DataSpan">{data[1].ZipCode}</span>
+            <span className="star">*</span>주소&emsp;&emsp;&emsp;&nbsp;<span className="DataSpan">{product[1].ZipCode}</span>
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{data[1].Address}</span>
+            <span className="DataSpan">{product[1].Address}</span>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{data[1].AddDetail}</span>
+            <span className="DataSpan">{product[1].AddDetail}</span>
           </p>
           <Link to="./addad">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<UpdataBtn>수정</UpdataBtn>
@@ -112,21 +124,21 @@ function ShowDetail() {
         </BoxTop>
         <BoxBottom>
           <p>
-            <span className="star">*</span>받는분 &emsp;&emsp; <span className="DataSpan">{data[2].username} </span>
+            <span className="star">*</span>받는분 &emsp;&emsp; <span className="DataSpan">{product[2].username} </span>
           </p>
           <p>
-            <span className="star"> *</span>전화번호 &emsp; <span className="DataSpan">{data[2].Pnumber}</span>
+            <span className="star"> *</span>전화번호 &emsp; <span className="DataSpan">{product[2].Pnumber}</span>
           </p>
           <AddAd>
-            <span className="star">*</span>주소&emsp;&emsp;&emsp;&nbsp;<span className="DataSpan">{data[2].ZipCode}</span>
+            <span className="star">*</span>주소&emsp;&emsp;&emsp;&nbsp;<span className="DataSpan">{product[2].ZipCode}</span>
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{data[2].Address}</span>
+            <span className="DataSpan">{product[2].Address}</span>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{data[2].AddDetail}</span>
+            <span className="DataSpan">{product[2].AddDetail}</span>
           </p>
           <Link to="./addad">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<UpdataBtn>수정</UpdataBtn>

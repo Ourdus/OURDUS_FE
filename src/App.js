@@ -25,8 +25,10 @@ import LoginInput from './components/views/LoginPage/LoginInput';
 import SignUpStage from './components/views/LoginPage/SignForm';
 import SearchID from './components/views/LoginPage/SearchID';
 import Personal from './components/views/LoginPage/Personal';
+import PersonalInfo from './components/views/LoginPage/PersonalInfo';
 import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
 import MyInfo from './components/views/Myinfo/Myinfo';
+import ExpireID from './components/views/LoginPage/ExpireID';
 
 // Cart 관련 category
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
@@ -57,9 +59,11 @@ function App() {
           <Route exact path="/user/join/input" component={LoginInput} />
           <Route exact path="/user/join/signup" component={SignUpStage} />
           <Route exact path="/user/personal" component={Personal} />
+          <Route exact path="/user/personalinfo" component={PersonalInfo} />
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
           <Route exact path="/user/personal/addad" component={AddAddress} />
           <Route exact path="/user/join/auth" component={SearchID} />
+          <Route exact path="/user/leave" component={ExpireID} />
         </Switch>
         <Footer />
       </div>
