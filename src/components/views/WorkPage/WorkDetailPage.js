@@ -12,6 +12,87 @@ function WorkDetailPage({match}, props) {
 
     const [product, setProduct] = useState([]);
     const i = match.params.id; //주소 (work/detail/:id) 중 id 값 받아온 것
+    const productt = [
+            {
+            "id": 12,
+            "name": "product12_by_test1",
+            "price": 5000,
+            "rate": 45, //별점
+            "review": 120, //리뷰 수
+            "hit": 3000,  //즐겨찾기 수
+            "purchase": 5874, //구매수
+            "info": "작품내용입니다.",
+            "categoryId": 1,
+            "categoryName": "음료",
+            "authorId": 12,
+            "authorName": "작가 이름",
+            "optionNum": 0,
+            "commentList": []
+        }
+    ]
+    const reviews = [
+        {
+            name: "name1",
+            date: "2021-10-31",
+            star: "4.4",
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name2",
+            date: "2021-1-31",
+            star: "4.4",
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name3",
+            date: "2021-12-31",
+            star: "4.4",
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name4",
+            date: "2021-08-31",
+            star: "4.4",
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        }
+    ]
+
+    const comments = [
+        {
+            name: "name1",
+            content: "작가님 메세지 확인해주세요 !"
+        },
+        {
+            name: "name2",
+            content: "하이용"
+        },
+        {
+            name: "name3",
+            content: "헤헷"
+        },
+        {
+            name: "name4",
+            content: "우하하하하ㅏㅎ하ㅏㅎ하하하하하하하ㅏㅎ하하ㅏ하하하하하하핳하하하하ㅏ하ㅏ"
+        },
+        {
+            name: "name5",
+            content: "작가님 메세지 확인해주세요 !"
+        },
+        {
+            name: "name6",
+            content: "하이용"
+        },
+        {
+            name: "name7",
+            content: "헤헷"
+        },
+        {
+            name: "name8",
+            content: "우하하하하ㅏㅎ하ㅏㅎ하하하하하하하ㅏㅎ하하ㅏ하하하하하하핳하하하하ㅏ하ㅏ"
+        }
+    ]
+    // const [commentss, setCommnetss] = useState(comments.map(0, 3))
+
 
     useEffect(() => {
         axios
@@ -19,6 +100,7 @@ function WorkDetailPage({match}, props) {
         //   .then((result) => console.log(result.data.response));
           .then((result) => setProduct(result.data.response));
       }, []);
+
 
     return (
         <div className="WorkDetail">
@@ -51,17 +133,15 @@ function WorkDetailPage({match}, props) {
                             <p>
                                 <div className="delivery1">
                                     <h3>
-                                        <p>배송비</p>
+                                        배송비
                                     </h3>
                                     <h4>
-                                        <p>기본료 : {product.deliveryfee}</p><br/>
-                                        {/* <p>배송비 무료조건 : {product.deliveryfree}</p>
-                                        <p>제주 / 도서산간 추가비용 : {product.deliveryoverfee}</p> */}
+                                        기본료 : 3000 원<br/>
                                     </h4>
                                 </div>
                                 <div className="delivery2">
                                     <h3>제작 / 배송</h3>
-                                    <h4>n 일 이내</h4>
+                                    <h4>7 일 이내</h4>
                                 </div>
                                 <div className="delivery3">
                                     <h3>교환 / 환불</h3>
@@ -70,21 +150,38 @@ function WorkDetailPage({match}, props) {
                             </p>
                         </div>
                         <div className="menu_3">
-                            <h5>구매후기 ({product.review_count})</h5>
+                            <h5>구매후기 ({productt[0].review})</h5>
                             <p>
-                                {product.review}
-                                배송진짜빠르고 이뻐요 근데 사이즈미스여서ㅠㅠ <br />
-                                검지용으로 산건데 약지에 끼는게 이쁘네요<br />
-
-                                약지 실측 47mm 검지 실측 50mm입니다<br />
-                                평소 한국호수반지 4~5호를 약지에 끼고다녔구요<br />
-                                미국4호 검지에도 들어가긴 하나 너무 꽉끼고 약지에 끼는게 젤 이쁘고 보기좋게 맞아요 참고하세요<br />
+                                {
+                                    reviews.map((review, i) => {
+                                        return (
+                                            <div>
+                                                <h1>{review.name}</h1>
+                                                <h2>{review.star}</h2>
+                                                <h3>{review.date}</h3>
+                                                <h4>{review.content}</h4>
+                                            </div>
+                                        );
+                                    })
+                                }
                             </p>
                         </div>
                         <div className="menu_4">
                             <h5>댓글</h5>
                             <p>
-                                주문했는데 언제쯤 받을 수 있을까요??<br />
+                                
+                                {
+                                    comments.map((comment, i)=>{
+                                        return(
+                                            <div>
+                                                <h1>• {comment.name}</h1>
+                                                <h2>{comment.content}</h2>
+                                            </div>
+                                        );
+                                    })
+                                }
+
+                                
                             </p>
                         </div>
                     </div>
@@ -95,14 +192,15 @@ function WorkDetailPage({match}, props) {
                 <div className="Content2">
                         {/* 작가 / 상품제목 / 할인률 / 할인가 / 원가 / 적립금액 / 구매후기 / 배송비 / 남은수량 */}
 
-                        <div className="made_by">{product.authorName} {'>'}</div>
-                        <div className="title">{product.name}</div>
-                        <div className="discount_per">{product.discount_percent}</div>
-                        {/* <div className="discount_price">{product[i].discount_price}원</div> */}
-                        <div className="price">{product.price}원</div>
-                        {/* <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{product[i].reserves}p</p></div> */}
-                        <div className="review_count"><p>구매후기</p> <p>{product.purchase}개</p></div>
-                        <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>{product.shipping_fee}원</p></div>
+                        <div className="made_by">{productt[0].authorName} {'>'}</div>
+                        <div className="category_right">{productt[0].categoryName}</div>
+                        <div className="title">{productt[0].name}</div>
+                        {/* <div className="discount_per">{productt[0].discount_percent}</div> */}
+                        <div className="discount_price">{productt[0].price}원</div>
+                        {/* <div className="price">{productt[0].price}원</div> */}
+                        <div className="reserves"><p>적립금&nbsp;&nbsp;&nbsp;</p> <p>{(productt[0].price)*0.05} p</p></div>
+                        <div className="review_count"><p>구매후기</p> <p>{(productt[0].rate)*0.1} ({productt[0].purchase}개)</p></div>
+                        <div className="shipping_fee"><p>배송비&nbsp;&nbsp;&nbsp;</p> <p>3000 원</p></div>
                         {/* <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div> */}
                         <div className="total_amount"><p>총 작품금액</p><span>{product.price}원</span></div>
                         <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>

@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import IMG1 from '../../img/classtest.png';
 import KakaoMap from "../ClassPage/Map";
@@ -6,6 +7,15 @@ import KakaoMap from "../ClassPage/Map";
 
 function ClassDetailPage() {
 
+    const [classData, setClassData] = useState();
+
+    useEffect(()=>{
+        axios
+        .get('/api/c')
+        .then((result) => setClassData(result.data.response))
+    }, []);
+
+    // 가상 데이터
     const classdata = [
         {
             author: "클라우드나인",
