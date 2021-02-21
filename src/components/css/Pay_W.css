@@ -1,73 +1,70 @@
-.CartPage {
+.PayPage {
     width: 50%;
     margin: auto;
     padding: 10px 30px;
 }
 
 /* Nav */
-.C_Nav {
+.P_Nav {
     padding: 10px 30px;
     display: flex;
 }
-.C_Nav h4 {
+.P_Nav h4 {
     display: inline-block;
     font-size: 20px;
 }
-.C_Nav p {
+.P_Nav p {
     display: inline-block;
     margin-left: auto;
 }
 
 /* Main 1 */
-.C_Main1 {
+.P_Main1 {
     border: 1px solid lightgray;
     border-radius: 2px;
     padding: 0px 0px 0px 0px;
-    margin: 30px 0px 0px 0px;
+    margin: 30px 0px 40px 0px;
 }
-.C_Author {
+.P_Author {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 20px;
     margin-bottom: 20px;
     background-color: lightgray;
 }
-.C_Product {
+.P_Product {
     padding-bottom: 20px;
     border-bottom: 1px solid lightgray;
 }
 /* 작품 가격 출력 */
-.C_Price {
+.P_Price {
     border-bottom: 1px solid lightgray;
 }
-.C_Price {
+.P_Price {
     display: flex;
 }
-.C_Price h4 {
+.P_Price h4 {
     padding: 0px 20px;
     font-size: 15px;
 }
-.C_Price h5 {
+.P_Price h5 {
     padding: 0px 20px;
     margin-left: auto;
 }
 
 /* 배송비 출력 */
-.C_DPrice {
+.P_DPrice {
     display: flex;
 }
-.C_DPrice h4 {
+.P_DPrice h4 {
     padding: 0px 20px;
     font-size: 15px;
 }
-.C_DPrice h5 {
+.P_DPrice h5 {
     padding: 0px 20px;
     margin-left: auto;
 }
-/* 
-.C_Select {
-    height: 200px;
-} */
+
 /* .C_Select h5 {
     padding: 0px;
     margin: 10px 0px 0px 0px;
@@ -82,7 +79,7 @@
 } */
 
 /* Main 2 */
-.C_Main2 {
+.P_Main2 {
     /* position: fixed; */
     width: 100%;
     /* top: 680px; */
@@ -92,11 +89,11 @@
     margin: 40px 0px 0px 0px;
     background-color: white;
 }
-.C_Main2 pre {
+.P_Main2 pre {
     display: inline-block;
     padding: 0px 13% 10px 14%;
 }
-.C_Main2 val {
+.P_Main2 val {
     padding-left: 30px;
     font-size: 20px;
     display: inline-block;
@@ -104,8 +101,7 @@
 }
 
 /* Main 3 ------- width 50% = width 896px */
-.C_Main3 {
-    /* position: fixed; */
+.P_Main3 {
     /* top: 861px; */
     width: 100%;           
     margin: 0;

@@ -74,8 +74,11 @@ function Header() {
           <div className="rightSide">
             <input type="text" placeholder="작품/클래스 검색하기" />
             <button className="btn2">검색</button>
+            
           </div>
+          
         </div>
+        
 
         <div className="Navbar">
           <div className="links">

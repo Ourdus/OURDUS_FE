@@ -74,7 +74,7 @@ function WorkDetailPage({match}) {
                         <div className="product_quantity"><p>수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>{product[i].product_quantity}개 남음</p></div>
                         <div className="total_amount"><p>총 작품금액</p><span>{product[i].discount_price}원</span></div>
                         <div className="cart_button"><Link to={`/w/cart/${i}`}> <p>장바구니</p> </Link></div>
-                        <div className="pay_button"><Link to={`/w/pay/${i}`}> <p>구매하기</p> </Link></div>
+                        <div className="pay_button"><Link to={`/w/direct_pay/${i}`}> <p>구매하기</p> </Link></div>
                 </div>
         </div>
     );
