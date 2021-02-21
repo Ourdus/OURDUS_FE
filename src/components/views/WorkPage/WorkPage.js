@@ -26,90 +26,80 @@ const ContentDetailDiv = styled.div`
 function WorkPage() {
   let [product, setProduct] = useState([]);
   let [category, setCategory] = useState(categoryData);
-  function PullData() {
-    const url = 'api/user/main';
+  const url = 'api/user/main';
+  useEffect(() => {
     axios
-      .get(url)
+      .get('/api/user/join')
       .then(function (response) {
         setProduct(response);
       })
       .catch(function (error) {
         console.log('실패');
       });
-
-    if (product.length > 0) {
-      return (
-        <div className="WorkPage">
-          <nav className="promotion">
-            <Silder />
-          </nav>
-
-          <ContentDiv>
-            <ContentDetailDiv>
-              <h4>추천상품</h4>
-              {product.slice(0, 10).map((a, i) => {
-                return <Product product={product[i]} i={i} key={i} />;
-              })}
-              <button className="showMore" onclick>
-                {' '}
-                추천상품 더보기{' '}
-              </button>
-            </ContentDetailDiv>
-
-            <ContentDetailDiv>
-              <h4>최신상품</h4>
-              {product.slice(0, 10).map((a, i) => {
-                return <Product product={product[i]} i={i} key={i} />;
-              })}
-              <button className="showMore" onClick>
-                {' '}
-                최신상품 더보기
-              </button>
-            </ContentDetailDiv>
-
-            <ContentDetailDiv>
-              <h4>상품후기</h4>
-              {product.slice(0, 10).map((a, i) => {
-                return <Product product={product[i]} i={i} key={i} />;
-              })}
-              <button className="showMore" onClick>
-                {' '}
-                상품후기 더보기{' '}
-              </button>
-            </ContentDetailDiv>
-
-            <ContentDetailDiv>
-              <h4>인기상품</h4>
-              {product.slice(0, 10).map((a, i) => {
-                return <Product product={product[i]} i={i} key={i} />;
-              })}
-              <button className="showMore" onClick>
-                {' '}
-                인기상품 더보기{' '}
-              </button>
-            </ContentDetailDiv>
-
-            <ContentDetailDiv>
-              <h4>전체 카테고리</h4>
-              {category.map((a, i) => {
-                return <Category category={category[i]} key={i} />;
-              })}
-            </ContentDetailDiv>
-          </ContentDiv>
-        </div>
-      );
-    }
-  } // PullData Function End Point
-  useEffect(() => {
-    PullData();
-    return () => {
-      console.log('컴포넌트가 화면에서 사라짐');
-    };
   }, []);
-  return <></>;
+
+  return (
+    <div className="WorkPage">
+      <nav className="promotion">
+        <Silder />
+      </nav>
+
+      <ContentDiv>
+        <ContentDetailDiv>
+          <h4>추천상품</h4>
+          {product.slice(0, 10).map((a, i) => {
+            return <Product product={product[i]} i={i} key={i} />;
+          })}
+          <button className="showMore" onclick>
+            {' '}
+            추천상품 더보기{' '}
+          </button>
+        </ContentDetailDiv>
+
+        <ContentDetailDiv>
+          <h4>최신상품</h4>
+          {product.slice(0, 10).map((a, i) => {
+            return <Product product={product[i]} i={i} key={i} />;
+          })}
+          <button className="showMore" onClick>
+            {' '}
+            최신상품 더보기
+          </button>
+        </ContentDetailDiv>
+
+        <ContentDetailDiv>
+          <h4>상품후기</h4>
+          {product.slice(0, 10).map((a, i) => {
+            return <Product product={product[i]} i={i} key={i} />;
+          })}
+          <button className="showMore" onClick>
+            {' '}
+            상품후기 더보기{' '}
+          </button>
+        </ContentDetailDiv>
+
+        <ContentDetailDiv>
+          <h4>인기상품</h4>
+          {product.slice(0, 10).map((a, i) => {
+            return <Product product={product[i]} i={i} key={i} />;
+          })}
+          <button className="showMore" onClick>
+            {' '}
+            인기상품 더보기{' '}
+          </button>
+        </ContentDetailDiv>
+
+        <ContentDetailDiv>
+          <h4>전체 카테고리</h4>
+          {category.map((a, i) => {
+            return <Category category={category[i]} key={i} />;
+          })}
+        </ContentDetailDiv>
+      </ContentDiv>
+    </div>
+  );
 }
 
-// 카테고리 버튼
 function Category(props) {
   return (
     <div className="category_button">
