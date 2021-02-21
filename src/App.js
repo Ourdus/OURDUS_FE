@@ -14,6 +14,7 @@ import WorkDetailPage from './components/views/WorkPage/WorkDetailPage';
 // Class Page
 import ClassPage from './components/views/ClassPage/ClassPage';
 import Popular from './components/views/ClassPage/PopularClass';
+import ClassDetailPage from './components/views/ClassPage/ClassDetailPage';
 import MyPage from './components/views/MyPage/MyPage';
 
 // 로그인 및 회원정보 Directory
@@ -29,7 +30,7 @@ import MyInfo from './components/views/Myinfo/Myinfo';
 
 // Cart 관련 category
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
-import DirectPay_W from './components/views/CartPage/Pay_W';  //바로결제
+import DirectPay_W from './components/views/CartPage/DirectPay_W';  //바로결제
 import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
 import { Add } from '@material-ui/icons';
 
@@ -44,10 +45,11 @@ function App() {
           <Route exact path="/main/work/category/:id" component={WorkCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
           <Route exact path="/main/class" component={ClassPage} />
+          <Route exact path="/main/class/detail/:id" component={ClassDetailPage} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
-          <Route exact path="/w/direct_pay/:id" component={DirectPay_W} />
-          <Route exact path="/w/payment/:id" component={Payment_W} />
+          <Route exact path="/w/directPay" component={DirectPay_W} />
+          <Route exact path="/w/payment" component={Payment_W} />
           <Route exact path="/main/myInfo" component={MyInfo} />
           <Route exact path="/main/class/popular" component={Popular} />
           <Route exact path="/user/join" component={SignUpPage} />
