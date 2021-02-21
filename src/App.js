@@ -14,6 +14,7 @@ import WorkDetailPage from './components/views/WorkPage/WorkDetailPage';
 // Class Page
 import ClassPage from './components/views/ClassPage/ClassPage';
 import Popular from './components/views/ClassPage/PopularClass';
+import ClassDetailPage from './components/views/ClassPage/ClassDetailPage';
 import MyPage from './components/views/MyPage/MyPage';
 
 // 로그인 및 회원정보 Directory
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/main/work/category/:id" component={WorkCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
           <Route exact path="/main/class" component={ClassPage} />
+          <Route exact path="/main/class/detail/:id" component={ClassDetailPage} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
           <Route exact path="/w/directPay" component={DirectPay_W} />
