@@ -3,6 +3,7 @@
 }
 
 .btn_interest {
+  color: rgb(206, 206, 206);
 }
 
 .App-logo {
@@ -39,3 +40,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
