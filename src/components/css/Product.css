@@ -1,23 +1,4 @@
-._product {
-  width: 16%;
-  margin: 0% 1% 5% 1%;
-  padding: 10px;
-  display: inline-block;
-  background-color: rgb(247, 246, 250);
-  border: 1px solid lightgrey;
-  border-radius: 3%;
-}
-
-._product hr {
-  margin: 0% 0% 0% 0%;
-}
-
-.ShopTag {
-  color: black;
-  font-size: 12px;
-  text-decoration: none;
-}
-
+/* Css의 목적이 뭐지..? */
 /* 상품 후기 디자인 */
 .review > ._product {
   width: 44%;

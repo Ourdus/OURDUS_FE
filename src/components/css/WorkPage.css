@@ -5,24 +5,12 @@
 .WorkPage h4 {
   padding: 10px 10px 20px 20px;
   font-size: 20px;
-  font-style: italic;
   font-weight: 400;
 }
 
 content > div {
   padding: 2% 17%;
 }
-
-/* nav 프로모션 
-.promotion {
-  width: 60%;
-  margin: auto;
-  text-align: center;
-  padding: 100px;
-  border: 1px solid lightgrey;
-  border-radius: 3%;
-}
-*/
 
 /* 카테고리 버튼 */
 .category_button {
@@ -48,7 +36,7 @@ content > div {
   display: inline-block;
   width: 40%;
   text-align: center;
-  margin: 0px 30% 30px 30%;
+  margin: 0px 0% 30px 25%;
   padding: 15px 5px;
   border: 1px solid lightgrey;
   border-radius: 5%;

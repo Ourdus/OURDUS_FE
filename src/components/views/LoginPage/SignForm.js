@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Route, useHistory } from 'react-router-dom';
 import '../../css/SignForm.css';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -38,7 +39,8 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-const PostUserInfo = async ({ inputs }) => {
+const PostUserInfo = async (inputs) => {
+  const Message = '필수 항목입니다.';
   try {
     axios
       .post('/api/user/join', {
@@ -51,9 +53,11 @@ const PostUserInfo = async ({ inputs }) => {
       .then((response) => {
         const { accessToken } = response.data;
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        useHistory.push('/');
       })
       .catch((error) => {
         console.log('error : ', error.response);
+        alert('이미 가입된 아이디가 있습니다.');
       });
   } catch (e) {
     console.log('error');
@@ -107,11 +111,21 @@ function SignForm() {
             type="password"
             placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)"
             onChange={onChange}
+            value={password}
+            oninvalid="this.setCustomValidity({Message})"
+            oninput="setCustomValidity('영문, 숫자, 특수문자를 조합한 8자 이상의 비밀번호를 입력해주세요.')"
             required
           />
           <br />
           <br />
-          <SignInput type="password" placeholder="비밀번호 확인" onChange={onChange} value={password} required />
+          <SignInput
+            type="password"
+            placeholder="비밀번호 확인"
+            onChange={onChange}
+            oninvalid="this.setCustomValidity({Message})"
+            oninput="setCustomValidity('값은 값을 다시 입력하세요.')"
+            required
+          />
           <br />
           <br />
           ∗ 이름

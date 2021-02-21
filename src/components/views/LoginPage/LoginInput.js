@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useHistory } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/LoginPage.css';
+import axios from 'axios';
 import styled from 'styled-components';
 import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
@@ -81,8 +82,72 @@ const KakaoBtn = styled.button`
     color: #000000;
   }
 `;
+const SignInput = styled.input`
+  width: 400px;
+  height: 50px;
+  margin: 5% 0% 0% 0%;
+  border: 1px solid lightgrey;
+`;
+
+const InputDiv = styled.div`
+  margin: 8% 0% 0% 0%;
+  display: flex;
+  font-size: 15px;
+  hr {
+    width: 35%;
+  }
+`;
+
+const BtnSign = styled.button`
+  margin-top: 20px;
+  width: 400px;
+  height: 50px;
+  color: white;
+  border: none;
+  background-color: coral;
+`;
+
+const ShopTag = styled.a`
+  color: #adb5bd;
+  font-size: 12px;
+  margin-left: 51%;
+  text-decoration: none;
+`;
+
+const PostUserInfo = async (inputs) => {
+  try {
+    axios
+      .post('/api/user/join', {
+        email: inputs.email,
+        password: inputs.password,
+      })
+      .then((response) => {
+        const { accessToken } = response.data;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        useHistory.push('/');
+      })
+      .catch((error) => {
+        console.log('error : ', error.response);
+      });
+  } catch (e) {
+    console.log('error');
+  }
+};
 
 function LoginPage() {
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: '',
+  });
+  const { email, password } = inputs;
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
   return (
     <SingUpWrapper>
       <div className="SignUp">
@@ -104,9 +169,30 @@ function LoginPage() {
           <img src={kakaoLogo} alt="kakao" className="icon" />
           <span className="buttonText">카카오톡으로 로그인하기</span>
         </KakaoBtn>
-        <Link to="./input">
-          <OtherBtn>다른 아이디로 로그인하기</OtherBtn>
+        <OtherBtn>다른 아이디로 로그인하기</OtherBtn>
+        <InputDiv>
+          <hr></hr>
+          &emsp;이메일 로그인&emsp;
+          <hr></hr>
+        </InputDiv>
+        <form method="submit">
+          <SignInput
+            name="email"
+            type="email"
+            placeholder="이메일"
+            oninvalid="this.setCustomValidity('')"
+            oninput="setCustomValidity('영문, 숫자, 특수문자를 조합한 8자 이상의 비밀번호를 입력해주세요.')"
+            onChange={onChange}
+            value={email}
+            required
+          />
+          <br></br>
+          <SignInput name="password" type="password" placeholder="비밀번호" onChange={onChange} value={password} required />
+        </form>
+        <Link to="./auth">
+          <ShopTag>아이디 / 비밀번호를 잊어버리셨나요?</ShopTag>
         </Link>
+        <BtnSign onClick={() => PostUserInfo(inputs)}>회원가입하기</BtnSign>
       </div>
     </SingUpWrapper>
   );
