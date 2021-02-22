@@ -3,7 +3,10 @@ import axios from 'axios';
 import styled from 'styled-components';
 import IMG1 from '../../img/classtest.png';
 import KakaoMap from "../ClassPage/Map";
-
+import starImg from '../../img/stars.png';
+import starImg1 from '../../img/star.png';
+import starImg2 from '../../img/star_show.png';
+import starImg3 from '../../img/star_white.png';
 
 function ClassDetailPage() {
 
@@ -24,21 +27,25 @@ function ClassDetailPage() {
     const reviews = [
         {
             name: "이름1",
+            rate: 34,
             date: "2020-01-02",
             content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
         },
         {
             name: "이름2",
+            rate: 47,
             date: "2020-01-02",
             content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
         },
         {
             name: "이름3",
+            rate: 49,
             date: "2020-01-02",
             content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
         },
         {
             name: "이름4",
+            rate: 24,
             date: "2020-01-02",
             content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
         },
@@ -116,15 +123,27 @@ function ClassDetailPage() {
                         <p>참여후기</p>
                         {
                         reviews.map((a, i) => {
+                            const rate = (reviews[i].rate)*2;
                             return (
                                 <div>
                                 <h1>{reviews[i].name}</h1>
+                                {/* <h4>{reviews[i].rate}</h4> */}
+                                {/* <h4><img src={starImg} /></h4> */}
+                                <Stars>
+                                <Star_out>
+                                    <img src={starImg} />
+                                    <Star_in width={rate}>
+                                        <h4></h4>
+                                    </Star_in>
+                                </Star_out>
+                                </Stars>
+                                
                                 <h2>{reviews[i].date}</h2>
                                 <h3>{reviews[i].content}</h3>
                                 </div>
                             );
                         })
-                        }
+                        }                        
                     </Review>
                     <Comment>
                         <p>댓글</p>
@@ -132,7 +151,7 @@ function ClassDetailPage() {
                 </Information_C>
             </LeftContent>
             <RightContent>
-                Payment
+                
             </RightContent>
         </ClassDetail>
     )
@@ -254,7 +273,9 @@ p {
     font-weight: bolder;
 }
 h1 {
+    width: 450px;
     padding: 20px 20px 10px 20px;
+    display: inline-block;
     font-size: 15px;
     font-weight: 500;
     text-align: left;
@@ -272,7 +293,52 @@ h3 {
     text-align: left;
     border-bottom: 1px solid lightgray;
 }
+h4 {
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+}
+img {
+    width: 100px;
+}
 `
+
+const Stars = styled.div`
+width: 100px;
+/* height: 20px; */
+display: inline-block;
+`
+const Star_out = styled.span`
+img {
+    width: 100px;
+    /* height: 20px; */
+    position: absolute;
+    z-index: 2;
+}
+`
+const Star_in = styled.span`
+h4 {
+    width: ${props => props.width}%;
+    height: 16px;
+    position: relative;
+    background-color: rgb(240, 221, 6);
+    z-index: 1;
+}
+`
+
+// const Star_in = styled.span`
+// width: 100px;
+// img {
+//     width: 100%;
+//     /* height: 25px; */
+//     top: -4px;
+//     position: relative;
+//     overflow: hidden;
+//     /* float: right; */
+//     border: 1px solid green;
+// }
+// `
+
 // Comment
 const Comment = styled.div`
 p {
