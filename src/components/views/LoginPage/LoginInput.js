@@ -1,5 +1,6 @@
 import React, { useState, useHistory } from 'react';
-import { Link } from 'react-router-dom';
+import ReactDom,{ Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import '../../css/LoginPage.css';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -115,16 +116,20 @@ const ShopTag = styled.a`
 `;
 
 const PostUserInfo = async (inputs) => {
+  axios.defaults.withCredentials = true;
+  const data = {
+    email: inputs.email,
+    password:inputs.password,
+  }
   try {
     axios
-      .post('/api/user/join', {
-        email: inputs.email,
-        password: inputs.password,
-      })
+      .post('/api/user/join',data)
       .then((response) => {
         const { accessToken } = response.data;
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        console.log({accessToken});
         useHistory.push('/');
+        
       })
       .catch((error) => {
         console.log('error : ', error.response);
