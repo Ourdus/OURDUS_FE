@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import '../../css/Login.css';
+import instance from './axiosConfig.js';
 
 const PersonalWrapper = styled.div`
   width: 100%;
@@ -101,10 +102,14 @@ const SaveBtn = styled.button`
 
 function PersonalInfo() {
   const [product, setProduct] = useState([]);
-
+  console.log(instance.defaults.headers);
   useEffect(() => {
     axios
-      .get('/api/t/user/info')
+      .get('/api/t/user/info',{
+        headers:{
+        'jwt-auth-token': instance.defaults.headers.common['jwt-auth-token']
+        }
+      })
       .then(function (response) {
         setProduct(response);
       })

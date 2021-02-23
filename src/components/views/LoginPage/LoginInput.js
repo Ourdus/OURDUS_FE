@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
-
+import instance from './axiosConfig.js';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -131,7 +131,8 @@ function LoginPage() {
           // console.log(response);
           const accessToken = response.data.response.data;
           // console.log(accessToken);
-          axios.defaults.headers.common['jwt-auth-token'] = `Bearer ${accessToken}`;
+          instance.defaults.headers.common['jwt-auth-token'] = `${accessToken}`;
+          console.log(instance.defaults.headers);
           history.push('/main');      
         })
         .catch((error) => {
