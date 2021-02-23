@@ -58,12 +58,11 @@ const WithDraw = async () => {
   const history = useHistory();
   AuthenticationService
         .withdrawUser()
-        .then((response) => {
+        .then(() => {
           AuthenticationService.logout()
           history.push('./main')
-      }).catch( () =>{
-          this.setState({showSuccessMessage:false})
-          this.setState({hasLoginFailed:true})
+      }).catch( (error) =>{
+        console.log(error)
       })
   }
 
