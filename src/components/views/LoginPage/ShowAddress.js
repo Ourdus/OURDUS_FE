@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
+import AuthenticationService from './ AuthenticationService';
 
 const BoxDiv = styled.div`
   width: 800px;
@@ -76,7 +77,9 @@ function ShowDetail() {
     },
   ]);
   useEffect(() => {
-    axios.get(`/api/t/user/address`).then((result) => setProduct(result.data));
+    AuthenticationService
+    .sendUserToken()
+    .then((result) => setProduct(result.data.response));
   }, []);
   return (
     <div>
