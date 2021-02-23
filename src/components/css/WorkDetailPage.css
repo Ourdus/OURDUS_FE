@@ -39,13 +39,18 @@
 /* MenuBar */
 .menubar_W {
     margin: auto;
-    padding: 20px 0px 20px 0px;
+    padding: 5px 0px 5px 0px;
+    z-index: 99;
+    background-color: white;
 }
-.menubar_W div {
+.menubar_W button {
     width: 25%;
-    display: inline-block;
-    text-align: center;
+    height: 50px;
     padding: 0px 10px 0px 10px;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid white;
+    text-align: center;
 }
 .menu_1, .menu_2, .menu_3, .menu_4 {
     width: 100%;
@@ -109,6 +114,9 @@
     font-size: 18px;
     border-top: 1px solid lightgray;
 }
+.menu_3 img {
+    width: 100px;
+}
 .menu_3 h3 {
     width: 100%;
     padding: 10px 20px 0px 20px;
@@ -120,7 +128,9 @@
     width: 100%;
     padding: 20px 20px 30px 20px;
     display: inline-block;
-    font-size: 18px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
 }
 .menu_3 h5 {
     padding-bottom: 30px;
