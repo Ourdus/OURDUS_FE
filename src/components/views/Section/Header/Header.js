@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../css/Header.css';
 //import ReactHoverObserver from 'react-hover-observer';
 import idusimage from '../../../img/idus.png';
+import {Link} from 'react-router-dom';
 import { BsPerson } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 
@@ -23,9 +24,11 @@ function Header() {
           <section className="header-top">
             <section className="header-top__navbar">
               <section className="header-top__navigation">
+              <Link to="../user/join/login">
                 <a href="/" className="header-bottom">
                   로그인
                 </a>
+                </Link>
                 <a href="/" className="header-bottom">
                   회원가입
                 </a>

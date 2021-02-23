@@ -6,12 +6,22 @@ import CategoryImg from '../../../img/CategoryImg.png'
 const CategoryDiv = styled.div`
   appearance: none;
   display: inline-block;
-  width: 13%;
-  text-align: center;
+  width: 15%;
+  text-align: left;
   margin: 10px;
-  padding: 5px 0px;
   border: 1px solid lightgrey;
   background-color: white;
+  overflow: hidden;
+  transition: transform 1.5s ease;
+  img {
+    width: 100%;
+    height: 120px;
+    margin: 0% 0% 0% 0%;
+    transition: transform 1.5s;
+  }
+  span {
+    margin: 0% 0% 0% 2.5%;
+  }
 `;
 
 const CategoryTag = styled.a`
@@ -21,41 +31,11 @@ const CategoryTag = styled.a`
   text-decoration: none;
 `;
 
-const ImageBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 89%;
-  height: 200px;
-  margin: 0% 0% 0% 5%;
-  height: 100px;
-  overflow: hidden;
-  transform: scale(1.14);
-  transition: transform 0.5s ease;
-  img {
-    width: 100%;
-    height: 130px;
-    margin: 0% 0% 0% 1.5%;
-  }
-  &:hover {
-    overflow: hidden;
-    transform: (-50%, -50%);
-    transform: scale(1.15);
-  }
-  hr {
-    width: 700px;
-    margin: 2% 50% 0% 0%;
-    overflow: visible;
-  }
-`;
-
 
 function Category(props) {
   return (
     <CategoryDiv>
-      <ImageBox>
         <img src={CategoryImg} />
-      </ImageBox>
       <Link to={'/work/category/' + props.category.id}>
         <CategoryTag><span>{props.category.name}</span></CategoryTag>{' '}
       </Link>

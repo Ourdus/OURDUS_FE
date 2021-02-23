@@ -45,7 +45,7 @@ const CategoryTag = styled.a`
 
 function WorkPage() {
   let [product, setProduct] = useState([]);
-  let [category, setCategory] = useState([]);
+  let [category, setCategory] = useState(categoryData);
   const url = 'api/user/main';
   useEffect(() => {
     axios
