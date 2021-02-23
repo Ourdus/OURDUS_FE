@@ -44,17 +44,16 @@ const PostUserInfo = async (inputs) => {
   const history = useHistory();
     axios.defaults.withCredentials = true;
     const data = {
+      name: inputs.name,
       email: inputs.email,
       password:inputs.password,
-      name: inputs.name,
-      tel: inputs.tel,
-      writerFlag: false
+      tel:inputs.tel,
     }
     try {
       axios
-        .post('/api/user/login',data)
+        .post('/api/user/join',data)
         .then((response) => {
-          history.push('../main/work');      
+          history.push('/main');      
         })
         .catch((error) => {
           console.log('error : ', error.response);
@@ -63,6 +62,7 @@ const PostUserInfo = async (inputs) => {
       console.log('error');
   }
 };
+
 
 function SignForm() {
   const [inputs, setInputs] = useState({
@@ -122,7 +122,7 @@ function SignForm() {
             type="password"
             placeholder="비밀번호 확인"
             onChange={onChange}
-            oninvalid="this.setCustomValidity({M  essage})"
+            oninvalid="this.setCustomValidity({Message})"
             oninput="setCustomValidity('값은 값을 다시 입력하세요.')"
             required
           />

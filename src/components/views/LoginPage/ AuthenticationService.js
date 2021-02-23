@@ -13,13 +13,14 @@ class AuthenticationService {
         return axios.post('api/user/join', data)
     }
 
-    executeAddAddress(name,tel,road,add,detailadd) {
+    executeAddAddress(name,phone,zipcode,addressMain,addressSub) {
+        const token = localStorage.getItem('token');
         const data = {
             name,
-            tel,
-            road,
-            add,
-            detailadd
+            phone,
+            zipcode,
+            addressMain,
+            addressSub
           }
         return axios.post('api/user/join', data)
     }
@@ -76,6 +77,12 @@ class AuthenticationService {
     withdrawUser() {
         const token = localStorage.getItem('token');
         return axios.delete('api/t/user/delete', {
+            token
+        })
+    }
+    sendUserToken() {
+        const token = localStorage.getItem('token');
+        return axios.get('/api/t/user/address', {
             token
         })
     }
