@@ -7,13 +7,14 @@ import starImg from '../../img/stars.png';
 import favImg from '../../img/fav_button_img.png';
 import shareImg from '../../img/share_button_img.png';
 
-function ClassDetailPage() {
+function ClassDetailPage({match}) {
 
+    const i = match.params.id;
     const [classData, setClassData] = useState();
 
     useEffect(()=>{
         axios
-        .get('/api/c')
+        .get(`/api/c/${i}`)
         .then((result) => setClassData(result.data.response))
     }, []);
 
@@ -107,9 +108,10 @@ function ClassDetailPage() {
                     <h6>댓글</h6>
                     <Info>
                         <h1>안녕하세요 :)</h1>
-                        <h1>{classdata[0].author} 입니다.</h1>
+                        <h1>{classData.author} 입니다.</h1>
                         <h2>제가 진행 할 금손 클래스는 ...</h2>
                         <p>
+                        {classData.description}
                         수업시간<br /><br /><br />
                         수업당일 제작 - 2시간 소요예정<br /><br />
                         (제작시간은 개인차가 있습니다. 일정에 여유를 가지고 방문해주세요.)<br /><br />
@@ -157,7 +159,7 @@ function ClassDetailPage() {
                         <p>참여후기</p>
                         {
                         reviews.map((a, i) => {
-                            const rate = (reviews[i].rate)*2;
+                            const rate = (classData.rate)*2;
                             return (
                                 <div>
                                 <h1>{reviews[i].name}</h1>
@@ -171,8 +173,8 @@ function ClassDetailPage() {
                                     </Star_in>
                                 </Star_out>
                                 </Stars>
-                                <h2>{reviews[i].date}</h2>
-                                <h3>{reviews[i].content}</h3>
+                                <h2>{classData.date}</h2>
+                                <h3>{classData.content}</h3>
                                 </div>
                             );
                         })
@@ -181,7 +183,7 @@ function ClassDetailPage() {
                     <Comment>
                         <p>댓글</p>
                         {
-                            comments.map((comment, i)=>{
+                            classData.comments.map((comment, i)=>{
                                 return(
                                     <div>
                                         <h1>• {comment.name}</h1>
@@ -195,16 +197,16 @@ function ClassDetailPage() {
             </LeftContent>
             <RightContent>
                 <Author_R>
-                    작가이름
+                    {classData.author_id}
                 </Author_R>
                 <Category_R>
-                    카테고리 이름
+                    {classData.categoryId}
                 </Category_R>
                 <Title_R>
-                    홍대 라탄소품(벽걸이거울/가방/스탠드조명/트레이/바구니 택1)
+                    {classData.name}
                 </Title_R>
                 <Price_R>
-                    50000 원
+                    {classData.price} 원
                 </Price_R>
                 <Favorite_R>
                     <img src={favImg} />&nbsp;&nbsp;즐겨찾기
@@ -214,9 +216,9 @@ function ClassDetailPage() {
                 </Share_R>
                 <ClassInfo_R>
                     <p>
-                        <h1>난이도<br /><h4>하</h4></h1>
-                        <h2>소요시간<br /><h4>2 시간</h4></h2>
-                        <h3>수업인원<br /><h4>최대 3명</h4></h3>
+                        <h1>난이도<br /><h4>{classData.level}</h4></h1>
+                        <h2>소요시간<br /><h4>{classData.duration} 시간</h4></h2>
+                        <h3>수업인원<br /><h4>최대 {classData.max}명</h4></h3>
                     </p>
                 </ClassInfo_R>
                 <Reservation_B>
