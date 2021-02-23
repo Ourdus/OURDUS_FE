@@ -104,7 +104,7 @@ function PersonalInfo() {
 
   useEffect(() => {
     axios
-      .get('/api/user/join')
+      .get('/api/t/user/info')
       .then(function (response) {
         setProduct(response);
       })

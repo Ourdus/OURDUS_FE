@@ -5,15 +5,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import {composeWithDevTools} from 'redux-devtools-extension';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 axios.defaults.baseURL = 'http://localhost:3000/';
 axios.defaults.withCredentials = true;
-const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore, composeWithDevTools());
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

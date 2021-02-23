@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import AuthenticationService from './ AuthenticationService';
 
 const EntireDiv = styled.div`
   width: 100%;
@@ -53,20 +55,17 @@ const SaveBtn = styled.button`
 `;
 
 const WithDraw = async () => {
-  try {
-    axios
-      .delete('/api/user/id-finding', {})
-      .then(function (response) {
-        response.clearCookie('jwt');
-        response.end();
+  const history = useHistory();
+  AuthenticationService
+        .withdrawUser()
+        .then((response) => {
+          AuthenticationService.logout()
+          history.push('./main')
+      }).catch( () =>{
+          this.setState({showSuccessMessage:false})
+          this.setState({hasLoginFailed:true})
       })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
   }
-};
 
 function ExpireID() {
   return (

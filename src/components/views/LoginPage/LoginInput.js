@@ -1,12 +1,13 @@
-import React, { useState, useHistory } from 'react';
-import ReactDom,{ Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import ReactDom,{ Link, useHistory } from 'react-router-dom';
+//import { useDispatch } from 'react-redux'
 import '../../css/LoginPage.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
+
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -115,31 +116,32 @@ const ShopTag = styled.a`
   text-decoration: none;
 `;
 
-const PostUserInfo = async (inputs) => {
-  axios.defaults.withCredentials = true;
-  const data = {
-    email: inputs.email,
-    password:inputs.password,
-  }
-  try {
-    axios
-      .post('/api/user/join',data)
-      .then((response) => {
-        const { accessToken } = response.data;
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-        console.log({accessToken});
-        useHistory.push('/');
-        
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
+function LoginPage() {
+  const history = useHistory();
+  const PostUserInfo = async (inputs) => {  
+    axios.defaults.withCredentials = true;
+    const data = {
+      email: inputs.email,
+      password:inputs.password,
+    }
+    try {
+      axios
+        .post('/api/user/login',data)
+        .then((response) => {
+          // console.log(response);
+          const accessToken = response.data.response.data;
+          // console.log(accessToken);
+          axios.defaults.headers.common['jwt-auth-token'] = `Bearer ${accessToken}`;
+          history.push('/main');      
+        })
+        .catch((error) => {
+          console.log('error : ', error.response);
+        });
+    } catch (e) {
+      console.log('error');
   }
 };
 
-function LoginPage() {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -153,6 +155,8 @@ function LoginPage() {
       [name]: value,
     });
   };
+
+
   return (
     <SingUpWrapper>
       <div className="SignUp">

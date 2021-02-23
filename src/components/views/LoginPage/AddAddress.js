@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
+import AuthenticationService from './ AuthenticationService';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -92,25 +93,15 @@ const ZipInput = styled.input`
 `;
 
 const PostUserInfo = async (inputs) => {
-  try {
-    axios
-      .post('/api/user/join', {
-        name: inputs.name,
-        tel: inputs.tel,
-        road: inputs.road,
-        add: inputs.add,
-        detailadd: inputs.detailadd,
+  const history = useHistory();
+  AuthenticationService
+        .executeAddAddress(inputs.name,inputs.tel,inputs.road,inputs.add,inputs.detailadd)
+        .then((response) => {
+          history.push('./main')
+      }).catch( () =>{
+          this.setState({showSuccessMessage:false})
       })
-      .then((response) => {
-        useHistory.push('./address');
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
   }
-};
 
 function AddDetail() {
   const [users, setUsers] = useState([
