@@ -22,19 +22,20 @@ const ContentDetailDiv = styled.div`
   width: 1130px;
 `;
 
-function PopularClass() {
+function PopularClass(props) {
   let [Class, setClass] = useState([]);
   let [classcategory, setclassCategory] = useState(classcategoryData);
   function PullData() {
     const url = '/api/oc';
     axios
       .get(url)
-      .then(function (response) {
-        setClass(response);
-      })
+     // .then(function (response) {
+     //   setClass(response);
+     // })
+      .then((result) => setClass(result.data.response))
       .catch(function (error) {
         console.log('실패');
-      });
+      }, []);
 
     if (Class.length > 0) {
       return (
