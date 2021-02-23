@@ -96,7 +96,7 @@ const ZipInput = styled.input`
 const PostUserInfo = async (inputs) => {
   const history = useHistory();
   AuthenticationService
-        .executeAddAddress(inputs.name, inputs.tel, inputs.zipcode, inputs.address, inputs.addDetail)
+        .executeJwtAuthenticationService(inputs.email, inputs.name, inputs.password, inputs.tel, false)
         .then((response) => {
           history.push('./main')
       }).catch( () =>{
@@ -104,7 +104,8 @@ const PostUserInfo = async (inputs) => {
       })
   }
 
-function AddDetail() {
+function AddDetail({match}) {
+  const i = match.params.id; 
   const [users, setUsers] = useState([
     {
       id: 1,
@@ -147,7 +148,7 @@ function AddDetail() {
     <div>
       <BoxDiv>
         <BoxTop>
-          <p className="boxText">배송지 0 </p>
+          <p className="boxText">배송지 1 </p>
         </BoxTop>
         <BoxBottom>
           <p>
@@ -174,7 +175,7 @@ function AddDetail() {
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
           </Link>
-          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[0])}>저장</SaveBtn>
+          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[0], i)}>저장</SaveBtn>
         </BoxBottom>
       </BoxDiv>
 
@@ -207,13 +208,13 @@ function AddDetail() {
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
           </Link>
-          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[1])}>저장</SaveBtn>
+          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[1], i)}>저장</SaveBtn>
         </BoxBottom>
       </BoxDiv>
 
         <BoxDiv>
         <BoxTop>
-          <p className="boxText">배송지 0 </p>
+          <p className="boxText">배송지 3 </p>
         </BoxTop>
         <BoxBottom>
           <p>
@@ -240,7 +241,7 @@ function AddDetail() {
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
           </Link>
-          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[2])}>저장</SaveBtn>
+          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[2], i)}>저장</SaveBtn>
         </BoxBottom>
       </BoxDiv>
     </div>

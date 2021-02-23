@@ -41,13 +41,13 @@ const BtnSign = styled.button`
 `;
 
 const PostUserInfo = async (inputs) => {
-  const history = useHistory();
-    axios.defaults.withCredentials = true;
+    const history = useHistory();
     const data = {
-      name: inputs.name,
+      name:inputs.name,
       email: inputs.email,
       password:inputs.password,
       tel:inputs.tel,
+      writerFlag: false
     }
     try {
       axios
@@ -62,7 +62,6 @@ const PostUserInfo = async (inputs) => {
       console.log('error');
   }
 };
-
 
 function SignForm() {
   const [inputs, setInputs] = useState({

@@ -101,7 +101,6 @@ const SaveBtn = styled.button`
 
 function PersonalInfo() {
   const [product, setProduct] = useState([]);
-
   useEffect(() => {
     axios
       .get('/api/t/user/info')

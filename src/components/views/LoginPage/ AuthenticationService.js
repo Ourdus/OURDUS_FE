@@ -13,7 +13,7 @@ class AuthenticationService {
         return axios.post('api/user/join', data)
     }
 
-    executeAddAddress(name,phone,zipcode,addressMain,addressSub) {
+    executeAddAddress(name,phone,zipcode,addressMain,addressSub, i) {
         const token = localStorage.getItem('token');
         const data = {
             name,
@@ -22,7 +22,7 @@ class AuthenticationService {
             addressMain,
             addressSub
           }
-        return axios.post('api/user/join', data)
+        return axios.post(`/api/t/user/address/${i}`, data)
     }
 
     executeHelloService() {
@@ -47,7 +47,7 @@ class AuthenticationService {
             config => {
                 const token = localStorage.getItem('token');
                 if (token) {
-                    config.headers['Authorization'] = 'Bearer ' + token;
+                    config.headers['jwt-auth-token'] = 'Bearer ' + token;
                 }
                 // config.headers['Content-Type'] = 'application/json';
                 return config;
