@@ -49,7 +49,8 @@ const UpdataBtn = styled.button`
 `;
 
 // showAddress는 주소(배송지)관리에 대한 정보를 저장 해놓은 곳
-function ShowDetail() {
+function ShowDetail({match}) {
+  const i = match.params.id;
   const [product, setProduct] = useState([
     {
       id: 1,
@@ -78,7 +79,7 @@ function ShowDetail() {
   ]);
   useEffect(() => {
     AuthenticationService
-    .sendUserToken()
+    .sendUserToken(i)
     .then((result) => setProduct(result.data.response));
   }, []);
   return (

@@ -116,32 +116,33 @@ const ShopTag = styled.a`
   text-decoration: none;
 `;
 
-function LoginPage() {
-  const history = useHistory();
-  const PostUserInfo = async (inputs) => {  
-    axios.defaults.withCredentials = true;
-    const data = {
-      email: inputs.email,
-      password:inputs.password,
-    }
-    try {
-      axios
-        .post('/api/user/login',data)
-        .then((response) => {
-          // console.log(response);
-          const accessToken = response.data.response.data;
-          // console.log(accessToken);
-          axios.defaults.headers.common['jwt-auth-token'] = `Bearer ${accessToken}`;
-          history.push('/main');      
-        })
-        .catch((error) => {
-          console.log('error : ', error.response);
-        });
-    } catch (e) {
-      console.log('error');
-  }
-};
 
+const PostUserInfo = async (inputs) => {
+  const history = useHistory();
+  AuthenticationService
+        .executeAddAddress(inputs.name, inputs.tel, inputs.zipcode, inputs.address, inputs.addDetail, i)
+        .then((response) => {
+          history.push('./main')
+      }).catch( () =>{
+          this.setState({showSuccessMessage:false})
+      })
+  }
+
+
+
+function LoginPage() {
+  const PostUserInfo = async (inputs) => {
+    const history = useHistory();
+    axios.defaults.withCredentials = true;
+    AuthenticationService
+          .executeJwtAuthenticationService(inputs.email, inputs.name, inputs.password, inputs.tel, false)
+          .then((response) => {
+            history.push('./main')
+        }).catch( () =>{
+            this.setState({showSuccessMessage:false})
+        })
+    } // postuserinfo end point
+  
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
