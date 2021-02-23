@@ -8,6 +8,7 @@ import data from '../../data/WorkData';
 import styled from 'styled-components';
 import Product from '../Section/Product/Product';
 import Silder from '../ImgSlider/Silder';
+import Category from '../Section/Product/Category'
 
 const ContentDiv = styled.div`
   padding: 2% 20%;
@@ -23,6 +24,25 @@ const ContentDetailDiv = styled.div`
   width: 1130px;
 `;
 
+const CategoryDiv = styled.div`
+  appearance: none;
+  display: inline-block;
+  width: 10.5%;
+  text-align: center;
+  margin: 10px;
+  padding: 5px 0px;
+  border: 1px solid lightgrey;
+  border-radius: 10%;
+  background-color: white;
+`;
+
+const CategoryTag = styled.a`
+  color: black;
+  font-size: 12px;
+  top: 10px;
+  text-decoration: none;
+`;
+
 function WorkPage() {
   let [product, setProduct] = useState([]);
   let [category, setCategory] = useState(categoryData);
@@ -32,6 +52,7 @@ function WorkPage() {
       .get('/api/user/join')
       .then(function (response) {
         setProduct(response);
+        setCategory(response);
       })
       .catch(function (error) {
         console.log('실패');
@@ -96,18 +117,6 @@ function WorkPage() {
           })}
         </ContentDetailDiv>
       </ContentDiv>
-    </div>
-  );
-}
-
-function Category(props) {
-  return (
-    <div className="category_button">
-      {/* <Link to={`/work/category/${props.category.id}`}> {props.category.name} </Link> */}
-      <Link to={'/work/category/' + props.category.id} className="_category_button">
-        {' '}
-        <span>{props.category.name}</span>{' '}
-      </Link>
     </div>
   );
 }

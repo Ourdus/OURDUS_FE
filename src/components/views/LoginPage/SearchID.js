@@ -68,6 +68,7 @@ const FormDiv = styled.div`
 `;
 
 const PostUserInfo = async (tel) => {
+  const history = useHistory();
   try {
     axios
       .post('/api/user/id-finding', {
@@ -75,7 +76,7 @@ const PostUserInfo = async (tel) => {
       })
       .then(function (response) {
         console.log(response);
-        useHistory.push('./');
+        history.push('./');
       })
       .catch((error) => {
         console.log('error : ', error.response);

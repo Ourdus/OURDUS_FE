@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   display: inline-block;
   background-color: rgb(247, 246, 250);
   border: 1px solid lightgrey;
-  border-radius: 3%;
   hr {
     width: 100%;
   }

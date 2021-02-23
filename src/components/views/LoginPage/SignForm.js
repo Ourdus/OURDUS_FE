@@ -4,6 +4,7 @@ import '../../css/SignForm.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import Loginbtn from '../../img/login.png';
+import AuthenticationService from './ AuthenticationService';
 
 const SignText = styled.div`
   width: 600px;
@@ -40,31 +41,17 @@ const BtnSign = styled.button`
 `;
 
 const PostUserInfo = async (inputs) => {
-  try {
-    axios
-      .post('/api/user/join', {
-        email: inputs.email,
-        password: inputs.password,
-        name: inputs.name,
-        tel: inputs.tel,
-        writerFlag: false,
+  const history = useHistory();
+  AuthenticationService
+        .executeJwtAuthenticationService(inputs.email, inputs.name, inputs.password, inputs.tel, false)
+        .then((response) => {
+          AuthenticationService.registerSuccessfulLoginForJwt(inputs.name,response.data.token)
+          history.push('./main')
+      }).catch( () =>{
+          this.setState({showSuccessMessage:false})
+          this.setState({hasLoginFailed:true})
       })
-      .then((response) => {
-        const { accessToken } = response.data;
-        const status = JSON.parse(response.data.response.status);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-        if (status === '200') {
-          useHistory.push('../main');
-        }
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-        alert('이미 가입된 아이디가 있습니다.');
-      });
-  } catch (e) {
-    console.log('error');
   }
-};
 
 function SignForm() {
   const [inputs, setInputs] = useState({
