@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
 import kakaoLogo from '../../img/kakaologo.svg';
+import { useHistory } from 'react-router-dom';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -50,6 +51,7 @@ const KakaoBtn = styled.button`
 `;
 
 const PostSingUpInfo = async (props) => {
+  const history = useHistory();
   try {
     axios
       .post('/api/user/join', {
@@ -61,6 +63,8 @@ const PostSingUpInfo = async (props) => {
       .then((response) => {
         const { accessToken } = response.data;
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        history.push('../main/work')
+      
       })
       .catch((error) => {
         console.log('error : ', error.response);

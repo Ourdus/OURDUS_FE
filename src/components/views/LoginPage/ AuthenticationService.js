@@ -8,7 +8,6 @@ class AuthenticationService {
             name, 
             password,
             tel, 
-            point, 
             writerFlag
           }
         return axios.post('api/user/join', data)

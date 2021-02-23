@@ -42,16 +42,27 @@ const BtnSign = styled.button`
 
 const PostUserInfo = async (inputs) => {
   const history = useHistory();
-  AuthenticationService
-        .executeJwtAuthenticationService(inputs.email, inputs.name, inputs.password, inputs.tel, false)
+    axios.defaults.withCredentials = true;
+    const data = {
+      email: inputs.email,
+      password:inputs.password,
+      name: inputs.name,
+      tel: inputs.tel,
+      writerFlag: false
+    }
+    try {
+      axios
+        .post('/api/user/login',data)
         .then((response) => {
-          AuthenticationService.registerSuccessfulLoginForJwt(inputs.name,response.data.token)
-          history.push('./main')
-      }).catch( () =>{
-          this.setState({showSuccessMessage:false})
-          this.setState({hasLoginFailed:true})
-      })
+          history.push('../main/work');      
+        })
+        .catch((error) => {
+          console.log('error : ', error.response);
+        });
+    } catch (e) {
+      console.log('error');
   }
+};
 
 function SignForm() {
   const [inputs, setInputs] = useState({
