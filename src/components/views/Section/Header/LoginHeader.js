@@ -2,7 +2,6 @@ import React from 'react';
 import '../../../css/Header.css';
 //import ReactHoverObserver from 'react-hover-observer';
 import idusimage from '../../../img/idus.png';
-import inputsearch from '../../../img/inputsearch.png';
 import { BsPerson } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -16,24 +15,19 @@ import { Link } from 'react-router-dom';
 //npm install react-bootstrap-table --save 설치하기 테이블 생성
 // import Modal from 'react-native-modalbox'  팝업창 띄우기 위한 설치
 
-function Header() {
+function LoginHeader() {
   return (
     <div>
       <header>
         <section className="header">
           <section className="header-top">
-            
             <section className="header-top__navbar">
-              
               <section className="header-top__navigation">
-              <a href="/" className="idusappdown">
-              아이디어스 앱 설치하기
-            </a>
                 <a href="/" className="header-bottom">
-                  로그인
+                  알림
                 </a>
                 <a href="/" className="header-bottom">
-                  회원가입
+                  메시지
                 </a>
                 <a href="/" className="header-bottom">
                   고객센터
@@ -44,7 +38,9 @@ function Header() {
           </section>
 
           <section className="header-bottom">
-            
+            <a href="/" className="idusappdown">
+              아이디어스 앱 설치하기
+            </a>
 
             <section className="header-bottom__info">
               &nbsp;&nbsp;
@@ -78,8 +74,8 @@ function Header() {
             </a>
           </div>
           <div className="rightSide">
-            <input type="text" placeholder="신학기를 검색해보세요." className="inputstyleclass" />
-            <button className="inputbtn3"><img src={inputsearch} /></button>
+            <input type="text" placeholder="작품/클래스 검색하기" />
+            <button className="btn2">검색</button>
             
           </div>
           
@@ -128,4 +124,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default LoginHeader;

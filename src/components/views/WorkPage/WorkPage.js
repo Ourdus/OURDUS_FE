@@ -38,39 +38,6 @@ function WorkPage() {
             인기상품 더보기{' '}
           </button>
         </div>
-
-        <div className="recommend">
-          <h4>추천상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
-        </div>
-
-        <div className="new">
-          <h4>최신상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            최신상품 더보기
-          </button>
-        </div>
-
-        <div className="review">
-          <h4>상품후기</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            상품후기 더보기{' '}
-          </button>
-        </div>
       </content>
     </div>
   );

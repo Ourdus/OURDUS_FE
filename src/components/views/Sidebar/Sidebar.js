@@ -51,50 +51,51 @@ function Sidebar(){
           <button className="sidebarbutton" href="#">
             <img src={sidebarimage} />
           </button>
-          아기손
           <br />
-          아이유
+          아기손
+          <h6>아이유</h6>
+          
         </div>
         <div className="headsidebar">MYMENU</div>
         <div className="smallsidebar">
           <div className="smallsidebartopic">주문배송</div>
           <div className="sidebarlink">
             {' '}
-            <a href="#" className="sidebarlink">
+            
               주문내역
-            </a>
+           
             <br />
             취소/환불내역
           </div>
         </div>
         <div className="smallsidebar">
           <div className="smallsidebartopic">알림 및 메시지</div>
-          <a href="#"> 알림</a>
+           알림
           <br />
           메시지
         </div>
         <div className="smallsidebar">
           <div className="smallsidebartopic">선물함</div>
-          <a href="#"> 받은 선물함</a>
+           받은 선물함
           <br />
           보낸 선물함
         </div>
         <div className="smallsidebar">
           <div className="smallsidebartopic">나의 구매후기</div>
-          <a href="#">후기 쓰기</a>
+          후기 쓰기
           <br />
           내가 쓴 후기
         </div>
         <div className="smallsidebar">
           <div className="smallsidebartopic">관심리스트</div>
-          <a href="#">즐겨찾기(★)</a>
+          즐겨찾기(★)
           <br />
           좋아하는작가(♥)
           <br />
           최근 본 작품
         </div>
         <div className="smallsidebar">
-          <div className="smallsidebartopic">할인혜택</div> <a href="#">VIP클럽</a>
+          <div className="smallsidebartopic">할인혜택</div> VIP클럽
           <br />
           쿠폰함
           <br />
@@ -104,7 +105,7 @@ function Sidebar(){
         </div>
         <div className="smallsidebar">
           <div className="smallsidebartopic">내 정보</div>
-          <a href="#">회원 등급</a>
+          회원 등급
           <br />
           회원 정보 관리
           <br />
