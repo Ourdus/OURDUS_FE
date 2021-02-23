@@ -24,14 +24,16 @@ function Header() {
           <section className="header-top">
             <section className="header-top__navbar">
               <section className="header-top__navigation">
-              <Link to="../user/join/login">
+              <Link to="../../user/join/login">
                 <a href="/" className="header-bottom">
                   로그인
                 </a>
                 </Link>
+                <Link to="../../user/join/login">
                 <a href="/" className="header-bottom">
                   회원가입
                 </a>
+                </Link>
                 <a href="/" className="header-bottom">
                   고객센터
                 </a>

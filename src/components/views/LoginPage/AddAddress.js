@@ -60,10 +60,11 @@ const CancleBtn = styled.button`
 const SaveBtn = styled.button`
   display: inline-block;
   text-align: center;
-  border: 1px solid lightgrey;
+  border: none;
   border-radius: 5%;
   width: 55px;
   height: 30px;
+  color: white;
   background-color: #f08c00;
   font-size: 14px;
 `;
@@ -95,7 +96,7 @@ const ZipInput = styled.input`
 const PostUserInfo = async (inputs) => {
   const history = useHistory();
   AuthenticationService
-        .executeAddAddress(inputs.name,inputs.tel,inputs.road,inputs.add,inputs.detailadd)
+        .executeAddAddress(inputs.name, inputs.tel, inputs.zipcode, inputs.address, inputs.addDetail)
         .then((response) => {
           history.push('./main')
       }).catch( () =>{
@@ -109,37 +110,38 @@ function AddDetail() {
       id: 1,
       name: '받는 분 이름을 입력해주세요',
       tel: '전화번호를 입력해주세요',
-      road: '우편번호',
-      add: '기본 주소',
-      detailadd: '나머지 주소',
+      zipcode: '우편번호',
+      address: '기본 주소',
+      addDetail: '나머지 주소',
     },
     {
       id: 2,
       name: '받는 분 이름을 입력해주세요',
       tel: '전화번호를 입력해주세요',
-      road: '우편번호',
-      add: '기본 주소',
-      detailadd: '나머지 주소',
+      zipcode: '우편번호',
+      address: '기본 주소',
+      addDetail: '나머지 주소',
     },
     {
       id: 3,
       name: '받는 분 이름을 입력해주세요',
       tel: '전화번호를 입력해주세요',
-      road: '우편번호',
-      add: '기본 주소',
-      detailadd: '나머지 주소',
+      zipcode: '우편번호',
+      address: '기본 주소',
+      addDetail: '나머지 주소',
     },
   ]);
 
-  const { name, tel, road, add, detailadd } = users;
+  const { name, tel, zipcode, address, addDetail } = users;
 
-  const onChange = (e) => {
+  const onChange = (e, id) => {
     const { name, value } = e.target;
-    setUsers({
-      ...users,
-      [name]: value,
-    });
-  };
+    setUsers(users.map(
+      user => user.id === id 
+      ? {...user, [name] :value} 
+      :  user
+    ));
+  }
 
   return (
     <div>
@@ -150,24 +152,24 @@ function AddDetail() {
         <BoxBottom>
           <p>
             <span>*</span>받는분 &emsp;&emsp;&nbsp;
-            <AddInput name="name" onChange={onChange} value={name}></AddInput>
+            <AddInput name="name" onChange={onChange} value={name} placeholder={users[0].name}></AddInput>
           </p>
           <p>
             <span>*</span>전화번호 &emsp;&nbsp;
-            <AddInput name="tel" onChange={onChange} value={tel}></AddInput>
+            <AddInput name="tel" onChange={onChange} value={tel} placeholder={users[0].tel}></AddInput>
           </p>
           <AddAd>
             <span>*</span>주소&emsp;&emsp;&emsp;&nbsp;
-            <ZipInput name="road" onChange={onChange} value={road}></ZipInput>
+            <ZipInput name="zipcode" onChange={onChange} value={zipcode} placeholder={users[0].zipcode}></ZipInput>
             <SearchBtn>주소 찾기</SearchBtn>
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="add" onChange={onChange} value={add}></AddInput>
+            <AddInput name="address" onChange={onChange} value={address} placeholder={users[0].address}></AddInput>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="detailadd" onChange={onChange} value={detailadd}></AddInput>
+            <AddInput name="addDetail" onChange={onChange} value={addDetail} placeholder={users[0].addDetail}></AddInput>
           </p>
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
@@ -178,29 +180,29 @@ function AddDetail() {
 
       <BoxDiv>
         <BoxTop>
-          <p className="boxText">배송지 1 </p>
+          <p className="boxText">배송지 2 </p>
         </BoxTop>
         <BoxBottom>
           <p>
-            <span>*</span> 받는분 &emsp;&emsp;
-            <AddInput name="name" onChange={onChange} value={name}></AddInput>
+            <span>*</span>받는분 &emsp;&emsp;&nbsp;
+            <AddInput name="name" onChange={onChange} value={name}  placeholder={users[1].name}></AddInput>
           </p>
           <p>
             <span>*</span>전화번호 &emsp;&nbsp;
-            <AddInput name="tel" onChange={onChange} value={tel}></AddInput>
+            <AddInput name="tel" onChange={onChange} value={tel} placeholder={users[1].tel}></AddInput>
           </p>
           <AddAd>
             <span>*</span>주소&emsp;&emsp;&emsp;&nbsp;
-            <ZipInput name="road" onChange={onChange} value={road}></ZipInput>
+            <ZipInput name="zipcode" onChange={onChange} value={zipcode} placeholder={users[1].zipcode}></ZipInput>
             <SearchBtn>주소 찾기</SearchBtn>
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="add" onChange={onChange} value={add}></AddInput>
+            <AddInput name="address" onChange={onChange} value={address} placeholder={users[1].address}></AddInput>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="detailadd" onChange={onChange} value={detailadd}></AddInput>
+            <AddInput name="addDetail" onChange={onChange} value={addDetail} placeholder={users[1].addDetail}></AddInput>
           </p>
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
@@ -209,31 +211,31 @@ function AddDetail() {
         </BoxBottom>
       </BoxDiv>
 
-      <BoxDiv>
+        <BoxDiv>
         <BoxTop>
-          <p className="boxText">배송지 2 </p>
+          <p className="boxText">배송지 0 </p>
         </BoxTop>
         <BoxBottom>
           <p>
-            <span>*</span> 받는분 &emsp;&emsp;
-            <AddInput name="name" onChange={onChange} value={name}></AddInput>
+            <span>*</span>받는분 &emsp;&emsp;&nbsp;
+            <AddInput name="name" onChange={onChange} value={name} placeholder={users[2].name}></AddInput>
           </p>
           <p>
             <span>*</span>전화번호 &emsp;&nbsp;
-            <AddInput name="tel" onChange={onChange} value={tel}></AddInput>
+            <AddInput name="tel" onChange={onChange} value={tel} placeholder={users[2].tel}></AddInput>
           </p>
           <AddAd>
             <span>*</span>주소&emsp;&emsp;&emsp;&nbsp;
-            <ZipInput name="road" onChange={onChange} value={road}></ZipInput>
+            <ZipInput name="zipcode" onChange={onChange} value={zipcode} placeholder={users[2].zipcode}></ZipInput>
             <SearchBtn>주소 찾기</SearchBtn>
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="add" onChange={onChange} value={add}></AddInput>
+            <AddInput name="address" onChange={onChange} value={address} placeholder={users[2].address}></AddInput>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="detailadd" onChange={onChange} value={detailadd}></AddInput>
+            <AddInput name="addDetail" onChange={onChange} value={addDetail} placeholder={users[2].addDetail}></AddInput>
           </p>
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>

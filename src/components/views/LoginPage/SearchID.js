@@ -111,7 +111,7 @@ function SignForm() {
         </TextDiv>
         <FormDiv>
           <form method="submit">
-            <SignInput className="AuthInput" placeholder="010-1234-5678" onChange={onChange} value={tel} required />
+            <SignInput className="AuthInput" placeholder="010-1234-5678(숫자만 입력하세요)" onChange={onChange} value={tel} required />
             <BtnSign onClick={() => PostUserInfo(tel)}>인증요청</BtnSign>
           </form>
         </FormDiv>
