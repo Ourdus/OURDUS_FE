@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import '../../css/CartPage_W.css';
-import data from '../../data/CartData';
-import { Remove } from '@material-ui/icons';
 
 function CartPage_W({match}) {
 
