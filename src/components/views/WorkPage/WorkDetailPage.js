@@ -56,6 +56,30 @@ function WorkDetailPage({match}, props) {
             date: "2021-08-31",
             star: 40,
             content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name1",
+            date: "2021-10-31",
+            star: 45,
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name2",
+            date: "2021-1-31",
+            star: 50,
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name3",
+            date: "2021-12-31",
+            star: 35,
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
+        },
+        {
+            name: "name4",
+            date: "2021-08-31",
+            star: 40,
+            content: "배송도 정말 빠르고, 정성스러운 포장에 예쁜 상품까지 정말 완벽해요👍🏻 선물용으로 구매했는데 받은 사람도 너무나 예쁘다고 기뻐해서 좋았어요! 감사합니다💕"
         }
     ]
 
@@ -117,7 +141,7 @@ function WorkDetailPage({match}, props) {
                         <div className="menubar_W">
                             <button onClick={()=>{setTab(1)}}>작품정보</button>
                             <button onClick={()=>{setTab(2)}}>배송 / 교환 / 환불</button>
-                            <button onClick={()=>{setTab(3)}}>구매후기</button>
+                            <button onClick={()=>{setTab(3)}}>구매후기</button> 
                             <button onClick={()=>{setTab(4)}}>댓글</button>
                         </div>
                         <TabChanged tab = {tab} reviews={reviews} comments={comments} productt={productt} />
@@ -193,6 +217,7 @@ function TabChanged (props) {
             </div>
         )
     }
+    // 페이지네이션
     else if(props.tab === 3){
         return (
         <div className="menu_3">
@@ -213,9 +238,12 @@ function TabChanged (props) {
                     })
                 }
             </p>
+            <div>
+            </div>
         </div>
         )
     }
+    // 무한 스크롤
     else if(props.tab === 4){
         return (
         <div className="menu_4">

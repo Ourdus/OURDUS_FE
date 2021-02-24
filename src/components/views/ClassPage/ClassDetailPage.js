@@ -10,20 +10,31 @@ import shareImg from '../../img/share_button_img.png';
 function ClassDetailPage({match}) {
 
     const i = match.params.id;
-    const [classData, setClassData] = useState();
+    // axios 데이터 -----------------------------------------------
+    // const [classData, setClassData] = useState();
 
-    useEffect(()=>{
-        axios
-        .get(`/api/c/${i}`)
-        .then((result) => setClassData(result.data.response))
-    }, []);
+    // useEffect(()=>{
+    //     axios
+    //     .get(`/api/c/${i}`)
+    //     .then((result) => setClassData(result.data.response))
+    // }, []);
 
-    // 가상 데이터
-    const classdata = [
-        {
+    // 가상 데이터 ------------------------------------------------
+    const classData = {
             author: "클라우드나인",
-        }
-    ]
+            author_id: "작가님",
+            categoryId: "카테고리 명",
+            name: "클래스 이름",
+            price: "0000",
+            level: "하",
+            duration: 3,
+            max: 5,
+            rate: 35,
+            date: "2020-01-27",
+            content: "hello"
+    }
+            
+
     const reviews = [
         {
             name: "이름1",
@@ -102,10 +113,12 @@ function ClassDetailPage({match}) {
                 </IMGS_C>
                 </IMG_C>
                 <Information_C>
-                    <h6>소개</h6>
-                    <h6>장소</h6>
-                    <h6>참여후기</h6>
-                    <h6>댓글</h6>
+                    <Menu_bar>
+                    <button>소개</button>
+                    <button>장소</button>
+                    <button>참여후기</button>
+                    <button>댓글</button>
+                    </Menu_bar>
                     <Info>
                         <h1>안녕하세요 :)</h1>
                         <h1>{classData.author} 입니다.</h1>
@@ -183,7 +196,8 @@ function ClassDetailPage({match}) {
                     <Comment>
                         <p>댓글</p>
                         {
-                            classData.comments.map((comment, i)=>{
+                            // 원래는 classData.comments.map((comment, i) 임
+                            comments.map((comment, i)=>{
                                 return(
                                     <div>
                                         <h1>• {comment.name}</h1>
@@ -269,14 +283,23 @@ const Information_C = styled.div`
 width: 100%;
 padding: 20px 0px;
 text-align: center;
-h6 {
+button {
     width: 25%;
     padding: 15px 0px;
     margin-bottom: 50px;
     display: inline-block;
+    background-color: white;
     border-top: 1px solid lightgray;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
     border-bottom: 1px solid lightgray;
 }
+`
+const Menu_bar = styled.div`
+position: sticky;
+top: 0px;
+background-color: white;
+z-index: 99;
 `
 // Info
 const Info = styled.div`
@@ -338,6 +361,8 @@ width: 500px;
 `
 // Review
 const Review = styled.div`
+height: 600px;
+overflow: scroll;
 p {
     padding: 70px 0px 30px 20px;
     text-align: left;
@@ -384,22 +409,28 @@ const Star_out = styled.span`
 img {
     width: 100px;
     /* height: 20px; */
-    position: absolute;
+    position: relative;
     z-index: 2;
+    left: -15px;
 }
 `
 const Star_in = styled.span`
 h4 {
     width: ${props => props.width}%;
     height: 16px;
+    float: left;
     position: relative;
     background-color: rgb(240, 221, 6);
     z-index: 1;
+    top: -18px;
+    left: -15px;
 }
 `
 
 // Comment
 const Comment = styled.div`
+height: 600px;
+overflow: scroll;
 p {
     padding: 70px 0px 30px 20px;
     text-align: left;
