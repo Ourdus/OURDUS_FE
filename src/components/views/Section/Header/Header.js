@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../css/Header.css';
 //import ReactHoverObserver from 'react-hover-observer';
 import idusimage from '../../../img/idus.png';
+import {Link} from 'react-router-dom';
 import { BsPerson } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
 
@@ -23,12 +24,16 @@ function Header() {
           <section className="header-top">
             <section className="header-top__navbar">
               <section className="header-top__navigation">
+              <Link to="../../user/join/login">
                 <a href="/" className="header-bottom">
                   로그인
                 </a>
+                </Link>
+                <Link to="../../user/join/login">
                 <a href="/" className="header-bottom">
                   회원가입
                 </a>
+                </Link>
                 <a href="/" className="header-bottom">
                   고객센터
                 </a>
@@ -36,26 +41,7 @@ function Header() {
               <hr className="header-top__seperator" />
             </section>
           </section>
-<<<<<<< HEAD
 
-          <section className="header-bottom">
-            <a href="/" className="idusappdown">
-              아이디어스 앱 설치하기
-            </a>
-
-            <section className="header-bottom__info">
-              &nbsp;&nbsp;
-              <BsPerson size="20" color="steelblue" />
-              <a href="/" className="header-bottom">
-                내정보
-              </a>
-            </section>
-            <section className="header-bottom__shop">
-              &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
-              <a href="/" className="header-bottom">
-                장바구니
-              </a>
-=======
           
           <section className="header-bottom">
             <a href="/"  className="idusappdown">아이디어스 앱 설치하기</a>
@@ -69,7 +55,7 @@ function Header() {
             &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
              
               <a href="/" className="header-bottom">장바구니</a>
->>>>>>> main
+
             </section>
           </section>
         </section>
@@ -86,11 +72,10 @@ function Header() {
             <a href="/work" className="linka">
               클래스
             </a>
-<<<<<<< HEAD
-=======
+
             
 
->>>>>>> main
+
           </div>
           <div className="rightSide">
             <input type="text" placeholder="작품/클래스 검색하기" />

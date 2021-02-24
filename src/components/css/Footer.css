@@ -1,10 +1,6 @@
 /*하단의 footer 기본 틀*/
 .Wrapper {
-<<<<<<< HEAD
   border-top: 5px solid orange;
-=======
-  border-top: 5px solid orange;  
->>>>>>> main
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,15 +19,9 @@
   font-size: 18px;
 }
 .linkd {
-<<<<<<< HEAD
-  margin-left: 15%;
-}
-.linke {
-=======
  margin-left: 15%;
 }
 .linke{
->>>>>>> main
   text-decoration: none;
   color: gray;
   font-size: 3px;
@@ -41,11 +31,8 @@
   font-size: 18px;
 }
 /*선생성을 위한 클래스*/
-<<<<<<< HEAD
-.liner {
-=======
+
 .liner{
->>>>>>> main
   border-top: 2px solid gray;
 }
 /*하단의 footer 소제목 생성을 위한 디자인 클래스*/
@@ -83,59 +70,6 @@
   margin-left: 3%;
 }
 /*작은글씨 위한 클래스*/
-<<<<<<< HEAD
-.smallletter {
-  font-size: 1px;
-}
-/*하단의 아이콘 디자인*/
-.lineno {
-  text-decoration: none;
-  color: brown;
-}
-
-/*아이디어스 문구 디자인*/
-.iduslogo {
-  margin-left: 30%;
-  font-size: 40px;
-  width: 100px;
-  color: gray;
-  font-weight: bold;
-  font-style: initial;
-  text-align: right;
-}
-/*하단의 가입사실확인 버튼*/
-.gaipbtn {
-  color: black;
-  background: white;
-  padding: 0.375rem 0.75rem;
-  border: 1px solid gray;
-  border-radius: 0.25rem;
-  font-size: 0.7rem;
-  width: 60%;
-}
-
-.footerindex {
-  color: gray;
-  margin-left: 1px;
-  text-decoration: none;
-}
-
-.footercolumn {
-  margin-left: 1px;
-}
-.iconbutton {
-  background: white;
-  text-decoration: none;
-  border: 0;
-  outline: 0;
-}
-.iconbutton2 {
-  background: white;
-  text-decoration: none;
-  border: 0;
-  outline: 0;
-  width: 20%;
-=======
 .smallletter{
   font-size: 1px;
 }
@@ -188,6 +122,4 @@
   border: 0;
   outline: 0;
   width:20%;
-
->>>>>>> main
 }
