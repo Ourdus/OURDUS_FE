@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
 import kakaoLogo from '../../img/kakaologo.svg';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -98,7 +98,9 @@ function SignUpPage() {
           <img src={kakaoLogo} alt="kakao" className="icon" />
           <span className="buttonText">카카오톡으로 가입하기</span>
         </KakaoBtn>
-        <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        <Link to="./join/signup">
+          <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        </Link>
         &emsp;&emsp;&emsp;&emsp;&emsp;이미 가입하셨다면{' '}
         <a className="aTag" href="/user/join/login">
           바로 로그인 하기

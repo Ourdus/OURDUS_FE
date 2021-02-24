@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
-import AuthenticationService from './ AuthenticationService';
+import {PostJwt, deleteJwt} from './TokenConfig';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -92,38 +92,56 @@ const ZipInput = styled.input`
   height: 25px;
   font-size: 14px;
 `;
-
-
 function AddDetail({match}) {
   const i = match.params.id; 
+  const history = useHistory();
   const [users, setUsers] = useState([
     {
       id: 1,
       name: '받는 분 이름을 입력해주세요',
       tel: '전화번호를 입력해주세요',
       zipcode: '우편번호',
-      address: '기본 주소',
-      addDetail: '나머지 주소',
+      addressMain: '기본 주소',
+      addressSub: '나머지 주소',
     },
     {
       id: 2,
       name: '받는 분 이름을 입력해주세요',
       tel: '전화번호를 입력해주세요',
       zipcode: '우편번호',
-      address: '기본 주소',
-      addDetail: '나머지 주소',
+      addressMain: '기본 주소',
+      addressSub: '나머지 주소',
     },
     {
       id: 3,
       name: '받는 분 이름을 입력해주세요',
       tel: '전화번호를 입력해주세요',
       zipcode: '우편번호',
-      address: '기본 주소',
-      addDetail: '나머지 주소',
+      addressMain: '기본 주소',
+      addressSub: '나머지 주소',
     },
   ]);
 
-  const { name, tel, zipcode, address, addDetail } = users;
+  function PostAddInfo(inputs) {
+    const url =`/api/t/user/address/${i}`;
+    const data = {
+      name: inputs.name,
+      phone: inputs.phone,
+      zipcode: inputs.zipcode,
+      addressMain: inputs.addressMain,
+      addressSub: inputs.addressSub
+    }
+    PostJwt
+      .then(() => {
+        deleteJwt();
+        history.push('./main')
+      })
+      .catch( (error) =>{
+        console.log(error)
+      })
+  }
+
+  const { name, tel, zipcode, addressMain, addressSub } = users;
 
   const onChange = (e, id) => {
     const { name, value } = e.target;
@@ -156,16 +174,16 @@ function AddDetail({match}) {
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="address" onChange={onChange} value={address} placeholder={users[0].address}></AddInput>
+            <AddInput name="addressMain" onChange={onChange} value={addressMain} placeholder={users[0].addressMain}></AddInput>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="addDetail" onChange={onChange} value={addDetail} placeholder={users[0].addDetail}></AddInput>
+            <AddInput name="addressSub" onChange={onChange} value={addressSub} placeholder={users[0].addressSub}></AddInput>
           </p>
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
           </Link>
-          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[0], i)}>저장</SaveBtn>
+          &nbsp;<SaveBtn onClick={() => PostAddInfo(users[0])}>저장</SaveBtn>
         </BoxBottom>
       </BoxDiv>
 
@@ -189,16 +207,16 @@ function AddDetail({match}) {
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="address" onChange={onChange} value={address} placeholder={users[1].address}></AddInput>
+            <AddInput name="addressMain" onChange={onChange} value={addressMain} placeholder={users[1].addressMain}></AddInput>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="addDetail" onChange={onChange} value={addDetail} placeholder={users[1].addDetail}></AddInput>
+            <AddInput name="addressSub" onChange={onChange} value={addressSub} placeholder={users[1].addressSub}></AddInput>
           </p>
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
           </Link>
-          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[1], i)}>저장</SaveBtn>
+          &nbsp;<SaveBtn onClick={() => PostAddInfo(users[1])}>저장</SaveBtn>
         </BoxBottom>
       </BoxDiv>
 
@@ -222,16 +240,16 @@ function AddDetail({match}) {
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="address" onChange={onChange} value={address} placeholder={users[2].address}></AddInput>
+            <AddInput name="addressMain" onChange={onChange} value={addressMain} placeholder={users[2].addressMain}></AddInput>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <AddInput name="addDetail" onChange={onChange} value={addDetail} placeholder={users[2].addDetail}></AddInput>
+            <AddInput name="addressSub" onChange={onChange} value={addressSub} placeholder={users[2].addressSub}></AddInput>
           </p>
           <Link to="./address">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<CancleBtn>취소</CancleBtn>
           </Link>
-          &nbsp;<SaveBtn onClick={() => PostUserInfo(users[2], i)}>저장</SaveBtn>
+          &nbsp;<SaveBtn onClick={() => PostAddInfo(users[2])}>저장</SaveBtn>
         </BoxBottom>
       </BoxDiv>
     </div>

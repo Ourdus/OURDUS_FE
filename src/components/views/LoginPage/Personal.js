@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import {PostJwt} from './TokenConfig'
 import '../../css/Login.css';
 
 const PersonalWrapper = styled.div`
@@ -99,31 +100,33 @@ const SaveBtn = styled.button`
   font-size: 13px;
 `;
 
-const PostUserInfo = async (inputs) => {
-  try {
-    axios
-      .post('/api/user/id-finding', {
-        name: inputs.name,
-        email: inputs.email,
-        tel: inputs.tel,
-        sex: inputs.sex,
-        birth: inputs.birth,
-      })
-      .then(function (response) {
-        const status = JSON.parse(response.data.response.status);
-        if (status === ' 200 ') {
-          useHistory.push('./personalinfo');
-        }
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
-  }
-};
-
 function Personal() {
+  const history = useHistory();
+  const PostUserInfo = async (inputs) => {
+    const url = '/api/t/user/edit';
+    const data = {
+      name: inputs.name,
+      email: inputs.email,
+      tel: inputs.tel,
+      sex: inputs.sex,
+      birth: inputs.birth,
+    }
+    try {
+      PostJwt(url, data)
+        .then(function (response) {
+          const status = JSON.parse(response.data.response.status);
+          if (status === ' 200 ') {
+            history.push('./personalinfo');
+          }
+        })
+        .catch((error) => {
+          console.log('error : ', error.response);
+        });
+    } catch (e) {
+      console.log('error');
+    }
+  };
+  
   const [inputs, setInputs] = useState({
     name: '',
     email: '',

@@ -22,7 +22,7 @@ import SignUpPage from './components/views/LoginPage/SignUpPage';
 import AddAddress from './components/views/LoginPage/AddAddress';
 import LoginPage from './components/views/LoginPage/LoginPage';
 import LoginInput from './components/views/LoginPage/LoginInput';
-import SignUpStage from './components/views/LoginPage/SignForm';
+import SignupForm from './components/views/LoginPage/SignupForm';
 import SearchID from './components/views/LoginPage/SearchID';
 import Personal from './components/views/LoginPage/Personal';
 import PersonalInfo from './components/views/LoginPage/PersonalInfo';
@@ -34,7 +34,6 @@ import ExpireID from './components/views/LoginPage/ExpireID';
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
 import DirectPay_W from './components/views/CartPage/DirectPay_W';  //바로결제
 import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
-import { Add } from '@material-ui/icons';
 
 function App() {
   return (
@@ -57,7 +56,7 @@ function App() {
           <Route exact path="/user/join" component={SignUpPage} />
           <Route exact path="/user/join/login" component={LoginPage} />
           <Route exact path="/user/join/input" component={LoginInput} />
-          <Route exact path="/user/join/signup" component={SignUpStage} />
+          <Route exact path="/user/join/signup" component={SignupForm} />
           <Route exact path="/user/personal" component={Personal} />
           <Route exact path="/user/personalinfo" component={PersonalInfo} />
           <Route exact path="/user/personal/address" component={DeliveryAdd} />

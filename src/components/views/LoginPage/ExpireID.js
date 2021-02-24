@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import AuthenticationService from './ AuthenticationService';
+import { PostJwt } from './TokenConfig';
+import {deleteJwt} from './TokenConfig';
 
 const EntireDiv = styled.div`
   width: 100%;
@@ -56,12 +58,12 @@ const SaveBtn = styled.button`
 
 const WithDraw = async () => {
   const history = useHistory();
-  AuthenticationService
-        .withdrawUser()
-        .then(() => {
-          AuthenticationService.logout()
-          history.push('./main')
-      }).catch( (error) =>{
+    PostJwt
+      .then(() => {
+        deleteJwt();
+        history.push('./main')
+      })
+      .catch( (error) =>{
         console.log(error)
       })
   }
