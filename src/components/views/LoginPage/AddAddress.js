@@ -93,16 +93,6 @@ const ZipInput = styled.input`
   font-size: 14px;
 `;
 
-const PostUserInfo = async (inputs) => {
-  const history = useHistory();
-  AuthenticationService
-        .executeJwtAuthenticationService(inputs.email, inputs.name, inputs.password, inputs.tel, false)
-        .then((response) => {
-          history.push('./main')
-      }).catch( () =>{
-          this.setState({showSuccessMessage:false})
-      })
-  }
 
 function AddDetail({match}) {
   const i = match.params.id; 

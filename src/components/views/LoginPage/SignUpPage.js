@@ -57,8 +57,7 @@ const PostSingUpInfo = async (props) => {
       .post('/api/user/join', {
         email: props.email,
         name: props.name,
-        Pnumber: props.name,
-        recommended: props.recommended,
+        tel: props.name,
       })
       .then((response) => {
         const { accessToken } = response.data;

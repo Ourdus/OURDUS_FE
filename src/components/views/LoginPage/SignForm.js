@@ -40,30 +40,37 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-const PostUserInfo = async (inputs) => {
-    const history = useHistory();
-    const data = {
-      name:inputs.name,
-      email: inputs.email,
-      password:inputs.password,
-      tel:inputs.tel,
-      writerFlag: false
-    }
-    try {
-      axios
-        .post('/api/user/join',data)
-        .then((response) => {
-          history.push('/main');      
-        })
-        .catch((error) => {
-          console.log('error : ', error.response);
-        });
-    } catch (e) {
-      console.log('error');
-  }
-};
+
+
+
 
 function SignForm() {
+  const history = useHistory();
+  const PostUserInfo = async (inputs) => {
+      console.log("axios보내기 전 확인");
+      const data = {
+        name: inputs.name,
+        email: inputs.email,
+        password:inputs.password,
+        tel:inputs.tel,
+        writerFlag: false
+      }
+      try {
+        axios
+          .post('/api/user/join',data)
+          .then((response) => {
+            console.log("axios보낸 후 확인");
+            console.log(response);
+            history.push('/main');      
+          })
+          .catch((error) => {
+            console.log('error : ', error.response);
+          });
+      } catch (e) {
+        console.log('error');
+    }
+  };
+
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -79,6 +86,8 @@ function SignForm() {
       [name]: value,
     });
   };
+
+
   return (
     <div className="StageWrapper">
       <div className="StageInfo">

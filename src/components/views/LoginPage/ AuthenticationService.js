@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class AuthenticationService {
     // send username, password to the SERVER
@@ -13,7 +13,7 @@ class AuthenticationService {
         return axios.post('api/user/join', data)
     }
 
-    executeAddAddress(name,phone,zipcode,addressMain,addressSub, i) {
+    executeAddAddress(name,phone,zipcode,addressMain,addressSub) {
         const token = localStorage.getItem('token');
         const data = {
             name,
@@ -22,7 +22,7 @@ class AuthenticationService {
             addressMain,
             addressSub
           }
-        return axios.post(`/api/t/user/address/${i}`, data)
+        return axios.post('api/user/join', data)
     }
 
     executeHelloService() {
