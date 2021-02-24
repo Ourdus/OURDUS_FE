@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
-
+import {setJwt} from './TokenConfig.js';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -116,33 +116,32 @@ const ShopTag = styled.a`
   text-decoration: none;
 `;
 
-
-const PostUserInfo = async (inputs) => {
-  const history = useHistory();
-  AuthenticationService
-        .executeAddAddress(inputs.name, inputs.tel, inputs.zipcode, inputs.address, inputs.addDetail, i)
-        .then((response) => {
-          history.push('./main')
-      }).catch( () =>{
-          this.setState({showSuccessMessage:false})
-      })
-  }
-
-
-
 function LoginPage() {
-  const PostUserInfo = async (inputs) => {
-    const history = useHistory();
-    axios.defaults.withCredentials = true;
-    AuthenticationService
-          .executeJwtAuthenticationService(inputs.email, inputs.name, inputs.password, inputs.tel, false)
-          .then((response) => {
-            history.push('./main')
-        }).catch( () =>{
-            this.setState({showSuccessMessage:false})
+  const history = useHistory();
+  const PostUserInfo = async (inputs) => {  
+    
+    const data = {
+      email: inputs.email,
+      password:inputs.password,
+    }
+    try {
+      axios
+        .post('/api/user/login',data)
+        .then((response) => {
+          // console.log(response);
+          const accessToken = response.data.response.data;
+          console.log("accessToken:" + accessToken);
+          setJwt(accessToken);
+          history.push('/main');      
         })
-    } // postuserinfo end point
-  
+        .catch((error) => {
+          console.log('error : ', error.response);
+        });
+    } catch (e) {
+      console.log('error');
+  }
+};
+
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
