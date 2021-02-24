@@ -48,7 +48,6 @@ function SignForm() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {
       console.log("axios보내기 전 확인");
-      axios.defaults.withCredentials = true;
       const data = {
         name: inputs.name,
         email: inputs.email,

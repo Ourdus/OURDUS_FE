@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
-import instance from './axiosConfig.js';
+import {setJwt} from './TokenConfig.js';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -119,7 +119,7 @@ const ShopTag = styled.a`
 function LoginPage() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {  
-    axios.defaults.withCredentials = true;
+    
     const data = {
       email: inputs.email,
       password:inputs.password,
@@ -130,9 +130,8 @@ function LoginPage() {
         .then((response) => {
           // console.log(response);
           const accessToken = response.data.response.data;
-          // console.log(accessToken);
-          instance.defaults.headers.common['jwt-auth-token'] = `${accessToken}`;
-          console.log(instance.defaults.headers);
+          console.log("accessToken:" + accessToken);
+          setJwt(accessToken);
           history.push('/main');      
         })
         .catch((error) => {

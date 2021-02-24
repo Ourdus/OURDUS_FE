@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class AuthenticationService {
     // send username, password to the SERVER
