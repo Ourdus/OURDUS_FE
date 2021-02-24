@@ -8,6 +8,7 @@ import kakaoLogo from '../../img/kakaologo.svg';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
 import {setJwt} from './TokenConfig.js';
+import AuthenticationService from './ AuthenticationService';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -119,14 +120,9 @@ const ShopTag = styled.a`
 function LoginPage() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {  
-    
-    const data = {
-      email: inputs.email,
-      password:inputs.password,
-    }
     try {
-      axios
-        .post('/api/user/login',data)
+      AuthenticationService
+        .PostLoginInfo(inputs.email, inputs.password)
         .then((response) => {
           // console.log(response);
           const accessToken = response.data.response.data;

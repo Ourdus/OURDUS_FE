@@ -40,10 +40,6 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-
-
-
-
 function SignForm() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {
@@ -59,8 +55,6 @@ function SignForm() {
         axios
           .post('/api/user/join',data)
           .then((response) => {
-            console.log("axios보낸 후 확인");
-            console.log(response);
             history.push('/main');      
           })
           .catch((error) => {

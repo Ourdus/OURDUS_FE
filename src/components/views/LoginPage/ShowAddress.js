@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
 import AuthenticationService from './ AuthenticationService';
+import {getJwt} from './TokenConfig';
 
 const BoxDiv = styled.div`
   width: 800px;
@@ -78,8 +79,7 @@ function ShowDetail({match}) {
     },
   ]);
   useEffect(() => {
-    AuthenticationService
-    .sendUserToken(i)
+    getJwt
     .then((result) => setProduct(result.data.response));
   }, []);
   return (
