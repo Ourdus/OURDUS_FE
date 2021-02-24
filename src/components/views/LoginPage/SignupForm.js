@@ -44,28 +44,15 @@ const BtnSign = styled.button`
 
 
 
-function SignForm() {
+function SignupForm() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {
-      console.log("axios보내기 전 확인");
-      const data = {
-        name: inputs.name,
-        email: inputs.email,
-        password:inputs.password,
-        tel:inputs.tel,
-        writerFlag: false
-      }
       try {
-        axios
-          .post('/api/user/join',data)
-          .then((response) => {
-            console.log("axios보낸 후 확인");
-            console.log(response);
-            history.push('/main');      
-          })
-          .catch((error) => {
-            console.log('error : ', error.response);
-          });
+        AuthenticationService
+        .PostSignupInfo(inputs.name,inputs.email,inputs.password, inputs.tel, false)
+        then((response) => {
+          history.push('../main/work');      
+        })
       } catch (e) {
         console.log('error');
     }
@@ -157,4 +144,4 @@ function SignForm() {
   );
 }
 
-export default SignForm;
+export default SignupForm;
