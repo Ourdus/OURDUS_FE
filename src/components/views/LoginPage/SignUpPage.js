@@ -7,7 +7,7 @@ import kakaoLogo from '../../img/kakaologo.svg';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
-  heigh: 100vh;
+  height: 100vh;
   margin: 0% 0% 0% 0%;
   padding: 5% 5% 25% 5%;
 `;
