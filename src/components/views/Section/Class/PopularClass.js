@@ -33,8 +33,7 @@ function PopularClass(props) {
      //   setClass(response);
      // })
       .then((result) => setClass(result.data.response))
-      .catch(function (error) {
-        console.log('실패');
+      .catch(function (error) {console.log('실패');
       }, []);
 
     if (Class.length > 0) {

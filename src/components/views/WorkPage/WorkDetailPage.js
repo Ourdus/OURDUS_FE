@@ -11,7 +11,12 @@ function WorkDetailPage({match}) {
     //const [product, setProduct] = useState(data);
     const [product, setProduct] = useState(data);
     const i = match.params.id; //주소 (work/detail/:id) 중 id 값 받아온 것
-
+    useEffect(() => {
+        axios
+          .get(`/api/w/product/${i}`)
+        //   .then((result) => console.log(result.data.response));
+          .then((result) => setProduct(result.data.response));
+      }, []);
     return (
         <div className="WorkDetail">
                 <div className="Content1">
