@@ -1,4 +1,4 @@
-import './App.css';
+﻿import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Header & Footer
@@ -34,6 +34,14 @@ import ExpireID from './components/views/LoginPage/ExpireID';
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
 import DirectPay_W from './components/views/CartPage/DirectPay_W';  //바로결제
 import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
+//myinfo 내정보 관련
+import Sidebar from './components/views/Sidebar/Sidebar'; //sidebar 구성
+import Showmyinfo from './components/views/Myinfo/Orderlist'; //주문내역 더보기
+import Showmyinfoclass from './components/views/Myinfo/Orderlistonline'; //주문내역 더보기
+import Showmyinfoclassoff from './components/views/Myinfo/Orderlistoffline'; //주문내역 더보기
+
+import Notice from './components/views/Notice/Notice'; //게시판 보기
+import Notice_1 from './components/views/Notice/Notice_id1'; //게시판 보기
 
 function App() {
   return (
@@ -63,6 +71,11 @@ function App() {
           <Route exact path="/user/personal/addad" component={AddAddress} />
           <Route exact path="/user/join/auth" component={SearchID} />
           <Route exact path="/user/leave" component={ExpireID} />
+          <Route exact path="/main/myInfo/showmore" component={Showmyinfo} />
+          <Route exact path="/main/myInfo/showmore2" component={Showmyinfoclass} />
+          <Route exact path="/main/myInfo/showmore3" component={Showmyinfoclassoff} />
+          <Route exact path="/main/notice" component={Notice} />
+          <Route exact path="/main/Notice_id1" component={Notice_1} />
         </Switch>
         <Footer />
       </div>

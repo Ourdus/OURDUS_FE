@@ -17,7 +17,7 @@ function onclickwork() {}
 function onclickoffline() {}
 function onclickonline() {}
 
-function Myinfo() {
+function Myorderlist() {
   let [product, setProduct] = useState(data);
   let [category, setCategory] = useState(categoryData);
   return (
@@ -195,18 +195,10 @@ function Myinfo() {
         </a>
         <div className="likeartistlist">
           <div className="likeartistpicture"><img src={myinfo5} /> </div>
-          <div className="likeartistinfo">incolor 나만의 선물 <br /><div className="yellow">★ ★ ★ ★ ★</div><br /> 내가 디자인하는 나만의 문방구<br />
-          소비자의 요구사항대로 디자인을<br />
-          한 후 제품에 직접 표현하여 제공<br />
-          됩니다. <br />
-          <button className="infobtn1">좋아하는 작가</button><button className="infobtn2">작가 홈</button><br />
-          <button className="infobtn3">메시지 보내기</button>
-           </div>
-           <div className="likeartistnull">판매중인 작품이 없습니다.</div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Myinfo;
+export default Myorderlist;
