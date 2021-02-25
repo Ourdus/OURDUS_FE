@@ -113,16 +113,32 @@ const BtnSign = styled.button`
 const ShopTag = styled.a`
   color: #adb5bd;
   font-size: 12px;
-  margin-left: 51%;
+  margin: 0% 0% 0% 0%;
   text-decoration: none;
+  &:hover {
+    color :#adb5bd;
+    text-decoration: none;
+  }
+`;
+
+const LinkDiv = styled.div`
+  display:flex;
+  color: #adb5bd;
+  margin: 2% 0% 0% 60%;
+  font-size: 12px;
 `;
 
 function LoginPage() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {  
+    
+    const data = {
+      email: inputs.email,
+      password:inputs.password,
+    }
     try {
-      AuthenticationService
-        .PostLoginInfo(inputs.email, inputs.password)
+      axios
+        .post('/api/user/login',data)
         .then((response) => {
           // console.log(response);
           const accessToken = response.data.response.data;
@@ -194,10 +210,17 @@ function LoginPage() {
           <br></br>
           <SignInput name="password" type="password" placeholder="비밀번호" onChange={onChange} value={password} required />
         </form>
-        <Link to="./auth">
-          <ShopTag>아이디 / 비밀번호를 잊어버리셨나요?</ShopTag>
-        </Link>
-        <BtnSign onClick={() => PostUserInfo(inputs)}>회원가입하기</BtnSign>
+        <LinkDiv>
+          <Link to="./auth">
+            <ShopTag> 아이디 </ShopTag>
+          </Link>
+          &nbsp;/&nbsp;
+          <Link to="./auth">
+            <ShopTag> 비밀번호 </ShopTag>
+          </Link>
+          를 잊으셨나요?
+        </LinkDiv>
+        <BtnSign onClick={() => PostUserInfo(inputs)}>로그인</BtnSign>
       </div>
     </SingUpWrapper>
   );

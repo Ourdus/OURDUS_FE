@@ -114,10 +114,11 @@ function Personal() {
     try {
       PostJwt(url, data)
         .then(function (response) {
-          const status = JSON.parse(response.data.response.status);
-          if (status === ' 200 ') {
-            history.push('./personalinfo');
-          }
+          //const status = JSON.parse(response.data.response.status);
+          //if (status === ' 200 ') {
+           // history.push('./personalinfo');
+          //}
+          history.push('../personalinfo')
         })
         .catch((error) => {
           console.log('error : ', error.response);

@@ -107,7 +107,7 @@ function SignForm() {
         </SignText>
         <br />
         <TextDiv>
-          <h5>회원 가입시 사용한 전화번호를 입력해주세요.</h5>
+          <h5>회원 가입시 사용한 이메일과 전화번호를 입력해주세요.</h5>
         </TextDiv>
         <FormDiv>
           <form method="submit">
