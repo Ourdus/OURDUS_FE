@@ -7,98 +7,6 @@ import starImg from '../../img/stars.png';
 import favImg from '../../img/fav_button_img.png';
 import shareImg from '../../img/share_button_img.png';
 
-
-function ClassDetailPage({match}) {
-
-    const i = match.params.id;
-    // axios 데이터 -----------------------------------------------
-    // const [classData, setClassData] = useState();
-
-    // useEffect(()=>{
-    //     axios
-    //     .get(`/api/c/${i}`)
-    //     .then((result) => setClassData(result.data.response))
-    // }, []);
-
-    // 가상 데이터 ------------------------------------------------
-    const classData = {
-            author: "클라우드나인",
-            author_id: "작가님",
-            categoryId: "카테고리 명",
-            name: "클래스 이름",
-            price: "0000",
-            level: "하",
-            duration: 3,
-            max: 5,
-            rate: 35,
-            date: "2020-01-27",
-            content: "hello"
-    }
-            
-
-    const reviews = [
-        {
-            name: "이름1",
-            rate: 34,
-            date: "2020-01-02",
-            content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
-        },
-        {
-            name: "이름2",
-            rate: 47,
-            date: "2020-01-02",
-            content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
-        },
-        {
-            name: "이름3",
-            rate: 49,
-            date: "2020-01-02",
-            content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
-        },
-        {
-            name: "이름4",
-            rate: 24,
-            date: "2020-01-02",
-            content: "특별하게 선물하려고 원데이클래스 신청했는데 결과물이 만족스러워서 제가 가질까 고민중이에요...🥲 차분하게 잘 알려주시고 무엇보다 제가 어떤 느낌으로 하고싶은지 잘 캐치해주셔서 결과물이 만족스러웠던거같아요! 제가 직접 그리고 하나뿐인 접시라고 생각하니 더 특별하고 좋습니당!!"
-        },
-    ]
-
-    const comments = [
-        {
-            name: "name1",
-            content: "작가님 메세지 확인해주세요 !"
-        },
-        {
-            name: "name2",
-            content: "하이용"
-        },
-        {
-            name: "name3",
-            content: "헤헷"
-        },
-        {
-            name: "name4",
-            content: "우하하하하ㅏㅎ하ㅏㅎ하하하하하하하ㅏㅎ하하ㅏ하하하하하하핳하하하하ㅏ하ㅏ"
-        },
-        {
-            name: "name5",
-            content: "작가님 메세지 확인해주세요 !"
-        },
-        {
-            name: "name6",
-            content: "하이용"
-        },
-        {
-            name: "name7",
-            content: "헤헷"
-        },
-        {
-            name: "name8",
-            content: "우하하하하ㅏㅎ하ㅏㅎ하하하하하하하ㅏㅎ하하ㅏ하하하하하하핳하하하하ㅏ하ㅏ"
-        }
-    ]
- }
-
 // 연동 코드 -------------------------------
 
 function ClassDetailPage({match}) {
@@ -116,7 +24,6 @@ function ClassDetailPage({match}) {
 
     console.log(classData);
 
-
     return (
         <ClassDetail>
             <LeftContent>
@@ -133,19 +40,6 @@ function ClassDetailPage({match}) {
                 </IMG_C>
                 <Information_C>
                     <Menu_bar>
-      
-                    <button>소개</button>
-                    <button>장소</button>
-                    <button>참여후기</button>
-                    <button>댓글</button>
-                    </Menu_bar>
-                    <Info>
-                        <h1>안녕하세요 :)</h1>
-                        <h1>{classData.author} 입니다.</h1>
-                        <h2>제가 진행 할 금손 클래스는 ...</h2>
-                        <p>
-                        {classData.description}
-
                     <button onClick={()=>{setTab(1)}}>소개</button>
                     <button onClick={()=>{setTab(2)}}>장소</button>
                     <button onClick={()=>{setTab(3)}}>참여후기</button>
@@ -199,7 +93,6 @@ function Changed_Menu(props) {
                         <h2>제가 진행 할 금손 클래스는 ...</h2>
                         <p>
                         {props.classData.description}
-
                         수업시간<br /><br /><br />
                         수업당일 제작 - 2시간 소요예정<br /><br />
                         (제작시간은 개인차가 있습니다. 일정에 여유를 가지고 방문해주세요.)<br /><br />
@@ -224,16 +117,12 @@ function Changed_Menu(props) {
                         (수업이 끝난후 집에서 만드실수 있는 재료 별도 구매가능)<br />
                         </p>
                     </Info>
-
-                    <Addr>
-
         );
     }
 
     if(props.tab === 2){
         return (
             <Addr>
-
                         <h2>장소 및 편의시설</h2>
                         {/* <KakaoMap /> */}
                         <h3>취소 및 환불 정책</h3>
@@ -251,82 +140,6 @@ function Changed_Menu(props) {
                         <h5><Red>환불 불가</Red></h5>
                         <h4>예약 당일 밤 12시 이전 취소 시</h4>
                         <h5><Green>100%</Green> 환불</h5>
-
-                    </Addr>
-                    <Review>
-                        <p>참여후기</p>
-                        {
-                        reviews.map((a, i) => {
-                            const rate = (classData.rate)*2;
-                            return (
-                                <div>
-                                <h1>{reviews[i].name}</h1>
-                                {/* <h4>{reviews[i].rate}</h4> */}
-                                {/* <h4><img src={starImg} /></h4> */}
-                                <Stars>
-                                <Star_out>
-                                    <img src={starImg} />
-                                    <Star_in width={rate}>
-                                        <h4></h4>
-                                    </Star_in>
-                                </Star_out>
-                                </Stars>
-                                <h2>{classData.date}</h2>
-                                <h3>{classData.content}</h3>
-                                </div>
-                            );
-                        })
-                        }                        
-                    </Review>
-                    <Comment>
-                        <p>댓글</p>
-                        {
-                            // 원래는 classData.comments.map((comment, i) 임
-                            comments.map((comment, i)=>{
-                                return(
-                                    <div>
-                                        <h1>• {comment.name}</h1>
-                                        <h2>{comment.content}</h2>
-                                    </div>
-                                );
-                            })
-                        }
-                    </Comment>
-                </Information_C>
-            </LeftContent>
-            <RightContent>
-                <Author_R>
-                    {classData.author_id}
-                </Author_R>
-                <Category_R>
-                    {classData.categoryId}
-                </Category_R>
-                <Title_R>
-                    {classData.name}
-                </Title_R>
-                <Price_R>
-                    {classData.price} 원
-                </Price_R>
-                <Favorite_R>
-                    <img src={favImg} />&nbsp;&nbsp;즐겨찾기
-                </Favorite_R>
-                <Share_R>
-                    <img src={shareImg} />&nbsp;&nbsp;공유하기
-                </Share_R>
-                <ClassInfo_R>
-                    <p>
-                        <h1>난이도<br /><h4>{classData.level}</h4></h1>
-                        <h2>소요시간<br /><h4>{classData.duration} 시간</h4></h2>
-                        <h3>수업인원<br /><h4>최대 {classData.max}명</h4></h3>
-                    </p>
-                </ClassInfo_R>
-                <Reservation_B>
-                    예약하기
-                </Reservation_B>
-            </RightContent>
-        </ClassDetail>
-    )
-
             </Addr>
         );
     }
@@ -379,7 +192,6 @@ function Changed_Menu(props) {
             </Comment>
         );
     }
-
 }
 
 // 기타 css
@@ -425,11 +237,7 @@ text-align: center;
 button {
     width: 25%;
     padding: 15px 0px;
-
-    margin-bottom: 50px;
-
     margin-bottom: 30px;
-
     display: inline-block;
     background-color: white;
     border-top: 1px solid lightgray;
@@ -438,10 +246,7 @@ button {
     border-bottom: 1px solid lightgray;
 }
 `
-
-
 // 메뉴바
-
 const Menu_bar = styled.div`
 position: sticky;
 top: 0px;
@@ -470,15 +275,9 @@ p {
 // Addr
 const Addr = styled.div`
 width: 100%;
-
-padding: 20px 0px;
-h2 {
-    padding: 50px 0px 50px 20px;
-
-    padding: 10px 0px;
+padding: 10px 0px;
 h2 {
     padding: 0px 0px 50px 20px;
-
     text-align: left;
     font-size: 20px;
     font-weight: bolder;
@@ -517,11 +316,7 @@ const Review = styled.div`
 height: 600px;
 overflow: scroll;
 p {
-
-    padding: 70px 0px 30px 20px;
-
     padding: 10px 0px 30px 20px;
-
     text-align: left;
     font-size: 20px;
     font-weight: bolder;
@@ -589,11 +384,7 @@ const Comment = styled.div`
 height: 600px;
 overflow: scroll;
 p {
-
-    padding: 70px 0px 30px 20px;
-
     padding: 10px 0px 30px 20px;
-
     text-align: left;
     font-size: 20px;
     font-weight: bolder;
@@ -1334,4 +1125,3 @@ export default ClassDetailPage;
 
 
 // export default ClassDetailPage;
-
