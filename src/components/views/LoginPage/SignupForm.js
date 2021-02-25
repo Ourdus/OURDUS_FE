@@ -40,18 +40,32 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-function SignupForm() {
+const LogoBtn = styled.button`
+  margin: 0% 0% 0% 30%;
+`;
+
+function SignForm() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {
-    try {
-      AuthenticationService
-      .PostSignupInfo(inputs.name,inputs.email,inputs.password, inputs.tel, false)
-      .then((response) => {
-        history.push('../main/class');
-      })
-    } catch (e) {
-      console.log('error');
-  }
+      const data = {
+        name: inputs.name,
+        email: inputs.email,
+        password:inputs.password,
+        tel:inputs.tel,
+        writerFlag: false
+      }
+      try {
+        axios
+          .post('/api/user/join',data)
+          .then((response) => {
+            history.push('/main');      
+          })
+          .catch((error) => {
+            console.log('error : ', error.response);
+          });
+      } catch (e) {
+        console.log('error');
+    }
   };
 
   const [inputs, setInputs] = useState({
@@ -140,4 +154,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default SignForm;

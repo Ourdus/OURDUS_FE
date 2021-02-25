@@ -61,7 +61,7 @@ const WithDraw = async () => {
     PostJwt
       .then(() => {
         deleteJwt();
-        history.push('./main')
+        history.push('../main/work')
       })
       .catch( (error) =>{
         console.log(error)
