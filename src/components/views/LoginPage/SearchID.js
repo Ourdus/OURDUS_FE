@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useGI } from 'react';
+import { Route, useHistory } from 'react-router-dom';
 import '../../css/SignForm.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import Loginbtn from '../../img/login.png';
 
+const StageWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  margin: 0% 0% 0% 0%;
+  padding: 5% 5% 25% 5%;
+`;
+
 const StageInfo = styled.div`
   width: 350px;
-  height: 50vh;
+  height: 10vh;
   margin: 5% 0% 0% 35%;
   display: inline-block;
   background-color: #fff;
@@ -31,7 +39,7 @@ const TextDiv = styled.div`
 
   h5 {
     margin: 0% 3% 10% 22%;
-    font-size: 14px;
+    font-size: 13px;
   }
 `;
 
@@ -59,17 +67,16 @@ const FormDiv = styled.div`
   }
 `;
 
-const PostUserInfo = async (email, name, password, Pnumber, recommended) => {
+const PostUserInfo = async (tel) => {
+  const history = useHistory();
   try {
     axios
-      .post('/api/user/join', {
-        email: '',
-        name: '',
-        Pnumber: '',
-        recommended: '',
+      .post('/api/user/id-finding', {
+        tel: tel,
       })
       .then(function (response) {
         console.log(response);
+        history.push('./');
       })
       .catch((error) => {
         console.log('error : ', error.response);
@@ -80,27 +87,16 @@ const PostUserInfo = async (email, name, password, Pnumber, recommended) => {
 };
 
 function SignForm() {
-  const [inputs, setInputs] = useState({
-    email: '',
-    password: '',
-    name: '',
-    Pnumber: '',
-    recommended: '',
-  });
-  const { email, password, name, Pnumber, recommended } = inputs;
+  const [tel, setTel] = useState('');
 
   const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    setTel(e.target.value);
   };
 
   return (
-    <div className="StageWrapper">
+    <StageWrapper>
       <StageInfo>
-        <button className="LogoBtn" onClick="location.href='https://www.idus.com/' ">
+        <button className="LogoBtn">
           <img src={Loginbtn} alt="loginbtn" />
         </button>
         <p></p>
@@ -115,12 +111,12 @@ function SignForm() {
         </TextDiv>
         <FormDiv>
           <form method="submit">
-            <SignInput className="AuthInput" placeholder="010-1234-5678" required />
-            <BtnSign onClick={PostUserInfo}>인증요청</BtnSign>
+            <SignInput className="AuthInput" placeholder="010-1234-5678(숫자만 입력하세요)" onChange={onChange} value={tel} required />
+            <BtnSign onClick={() => PostUserInfo(tel)}>인증요청</BtnSign>
           </form>
         </FormDiv>
       </StageInfo>
-    </div>
+    </StageWrapper>
   );
 }
 

@@ -1,8 +1,10 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
+import { Route, useHistory } from 'react-router-dom';
 import '../../css/SignForm.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import Loginbtn from '../../img/login.png';
+import AuthenticationService from './ AuthenticationService';
 
 const SignText = styled.div`
   width: 600px;
@@ -38,29 +40,20 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-const PostUserInfo = async ({ inputs }) => {
-  try {
-    axios
-      .post('/api/user/join', {
-        email: inputs.email,
-        password: inputs.password,
-        name: inputs.name,
-        tel: inputs.tel,
-        writerFlag: false,
-      })
+function SignupForm() {
+  const history = useHistory();
+  const PostUserInfo = async (inputs) => {
+    try {
+      AuthenticationService
+      .PostSignupInfo(inputs.name,inputs.email,inputs.password, inputs.tel, false)
       .then((response) => {
-        const { accessToken } = response.data;
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        history.push('../main/class');
       })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
+    } catch (e) {
+      console.log('error');
   }
-};
+  };
 
-function SignForm() {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -76,6 +69,8 @@ function SignForm() {
       [name]: value,
     });
   };
+
+
   return (
     <div className="StageWrapper">
       <div className="StageInfo">
@@ -107,11 +102,21 @@ function SignForm() {
             type="password"
             placeholder="비밀번호 (영문 + 숫자 + 특수문자 8자 이상)"
             onChange={onChange}
+            value={password}
+            oninvalid="this.setCustomValidity({Message})"
+            oninput="setCustomValidity('영문, 숫자, 특수문자를 조합한 8자 이상의 비밀번호를 입력해주세요.')"
             required
           />
           <br />
           <br />
-          <SignInput type="password" placeholder="비밀번호 확인" onChange={onChange} value={password} required />
+          <SignInput
+            type="password"
+            placeholder="비밀번호 확인"
+            onChange={onChange}
+            oninvalid="this.setCustomValidity({Message})"
+            oninput="setCustomValidity('값은 값을 다시 입력하세요.')"
+            required
+          />
           <br />
           <br />
           ∗ 이름
@@ -127,7 +132,7 @@ function SignForm() {
           추천인코드
           <br />
           <SignInput name="recommended" placeholder="선택 사항" onChange={onChange} />
-          <BtnSign onClick={async() => await PostUserInfo(inputs)}>회원가입하기</BtnSign>
+          <BtnSign onClick={() => PostUserInfo(inputs)}>회원가입하기</BtnSign>
           <br />
         </form>
       </div>
@@ -135,4 +140,4 @@ function SignForm() {
   );
 }
 
-export default SignForm;
+export default SignupForm;

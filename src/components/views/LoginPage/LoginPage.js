@@ -13,6 +13,17 @@ const SingUpWrapper = styled.div`
   padding: 5% 5% 25% 5%;
 `;
 
+const LogoBtn = styled.button`
+  width: 100%;
+  height: 6vh;
+  text-align: center;
+  margin: 3% 0% 0% 0%;
+  border-radius: 3%;
+  display: inline-block;
+  background-color: white;
+  border: none;
+`;
+
 const LoginBtn = styled.button`
   width: 100%;
   height: 6vh;
@@ -44,9 +55,6 @@ const KakaoBtn = styled.button`
   outline: 0;
   text-align: center;
   cursor: pointer;
-  &:hover {
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.2);
-  }
   img.icon {
     vertical-align: middle;
     display: inline-block;
@@ -78,9 +86,9 @@ function LoginPage() {
   return (
     <SingUpWrapper>
       <div className="SignUp">
-        <button className="btn" onClick="location.href='https://www.idus.com/' ">
+        <LogoBtn>
           <img src={Loginbtn} />
-        </button>
+        </LogoBtn>
         <p></p>
         <img src={PromoLogin} className="PromoLogin" />
         <Link to="./">
@@ -96,7 +104,9 @@ function LoginPage() {
           <img src={kakaoLogo} alt="kakao" className="icon" />
           <span className="buttonText">카카오톡으로 로그인하기</span>
         </KakaoBtn>
-        <OtherBtn>다른 아이디로 로그인하기</OtherBtn>
+        <Link to="./input">
+          <OtherBtn>다른 아이디로 로그인하기</OtherBtn>
+        </Link>
       </div>
     </SingUpWrapper>
   );

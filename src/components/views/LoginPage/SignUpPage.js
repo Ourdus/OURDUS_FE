@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
 import kakaoLogo from '../../img/kakaologo.svg';
+import { Link, useHistory } from 'react-router-dom';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
@@ -22,9 +23,6 @@ const KakaoBtn = styled.button`
   text-align: center;
   margin: 5% 0% 0% 5%;
   cursor: pointer;
-  &:hover {
-    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.2);
-  }
   img.icon {
     vertical-align: middle;
     display: inline-block;
@@ -53,17 +51,19 @@ const KakaoBtn = styled.button`
 `;
 
 const PostSingUpInfo = async (props) => {
+  const history = useHistory();
   try {
     axios
       .post('/api/user/join', {
         email: props.email,
         name: props.name,
-        Pnumber: props.name,
-        recommended: props.recommended,
+        tel: props.name,
       })
       .then((response) => {
         const { accessToken } = response.data;
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        history.push('../main/work')
+      
       })
       .catch((error) => {
         console.log('error : ', error.response);
@@ -96,9 +96,11 @@ function SignUpPage() {
         <br />
         <KakaoBtn>
           <img src={kakaoLogo} alt="kakao" className="icon" />
-          <span className="buttonText">카카오톡으로 로그인하기</span>
+          <span className="buttonText">카카오톡으로 가입하기</span>
         </KakaoBtn>
-        <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        <Link to="./join/signup">
+          <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        </Link>
         &emsp;&emsp;&emsp;&emsp;&emsp;이미 가입하셨다면{' '}
         <a className="aTag" href="/user/join/login">
           바로 로그인 하기
