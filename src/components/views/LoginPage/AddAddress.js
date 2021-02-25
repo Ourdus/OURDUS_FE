@@ -267,4 +267,7 @@ function ShowAddress() {
     </Wrapper>
   );
 }
+
+export default ShowAddress;
+
 export default ShowAddress;
