@@ -40,37 +40,18 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-<<<<<<< HEAD:src/components/views/LoginPage/SignupForm.js
-function SignForm() {
-=======
-
-
-
-
 function SignupForm() {
->>>>>>> 2843e64b284bbf5cb429fb96d3dac1bb426cff3b:src/components/views/LoginPage/SignForm.js
   const history = useHistory();
   const PostUserInfo = async (inputs) => {
-      try {
-<<<<<<< HEAD:src/components/views/LoginPage/SignupForm.js
-        axios
-          .post('/api/user/join',data)
-          .then((response) => {
-            history.push('/main');      
-          })
-          .catch((error) => {
-            console.log('error : ', error.response);
-          });
-=======
-        AuthenticationService
-        .PostSignupInfo(inputs.name,inputs.email,inputs.password, inputs.tel, false)
-        then((response) => {
-          history.push('../main/work');      
-        })
->>>>>>> 2843e64b284bbf5cb429fb96d3dac1bb426cff3b:src/components/views/LoginPage/SignForm.js
-      } catch (e) {
-        console.log('error');
-    }
+    try {
+      AuthenticationService
+      .PostSignupInfo(inputs.name,inputs.email,inputs.password, inputs.tel, false)
+      .then((response) => {
+        history.push('../main/class');
+      })
+    } catch (e) {
+      console.log('error');
+  }
   };
 
   const [inputs, setInputs] = useState({
@@ -159,8 +140,4 @@ function SignupForm() {
   );
 }
 
-<<<<<<< HEAD:src/components/views/LoginPage/SignupForm.js
-export default SignForm;
-=======
 export default SignupForm;
->>>>>>> 2843e64b284bbf5cb429fb96d3dac1bb426cff3b:src/components/views/LoginPage/SignForm.js
