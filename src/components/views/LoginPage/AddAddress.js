@@ -93,7 +93,6 @@ const ZipInput = styled.input`
   font-size: 14px;
 `;
 function AddDetail({match}) {
-  const i = match.params.id; 
   const history = useHistory();
   const [users, setUsers] = useState([
     {
@@ -123,13 +122,13 @@ function AddDetail({match}) {
   ]);
 
   function PostAddInfo(inputs) {
-    const url = `/api/t/user/address/${i}`;
+    const url = `/api/t/user/address/${1}`;
     const data = {
-      "name":"inputs.name",
-      "phone":"inputs.tel",
-      "zipcode": "inputs.zipcode",
-      "addressMain": "inputs.addressMain",
-      "addressSub": "inputs.addressSub"
+      "name":inputs.name,
+      "phone":inputs.tel,
+      "zipcode": inputs.zipcode,
+      "addressMain": inputs.addressMain,
+      "addressSub": inputs.addressSub
     }
     PostJwt(url, data)
       .then(() => {
