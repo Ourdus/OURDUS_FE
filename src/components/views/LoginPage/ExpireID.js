@@ -64,7 +64,7 @@ const SaveBtn = styled.button`
 function ExpireID() {
   const history = useHistory();
   const WithDraw = async () => {
-      deleteJwt
+      deleteJwt()
         .then(() => { 
           history.push('../main/work')
         })
@@ -94,7 +94,7 @@ function ExpireID() {
           &nbsp; 탈퇴를 신청합니다.
         </label>
       </form>
-      <SaveBtn onClick={() => WithDraw}>아이디어스 탈퇴</SaveBtn>
+      <SaveBtn onClick={() => WithDraw()}>아이디어스 탈퇴</SaveBtn>
     </EntireDiv>
   );
 }

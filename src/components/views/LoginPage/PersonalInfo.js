@@ -106,7 +106,7 @@ function PersonalInfo() {
   useEffect(() => {
     getJwt(url)
       .then(function (response) {
-        const data = response.data.response.addressList;
+        const data = response.data.response;
         console.log(data);
         setProduct(data);
       })
