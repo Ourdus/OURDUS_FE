@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import AuthenticationService from './ AuthenticationService';
 import { PostJwt } from './TokenConfig';
-import {deleteJwt} from './TokenConfig';
+import {deleteJwt, LogoutJwt} from './TokenConfig';
 
 const EntireDiv = styled.div`
   width: 100%;

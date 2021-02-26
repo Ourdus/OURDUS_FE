@@ -47,19 +47,24 @@ function WorkPage({match}) {
   const count = 10;
   const i = match.params.id;
   let [product, setProduct] = useState([]);
-  let [category, setCategory] = useState([]);
-  const url = `/api/w/product?page=${i}&size=${count}`;
+  let [rate, setRate] = useState([]);
+  let [price, setPrice] = useState([]);
+  let [hit, setHit] = useState([]);
+  let [purchase, setPurchase] = useState([]);
+  let [category, setCategory] = useState(categoryData);
   useEffect(() => {
-    axios
-      .get(url)
-      .then(function (response) {
-        const data = response.data.response;
-        setProduct(data);
-        setCategory(data);
-      })
-      .catch(function (error) {
-        console.log('실패');
-      });
+    try {
+      const rate = axios.get("/api/t/w/product/rate");
+      setRate(rate.data.response);
+      const price = axios.get(`/api/t/w/product/price`);
+      setPrice(price.data.response);
+      const hit = axios.get(`/api/t/w/product/hit`);
+      setHit(hit.data.response);
+      const purchase = axios.get(`/api/t/w/product/purchase`);
+      setPrice(purchase.data.response);
+    } catch (e) {
+      console.log('error');
+    }
   }, []);
 
   return (
@@ -70,9 +75,9 @@ function WorkPage({match}) {
 
       <ContentDiv>
         <ContentDetailDiv>
-          <h4>추천상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+          <h4>높은 별점 상품</h4>
+          {rate.slice(0, 10).map((a, i) => {
+            return <Product rate={rate[i]} i={i} key={i} />;
           })}
           <button className="showMore" onclick>
             {' '}
@@ -81,9 +86,9 @@ function WorkPage({match}) {
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>최신상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+          <h4>낮은 가격 상품</h4>
+          {price.slice(0, 10).map((a, i) => {
+            return <Product price={price[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
             {' '}
@@ -92,9 +97,9 @@ function WorkPage({match}) {
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>상품후기</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+          <h4>높은 조회수 상품</h4>
+          {hit.slice(0, 10).map((a, i) => {
+            return <Product hit={hit[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
             {' '}
@@ -103,9 +108,9 @@ function WorkPage({match}) {
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>인기상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+          <h4>인기 상품</h4>
+          {purchase.slice(0, 10).map((a, i) => {
+            return <Product purchase={purchase[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
             {' '}
