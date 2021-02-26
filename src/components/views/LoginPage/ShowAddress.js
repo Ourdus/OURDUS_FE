@@ -51,7 +51,7 @@ const UpdataBtn = styled.button`
 
 // showAddress는 주소(배송지)관리에 대한 정보를 저장 해놓은 곳
 function ShowDetail({match}) {
-  const i = match.params.id;
+  const i = match.params.id; 
   const [product, setProduct] = useState([
     {
       id: 1,
@@ -79,9 +79,17 @@ function ShowDetail({match}) {
     },
   ]);
   useEffect(() => {
-    getJwt
-    .then((result) => setProduct(result.data.response));
+    const url = '/api/t/user/address';
+    getJwt(url)
+    .then(function (result) {
+      setProduct(result.data.response)
+      //setProdcut(result.response) 받아 오는거 안되면 위에 내용이랑 비교
+    })
+    .catch( (error) =>{
+      console.log(error)
+    })
   }, []);
+
   return (
     <div>
       <BoxDiv>

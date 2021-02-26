@@ -101,12 +101,14 @@ const SaveBtn = styled.button`
 `;
 
 function PersonalInfo() {
+  const url = '/api/t/user/info'
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    getJwt('/api/t/user/info')
+    getJwt(url)
       .then(function (response) {
-        setProduct(response);
-        console.log(response);
+        const data = response.data.response.addressList;
+        console.log(data);
+        setProduct(data);
       })
       .catch(function (error) {
         console.log('실패');

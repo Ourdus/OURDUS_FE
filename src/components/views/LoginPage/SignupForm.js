@@ -57,8 +57,8 @@ function SignForm() {
       try {
         axios
           .post('/api/user/join',data)
-          .then((response) => {
-            history.push('/main');      
+          .then(function(response)  {
+            history.push('../main/work');      
           })
           .catch((error) => {
             console.log('error : ', error.response);
