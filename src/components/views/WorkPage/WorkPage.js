@@ -43,16 +43,19 @@ const CategoryTag = styled.a`
   text-decoration: none;
 `;
 
-function WorkPage() {
+function WorkPage({match}) {
+  const count = 10;
+  const i = match.params.id;
   let [product, setProduct] = useState([]);
-  let [category, setCategory] = useState(categoryData);
-  const url = 'api/user/main';
+  let [category, setCategory] = useState([]);
+  const url = `/api/w/product?page=${i}&size=${count}`;
   useEffect(() => {
     axios
-      .get('/api/user/join')
+      .get(url)
       .then(function (response) {
-        setProduct(response);
-        setCategory(response);
+        const data = response.data.response;
+        setProduct(data);
+        setCategory(data);
       })
       .catch(function (error) {
         console.log('실패');

@@ -52,14 +52,14 @@ function Product(props) {
   return (
     <Wrapper>
       <ImageBox>
-        <img src={props.product.url} /> {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
+        <img src={props.product.mainImage} /> {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
       </ImageBox>
       <br />
-      <ShopTag>{props.product.made_by}</ShopTag>
+      <ShopTag>{props.product.authorName}</ShopTag>
       <br />
-      <h5>{props.product.title}</h5>
+      <h5>{props.product.name}</h5>
       <hr></hr>
-      <p>{props.product.review}</p>
+      <p>{props.product.categoryName}</p>
     </Wrapper>
   );
 }

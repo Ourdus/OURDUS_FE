@@ -36,8 +36,8 @@ function Category(props) {
   return (
     <CategoryDiv>
         <img src={CategoryImg} />
-      <Link to={'/work/category/' + props.category.id}>
-        <CategoryTag><span>{props.category.name}</span></CategoryTag>{' '}
+      <Link to={'/work/category/' + props.category.categoryId}>
+        <CategoryTag><span>{props.category.categoryName}</span></CategoryTag>{' '}
       </Link>
       </CategoryDiv>
   );

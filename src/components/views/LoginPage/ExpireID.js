@@ -9,7 +9,10 @@ import {deleteJwt} from './TokenConfig';
 const EntireDiv = styled.div`
   width: 100%;
   height: 60vh;
-  margin: 2% 0% 0% 30%;
+  margin: 2% 0% 0% 25%;
+  form {
+    margin: 0.5% 0% 0% 0%;
+  }
 `;
 
 const WithDrawText = styled.a`
@@ -27,6 +30,7 @@ const TextWrapper = styled.div`
   h5 {
     font-size: 15px;
     font-weight: bold;
+    margin: 0% 0% 2% 0%;
   }
 `;
 
@@ -52,23 +56,22 @@ const SaveBtn = styled.button`
   border-radius: 5%;
   color: white;
   background-color: #fd7e14;
-  margin: 0% 0% 0px 16%;
+  margin: 0.5% 0% 0px 18%;
   font-size: 13px;
 `;
 
-const WithDraw = async () => {
-  const history = useHistory();
-    PostJwt
-      .then(() => {
-        deleteJwt();
-        history.push('../main/work')
-      })
-      .catch( (error) =>{
-        console.log(error)
-      })
-  }
 
 function ExpireID() {
+  const history = useHistory();
+  const WithDraw = async () => {
+      deleteJwt
+        .then(() => { 
+          history.push('../main/work')
+        })
+        .catch( (error) =>{
+          console.log(error)
+        })
+    }
   return (
     <EntireDiv>
       <WithDrawText>회원탈퇴</WithDrawText>

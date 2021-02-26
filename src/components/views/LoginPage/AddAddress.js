@@ -123,10 +123,17 @@ function AddDetail({match}) {
   ]);
 
   function PostAddInfo(inputs) {
-    PostJwt
+    const url = `/api/t/user/address/${i}`;
+    const data = {
+      "name":"inputs.name",
+      "phone":"inputs.tel",
+      "zipcode": "inputs.zipcode",
+      "addressMain": "inputs.addressMain",
+      "addressSub": "inputs.addressSub"
+    }
+    PostJwt(url, data)
       .then(() => {
-        deleteJwt();
-        history.push('../main/work')
+        history.push('./address')
       })
       .catch( (error) =>{
         console.log(error)
