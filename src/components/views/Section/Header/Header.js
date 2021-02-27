@@ -2,10 +2,10 @@ import React from 'react';
 import '../../../css/Header.css';
 //import ReactHoverObserver from 'react-hover-observer';
 import idusimage from '../../../img/idus.png';
-import {Link} from 'react-router-dom';
+import inputsearch from '../../../img/inputsearch.png';
 import { BsPerson } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
-
+import { Link } from 'react-router-dom';
 //npm install --save react-hover-observer hover 기능 활용을 위한 npm 설치!
 
 //import Jumbotron from 'react-bootstrap/Jumbotron'
@@ -22,18 +22,19 @@ function Header() {
       <header>
         <section className="header">
           <section className="header-top">
+            
             <section className="header-top__navbar">
+              
               <section className="header-top__navigation">
-              <Link to="../../user/join/login">
+              <a href="/" className="idusappdown">
+              아이디어스 앱 설치하기
+            </a>
                 <a href="/" className="header-bottom">
                   로그인
                 </a>
-                </Link>
-                <Link to="../../user/join/login">
                 <a href="/" className="header-bottom">
                   회원가입
                 </a>
-                </Link>
                 <a href="/" className="header-bottom">
                   고객센터
                 </a>
@@ -42,20 +43,23 @@ function Header() {
             </section>
           </section>
 
-          
           <section className="header-bottom">
-            <a href="/"  className="idusappdown">아이디어스 앱 설치하기</a>
             
-          <section className="header-bottom__info">
-            
-            &nbsp;&nbsp;<BsPerson size="20" color="steelblue" />
-              <a href="/" className="header-bottom">내정보</a>
+
+            <section className="header-bottom__info">
+              &nbsp;&nbsp;
+              <BsPerson size="20" color="steelblue" />
+              <Link to={'/main/myinfo/'} className="_category_button">
+              <a href="/" className="header-bottom">
+                내정보
+              </a>
+              </Link>
             </section>
             <section className="header-bottom__shop">
-            &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
-             
-              <a href="/" className="header-bottom">장바구니</a>
-
+              &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
+              <a href="/" className="header-bottom">
+                장바구니
+              </a>
             </section>
           </section>
         </section>
@@ -69,17 +73,13 @@ function Header() {
             <a href="/class" className="linka">
               작품
             </a>
-            <a href="/work" className="linka">
+            <a href="/work" className="linkf">
               클래스
             </a>
-
-            
-
-
           </div>
           <div className="rightSide">
-            <input type="text" placeholder="작품/클래스 검색하기" />
-            <button className="btn2">검색</button>
+            <input type="text" placeholder="신학기를 검색해보세요." className="inputstyleclass" />
+            <button className="inputbtn3"><img src={inputsearch} /></button>
             
           </div>
           
