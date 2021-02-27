@@ -114,7 +114,7 @@ function Personal() {
     try {
       PostJwt(url, data)
         .then(function (response) {
-          history.push('../personalinfo')
+          history.push('./personalinfo')
         })
         .catch((error) => {
           console.log('error : ', error.response);
