@@ -10,6 +10,7 @@ import Product from '../Section/Product/Product';
 import Silder from '../ImgSlider/Silder';
 import Category from '../Section/Product/Category'
 
+
 const ContentDiv = styled.div`
   padding: 2% 20%;
   hr {
@@ -46,22 +47,27 @@ const CategoryTag = styled.a`
 function WorkPage({match}) {
   const count = 10;
   const i = match.params.id;
-  let [product, setProduct] = useState([]);
-  let [rate, setRate] = useState([]);
-  let [price, setPrice] = useState([]);
-  let [hit, setHit] = useState([]);
-  let [purchase, setPurchase] = useState([]);
-  let [category, setCategory] = useState(categoryData);
+  const [rate, setRate] = useState([]);
+  const [price, setPrice] = useState([]);
+  const [hit, setHit] = useState([]);
+  const [purchase, setPurchase] = useState([]);
+  const [category, setCategory] = useState(categoryData);
   useEffect(() => {
     try {
-      const rate = axios.get("/api/t/w/product/rate");
-      setRate(rate.data.response);
-      const price = axios.get(`/api/t/w/product/price`);
-      setPrice(price.data.response);
-      const hit = axios.get(`/api/t/w/product/hit`);
-      setHit(hit.data.response);
-      const purchase = axios.get(`/api/t/w/product/purchase`);
-      setPrice(purchase.data.response);
+      axios
+      .get("/api/w/product/rate")
+      .get('/api/w/product/price')
+      .get('/api/w/product/hit')
+      .get('/api/w/product/purchase')
+      .then(function(response) {
+        setRate(rate.data.response);
+        setPrice(price.data.response);
+        setHit(hit.data.response);
+        setPurchase(purchase.data.response);
+      })
+      .catch(error) {
+        console.log(error);
+      }
     } catch (e) {
       console.log('error');
     }

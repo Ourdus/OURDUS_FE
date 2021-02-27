@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -149,7 +149,7 @@ function AddDetail({match}) {
       :  user
     ));
   }
-
+  useEffect
   return (
     <div>
       <BoxDiv>
