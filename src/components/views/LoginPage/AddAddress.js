@@ -267,5 +267,3 @@ function ShowAddress() {
 }
 
 export default ShowAddress;
-
-export default ShowAddress;
