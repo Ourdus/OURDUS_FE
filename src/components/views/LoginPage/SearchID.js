@@ -67,29 +67,29 @@ const FormDiv = styled.div`
   }
 `;
 
-const PostUserInfo = async (tel) => {
-  const history = useHistory();
-  console.log(tel);
-  try {
-    axios
-      .post('/api/user/id-finding', {
-        tel
-      })
-      .then(function (response) {
-        const data = response.data.response;
-        console.log(data);
-        history.push('../main/work');
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
-  }
-};
-
 function SignForm() {
   const [tel, setTel] = useState('');
+  const history = useHistory();
+  const PostUserInfo = async (tel) => {
+    const data = {
+      tel: tel,
+    }
+    try {
+      axios
+        .post('/api/user/id-finding', data)
+        .then(function (response) {
+          const data = response.data.response;
+          console.log(data);
+          history.push('../main/work');
+        })
+        .catch((error) => {
+          console.log('error : ', error.response);
+        });
+    } catch (e) {
+      console.log('error');
+    }
+  };
+  
 
   const onChange = (e) => {
     setTel(e.target.value);
