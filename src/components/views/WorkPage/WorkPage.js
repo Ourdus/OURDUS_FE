@@ -9,7 +9,11 @@ import styled from 'styled-components';
 import Product from '../Section/Product/Product';
 import Silder from '../ImgSlider/Silder';
 import Category from '../Section/Product/Category'
-
+import Hit from'../LoginPage/WorkCategory/Hit.js';
+import Price from'../LoginPage/WorkCategory/Price.js';
+import Purchase from'../LoginPage/WorkCategory/Purchase.js';
+import Rate from'../LoginPage/WorkCategory/MainRate.js';
+import MainCategory from'../LoginPage/WorkCategory/MainCategory';
 
 const ContentDiv = styled.div`
   padding: 2% 20%;
@@ -44,35 +48,7 @@ const CategoryTag = styled.a`
   text-decoration: none;
 `;
 
-function WorkPage({match}) {
-  const count = 10;
-  const i = match.params.id;
-  const [rate, setRate] = useState([]);
-  const [price, setPrice] = useState([]);
-  const [hit, setHit] = useState([]);
-  const [purchase, setPurchase] = useState([]);
-  const [category, setCategory] = useState(categoryData);
-  useEffect(() => {
-    try {
-      axios
-      .get("/api/w/product/rate")
-      .get('/api/w/product/price')
-      .get('/api/w/product/hit')
-      .get('/api/w/product/purchase')
-      .then(function(response) {
-        setRate(rate.data.response);
-        setPrice(price.data.response);
-        setHit(hit.data.response);
-        setPurchase(purchase.data.response);
-      })
-      .catch(error) {
-        console.log(error);
-      }
-    } catch (e) {
-      console.log('error');
-    }
-  }, []);
-
+function WorkPage() {
   return (
     <div className="WorkPage">
       <nav className="promotion">
@@ -81,54 +57,23 @@ function WorkPage({match}) {
 
       <ContentDiv>
         <ContentDetailDiv>
-          <h4>높은 별점 상품</h4>
-          {rate.slice(0, 10).map((a, i) => {
-            return <Product rate={rate[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Rate></Rate>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>낮은 가격 상품</h4>
-          {price.slice(0, 10).map((a, i) => {
-            return <Product price={price[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            최신상품 더보기
-          </button>
+          <Price></Price>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>높은 조회수 상품</h4>
-          {hit.slice(0, 10).map((a, i) => {
-            return <Product hit={hit[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            상품후기 더보기{' '}
-          </button>
+          <Hit></Hit>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>인기 상품</h4>
-          {purchase.slice(0, 10).map((a, i) => {
-            return <Product purchase={purchase[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            인기상품 더보기{' '}
-          </button>
+          <Purchase></Purchase>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>전체 카테고리</h4>
-          {category.map((a, i) => {
-            return <Category category={category[i]} key={i} />;
-          })}
+          <MainCategory></MainCategory>
         </ContentDetailDiv>
       </ContentDiv>
     </div>
