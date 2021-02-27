@@ -149,8 +149,7 @@ function AddDetail({match}) {
       :  user
     ));
   }
-  useEffect
-  return (
+  return(
     <div>
       <BoxDiv>
         <BoxTop>
@@ -265,4 +264,7 @@ function ShowAddress() {
     </Wrapper>
   );
 }
+
 export default ShowAddress;
+
+
