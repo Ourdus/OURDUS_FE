@@ -6,8 +6,6 @@ import KakaoMap from "./Map";
 import starImg from '../../img/stars.png';
 import favImg from '../../img/fav_button_img.png';
 import shareImg from '../../img/share_button_img.png';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import ClassSlider from './ClassSlider';
 
 // 연동 코드 -------------------------------
