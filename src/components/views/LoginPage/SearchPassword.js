@@ -132,7 +132,7 @@ function SignForm() {
         <FormDiv>
           <form method="submit">
             <SignInput name="email" placeholder="사용 중인 아이디를 입력해주세요" onChange={onChange} value={email} required />
-            <SignInput name="tel" placeholder="010-1234-5678 (숫자만 입력하세요)" onChange={onChange} value={tel} required />
+            <SignInput name="tel" placeholder="010-1234-5678 (숫자만 해주세요)" onChange={onChange} value={tel} required />
             <BtnSign onClick={() => PostUserInfo(inputs)}>인증요청</BtnSign>
           </form>
         </FormDiv>

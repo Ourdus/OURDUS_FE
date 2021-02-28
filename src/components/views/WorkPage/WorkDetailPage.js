@@ -12,7 +12,6 @@ import starImg from '../../img/stars.png';
 // 연동 코드 ------------------------------
 
 function WorkDetailPage({match}) {
-
     const i = match.params.id; //주소 (work/detail/:id) 중 id 값 받아온 것
     const [product, setProduct] = useState([]);
     const [tab, setTab] = useState(1);

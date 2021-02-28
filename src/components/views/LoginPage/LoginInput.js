@@ -131,7 +131,6 @@ const LinkDiv = styled.div`
 function LoginPage() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {  
-    
     const data = {
       email: inputs.email,
       password:inputs.password,
