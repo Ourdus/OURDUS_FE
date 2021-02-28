@@ -24,7 +24,7 @@ function Detailedorderlist(){
     return(
         <div>
 
-        <h5>배송 정보</h5>{' '}
+        <h5>배송 정</h5>{' '}
   
         <div>
             <div>받는분 : {/*orderlist.name*/} </div>
@@ -36,7 +36,7 @@ function Detailedorderlist(){
         <div>
             <div>
 
-            
+            보
             </div>
             <div>결제방법 : {/*orderlist.account*/} </div>
         </div>

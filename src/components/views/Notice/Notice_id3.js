@@ -4,15 +4,18 @@ import sidebarimage from '../../img/sidebarimage.png';
 /*sidebar 디자인을 위한 css*/
 import { Link } from 'react-router-dom';
 
-export const noticelist = styled.div`
-margin-left: 10%;
-margin-top: 5%;
-border-bottom: 3px solid black;
+export const Noticelist = styled.div`
+border-top: 2px solid lightgray;
+margin-left: 20%;
+margin-right: 20%;
+text-decoration: none;
+border-left: 2px solid lightgray;
+border-right: 2px solid lightgray;
+border-bottom: 2px solid lightgray;
 `;
-
 function Notice_id3(){
     return(
-        <div>
+        <Noticelist>
             <h2>공지사항</h2>
             💝차이(Chai)로 5만원 결제 시 4천원 할인💝<br /><br /><br />
             아이디어스 X 차이 프로모션<br />
@@ -31,7 +34,7 @@ Q. 생애 첫결제가 아니어도 할인 되나요?<br />
 A. 네! 단, 생애 첫결제 프로모션도 해당기간에 현재와 동일하게 진행되므로,<br />
 생애첫결제 고객은 두 프로모션 중 할인금액이 높은 프로모션 적용을 받게 됩니다 :<br />
 
-        </div>
+        </Noticelist>
     );
 }
 export default Notice_id3

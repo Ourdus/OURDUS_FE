@@ -4,15 +4,19 @@ import sidebarimage from '../../img/sidebarimage.png';
 /*sidebar 디자인을 위한 css*/
 import { Link } from 'react-router-dom';
 
-export const noticelist = styled.div`
-margin-left: 10%;
-margin-top: 5%;
-border-bottom: 3px solid black;
+export const Noticelist = styled.div`
+border-top: 2px solid lightgray;
+margin-left: 20%;
+margin-right: 20%;
+text-decoration: none;
+border-left: 2px solid lightgray;
+border-right: 2px solid lightgray;
+border-bottom: 2px solid lightgray;
 `;
 
 function Notice_id5(){
     return(
-        <div>
+        <Noticelist>
             <h2>공지사항</h2>
 
             ❑  [오늘만 할인] 딱 24시간만 할인! 확인해보세요⏰<br/><br/><br/>
@@ -25,7 +29,7 @@ function Notice_id5(){
 <a href="https://www.idus.com/w/showroom/1087">오늘의 할인 바로가기</a>
 
 <br/>
-        </div>
+        </Noticelist>
     );
 }
 export default Notice_id5

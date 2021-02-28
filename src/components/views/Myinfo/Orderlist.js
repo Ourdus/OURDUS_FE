@@ -141,25 +141,25 @@ function Orderlist(){
          </button>
          <div className="shoplist">
   
-         {product.slice(0, 10).map((a, i) => {
+   
             <div className="infogroup">
             <div className="date_price">
               <div className="info_date"> get orderDate 2020-10-25</div>
               <div className="info_price"> get price 7,8000원</div>
             </div>
             <div className="date_price">
-              <div className="info_date"> {product[i].orderDate}</div>
-              <div className="info_price"> {product[i].price}</div>
+              <div className="info_date"> product[i].orderDate</div>
+              <div className="info_price"> product[i].price</div>
             </div>
-    
+          
             <div className="workinfolist">
             <div className="workinfodetail">
             
-            {product[i].productName} <br />
-            {product[i].optionInfo}
+            product[i].productName[j] <br />
+            product[i].optionInfo[j]
             </div>
             <div className="workauthor">
-                <div>{product[i].optionInfo}</div>
+                <div>product[i].optionInfo[j]</div>
                <div><button class="secondinfobutton">메시지로 문의</button></div>
             </div>
             <div className="reveiwbuttongroup">
@@ -167,14 +167,11 @@ function Orderlist(){
               <div><button class="secondinfobutton">발송 정보 조회</button></div>
             </div>
             </div>
-          </div>
-          })}
 
-       
-      
-  
-  
-  
+
+          </div>
+ 
+
          </div>
          <Link to={'/main/work'} >
          <button className="showMoreorder2" onClick>
@@ -189,8 +186,6 @@ function Orderlist(){
          </div>
        </div>
       </div>
-      
    );
   }
-  
 export default Orderlist
