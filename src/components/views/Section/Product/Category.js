@@ -35,7 +35,7 @@ const CategoryTag = styled.a`
 function Category(props) {
   return (
     <CategoryDiv>
-        <img src={this.props.category.image} />
+        <img src={props.category.image} />
       <Link to={'/work/category/' + props.category.id}>
         <CategoryTag><span>{props.category.name}</span></CategoryTag>{' '}
       </Link>
