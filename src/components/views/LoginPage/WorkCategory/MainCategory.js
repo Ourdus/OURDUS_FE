@@ -8,7 +8,7 @@ function MainCategory() {
     useEffect(() => {
         try {
           axios
-          .get('/api/w/category/')
+          .get('/api/w/category')
           .then(function(response) {
             setCategory(response.data.response);
           })

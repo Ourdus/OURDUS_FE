@@ -25,7 +25,7 @@ function Hit() {
         <ContentDetailDiv>
           <h4>높은 조회수 상품</h4>
           {hit.slice(0, 10).map((a, i) => {
-            return <Product hit={hit[i]} i={i} key={i} />;
+            return <Product product={hit[i]} i={i} key={i} />;
           })}
           <button className="showMore" onclick>
             {' '}
