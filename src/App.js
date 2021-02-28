@@ -18,23 +18,30 @@ import ClassDetailPage from './components/views/ClassPage/ClassDetailPage';
 import MyPage from './components/views/MyPage/MyPage';
 
 // 로그인 및 회원정보 Directory
-import SignUpPage from './components/views/LoginPage/SignUpPage';
-import AddAddress from './components/views/LoginPage/AddAddress';
-import LoginPage from './components/views/LoginPage/LoginPage';
-import LoginInput from './components/views/LoginPage/LoginInput';
-import SignupForm from './components/views/LoginPage/SignupForm';
-import SearchID from './components/views/LoginPage/SearchID';
-import SearchPW from './components/views/LoginPage/SearchPassword'
-import Personal from './components/views/LoginPage/Personal';
-import PersonalInfo from './components/views/LoginPage/PersonalInfo';
-import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
+import AddAddress from './components/views/LoginPage/AddAddress'; // 주소정보 추가
+import DeliveryAdd from './components/views/LoginPage/DeliveryAdd'; // 주소정보 보여주느 화면
+import LoginPage from './components/views/LoginPage/LoginPage'; // 로그인 연결 화면
+import LoginInput from './components/views/LoginPage/LoginInput'; // 실제 로그인 화면
+import SignUpPage from './components/views/LoginPage/SignUpPage'; // 회원가입 연결 화면
+import SignupForm from './components/views/LoginPage/SignupForm'; // 실제 회원가입 화면
+import SearchID from './components/views/LoginPage/SearchID'; // 아이디 찾기 화면
+import ExpireID from './components/views/LoginPage/ExpireID'; // 회원 탈퇴 화면
+import SearchPW from './components/views/LoginPage/SearchPassword' // 비밀번호 찾기 화면
+import Personal from './components/views/LoginPage/Personal'; // 개인정보 보여주는 화면
+import PersonalInfo from './components/views/LoginPage/PersonalInfo'; // 개인정보 입력하는 화면
 import MyInfo from './components/views/Myinfo/Myinfo';
-import ExpireID from './components/views/LoginPage/ExpireID';
+
+// 작품 카테고리 별 디테일 화면 리스트
+import RateCategoryPage from './components/views/LoginPage/WorkCateDetail/RateCategoryPage';
+import HitCategoryPage from './components/views/LoginPage/WorkCateDetail/HitCategoryPage';
+import PriceCategoryPage from './components/views/LoginPage/WorkCateDetail/PriceCategoryPage';
+import PurchCategoryPage from './components/views/LoginPage/WorkCateDetail/PurchCategoryPage';
 
 // Cart 관련 category
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
 import DirectPay_W from './components/views/CartPage/DirectPay_W';  //바로결제
 import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
+
 //myinfo 내정보 관련
 import Sidebar from './components/views/Sidebar/Sidebar'; //sidebar 구성
 import Showmyinfo from './components/views/Myinfo/Orderlist'; //주문내역 더보기
@@ -52,7 +59,11 @@ function App() {
         <Switch>
           <Route exact path="/main" component={IdusPage} />
           <Route exact path="/main/work" component={WorkPage} />
-          <Route exact path="/main/work/category/:id" component={WorkCategoryPage} />
+          {/* 작품 메인 -> 더보기 를 했을 때 이동하는 페이지 */}
+          <Route exact path="/main/work/category/hit" component={HitCategoryPage} />
+          <Route exact path="/main/work/category/Rate" component={RateCategoryPage} />
+          <Route exact path="/main/work/category/purchase" component={PurchCategoryPage} />
+          <Route exact path="/main/work/category/price" component={PriceCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
           <Route exact path="/main/class" component={ClassPage} />
           <Route exact path="/main/class/detail/:id" component={ClassDetailPage} />
