@@ -1,23 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
 import IMG1 from '../../img/DetailIMG1.jpg';
+import IMG2 from '../../img/DetailIMG2.jpg';
+import IMG3 from '../../img/DetailIMG3.jpg';
  
 export default function SimpleSlider(props) {
-
-
-    const sampleData = [
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png',
-        '../../img/classtest.png'
-    ]
     
   var settings = {
     dots: true,
@@ -33,19 +20,19 @@ export default function SimpleSlider(props) {
         <img src={IMG1} />
       </div>
       <div>
+        <img src={IMG2} />
+      </div>
+      <div>
+        <img src={IMG3} />
+      </div>
+      <div>
         <img src={IMG1} />
       </div>
       <div>
-        <h3>3</h3>
+        <img src={IMG2} />
       </div>
       <div>
-        <h3>4</h3>
-      </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
+        <img src={IMG3} />
       </div>
     </Slider>
   );
