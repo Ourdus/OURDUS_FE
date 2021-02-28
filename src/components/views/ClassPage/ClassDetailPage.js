@@ -26,7 +26,6 @@ function ClassDetailPage({match}) {
     console.log(classData);
     console.log(classData.imageList);      
 
-
     return (
         <ClassDetail>
             <LeftContent>
