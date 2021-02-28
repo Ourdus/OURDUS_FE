@@ -5,3 +5,13 @@
   margin: 0% 3% 5% 1%;
   padding: 10px;
 }
+
+.TextWrapper {
+  width: 1800px;
+  height: 19vh;
+  background: url("../img/gradation.png");
+  color: white;
+  overflow: visible;
+  margin: 0% 0% 0% 0%;
+  z-index: 2;
+}

@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import AuthenticationService from './ AuthenticationService';
+import { PostJwt } from './TokenConfig';
+import {deleteJwt, LogoutJwt} from './TokenConfig';
 
 const EntireDiv = styled.div`
   width: 100%;
-  height: 60vh;
-  margin: 2% 0% 0% 30%;
+  height: 100vh;
+  margin: 8% 0% 0% 25%;
+  form {
+    margin: 0.5% 0% 0% 0%;
+  }
 `;
 
 const WithDrawText = styled.a`
@@ -25,6 +30,7 @@ const TextWrapper = styled.div`
   h5 {
     font-size: 15px;
     font-weight: bold;
+    margin: 0% 0% 2% 0%;
   }
 `;
 
@@ -50,23 +56,23 @@ const SaveBtn = styled.button`
   border-radius: 5%;
   color: white;
   background-color: #fd7e14;
-  margin: 0% 0% 0px 16%;
+  margin: 0.5% 0% 0px 19%;
   font-size: 13px;
 `;
 
-const WithDraw = async () => {
-  const history = useHistory();
-  AuthenticationService
-        .withdrawUser()
-        .then(() => {
-          AuthenticationService.logout()
-          history.push('./main')
-      }).catch( (error) =>{
-        console.log(error)
-      })
-  }
 
 function ExpireID() {
+  const history = useHistory();
+  const WithDraw = async () => {
+      deleteJwt('/api/user/delete')
+        .then(() => { 
+          LogoutJwt();
+          history.push('../main/work')
+        })
+        .catch( (error) =>{
+          console.log(error)
+        })
+    }
   return (
     <EntireDiv>
       <WithDrawText>회원탈퇴</WithDrawText>
@@ -89,7 +95,7 @@ function ExpireID() {
           &nbsp; 탈퇴를 신청합니다.
         </label>
       </form>
-      <SaveBtn onClick={() => WithDraw}>아이디어스 탈퇴</SaveBtn>
+      <SaveBtn onClick={() => WithDraw()}>아이디어스 탈퇴</SaveBtn>
     </EntireDiv>
   );
 }

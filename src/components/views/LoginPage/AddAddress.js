@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
@@ -93,7 +93,6 @@ const ZipInput = styled.input`
   font-size: 14px;
 `;
 function AddDetail({match}) {
-  const i = match.params.id; 
   const history = useHistory();
   const [users, setUsers] = useState([
     {
@@ -123,18 +122,17 @@ function AddDetail({match}) {
   ]);
 
   function PostAddInfo(inputs) {
-    const url =`/api/t/user/address/${i}`;
+    const url = `/api/t/user/address/${1}`;
     const data = {
-      name: inputs.name,
-      phone: inputs.phone,
-      zipcode: inputs.zipcode,
-      addressMain: inputs.addressMain,
-      addressSub: inputs.addressSub
+      "name":inputs.name,
+      "phone":inputs.tel,
+      "zipcode": inputs.zipcode,
+      "addressMain": inputs.addressMain,
+      "addressSub": inputs.addressSub
     }
-    PostJwt
+    PostJwt(url, data)
       .then(() => {
-        deleteJwt();
-        history.push('./main')
+        history.push('./address')
       })
       .catch( (error) =>{
         console.log(error)
@@ -151,8 +149,7 @@ function AddDetail({match}) {
       :  user
     ));
   }
-
-  return (
+  return(
     <div>
       <BoxDiv>
         <BoxTop>
@@ -267,4 +264,8 @@ function ShowAddress() {
     </Wrapper>
   );
 }
+
+
 export default ShowAddress;
+
+

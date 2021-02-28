@@ -5,13 +5,24 @@ import styled from 'styled-components';
 import PromoLogin from '../../img/Promo_login.png';
 import Loginbtn from '../../img/login.png';
 import kakaoLogo from '../../img/kakaologo.svg';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const SingUpWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   margin: 0% 0% 0% 0%;
   padding: 5% 5% 25% 5%;
+`;
+
+const LogoBtn = styled.button`
+  width: 100%;
+  height: 6vh;
+  text-align: center;
+  margin: 3% 0% 0% 0%;
+  border-radius: 3%;
+  display: inline-block;
+  background-color: white;
+  border: none;
 `;
 
 const KakaoBtn = styled.button`
@@ -50,36 +61,13 @@ const KakaoBtn = styled.button`
   }
 `;
 
-const PostSingUpInfo = async (props) => {
-  const history = useHistory();
-  try {
-    axios
-      .post('/api/user/join', {
-        email: props.email,
-        name: props.name,
-        tel: props.name,
-      })
-      .then((response) => {
-        const { accessToken } = response.data;
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-        history.push('../main/work')
-      
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
-  }
-};
-
 function SignUpPage() {
   return (
     <SingUpWrapper>
       <div className="SignUp">
-        <button className="btn" onClick="location.href='https://www.idus.com/' ">
+        <LogoBtn>
           <img src={Loginbtn} />
-        </button>
+        </LogoBtn>
         <p></p>
         <img src={PromoLogin} className="PromoLogin" />
         <p></p>
@@ -98,7 +86,9 @@ function SignUpPage() {
           <img src={kakaoLogo} alt="kakao" className="icon" />
           <span className="buttonText">카카오톡으로 가입하기</span>
         </KakaoBtn>
-        <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        <Link to="./join/signup">
+          <button className="choice_btn"> 다른 방법으로 가입하기 </button>
+        </Link>
         &emsp;&emsp;&emsp;&emsp;&emsp;이미 가입하셨다면{' '}
         <a className="aTag" href="/user/join/login">
           바로 로그인 하기
