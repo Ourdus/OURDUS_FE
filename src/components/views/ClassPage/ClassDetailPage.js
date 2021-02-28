@@ -6,9 +6,6 @@ import KakaoMap from "./Map";
 import starImg from '../../img/stars.png';
 import favImg from '../../img/fav_button_img.png';
 import shareImg from '../../img/share_button_img.png';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ClassSlider from './ClassSlider';
 
 // 연동 코드 -------------------------------
 
@@ -26,39 +23,30 @@ function ClassDetailPage({match}) {
         .then((result) => setClassData(result.data.response))
     }, []);
 
-    console.log(classData); 
+    console.log(classData);
+    console.log(classData.imageList);      
 
     return (
         <ClassDetail>
             <LeftContent>
                 <IMG_C>
-                <ClassSlider />
-                {/* <img src={IMG1} /> */}
-                {/* <div className="slideContainer" style={{overflow:"hidden"}}>
-                    <div className="slideContainer__slide slide" ref={slideRef}>
-                        <Slider {...settings}>
-                        {
-                        sampleData.map((data)=>{
-                            return <Slide imgSrc={data.imgSrc} name={data.name}/>
-                        })
-                        }
-                        </Slider>
-                    </div>
-                </div>
-                <ButtonLeft onClick={()=>{}}>{'<'}</ButtonLeft>
-                <ButtonRight onClick={()=>{}}>{'>'}</ButtonRight> */}
+                <img src={IMG1} />
                 <IMGS_C>
                 {
                     classData.imageList != null ?
                     classData.imageList.map((inputImg, i) => {
                         return (
-                            <div>
-                                <img src={inputImg} />
-                            </div>
+                            <img src={inputImg} />
                         );
                     })
                     : null
                 }
+                {/* <img src={IMG1} />
+                <img src={IMG1} />
+                <img src={IMG1} />
+                <img src={IMG1} />
+                <img src={IMG1} />
+                <img src={IMG1} /> */}
                 </IMGS_C>
                 </IMG_C>
                 <Information_C>
@@ -294,18 +282,8 @@ width: 100%;
 margin: auto;
 img {
     width: 100%;
-    position: relative;
 }
 `
-const ButtonLeft = styled.button`
-position: absolute;
-top: 50%;
-left: 25%;
-`
-const ButtonRight = styled.button`
-
-`
-
 const IMGS_C = styled.div`
 padding: 15px 0px;
 text-align: center;
