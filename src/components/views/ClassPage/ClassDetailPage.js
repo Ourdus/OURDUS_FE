@@ -13,6 +13,7 @@ function ClassDetailPage({match}) {
 
     const i = match.params.id;
     const [tab, setTab] = useState(1);
+
     // axios 데이터 -----------------------------------------------
     const [classData, setClassData] = useState([]);
 
@@ -23,6 +24,7 @@ function ClassDetailPage({match}) {
     }, []);
 
     console.log(classData);
+    console.log(classData.imageList);      
 
     return (
         <ClassDetail>
@@ -30,12 +32,21 @@ function ClassDetailPage({match}) {
                 <IMG_C>
                 <img src={IMG1} />
                 <IMGS_C>
+                {
+                    classData.imageList != null ?
+                    classData.imageList.map((inputImg, i) => {
+                        return (
+                            <img src={inputImg} />
+                        );
+                    })
+                    : null
+                }
+                {/* <img src={IMG1} />
                 <img src={IMG1} />
                 <img src={IMG1} />
                 <img src={IMG1} />
                 <img src={IMG1} />
-                <img src={IMG1} />
-                <img src={IMG1} />
+                <img src={IMG1} /> */}
                 </IMGS_C>
                 </IMG_C>
                 <Information_C>
@@ -85,6 +96,41 @@ function ClassDetailPage({match}) {
 }
 
 function Changed_Menu(props) {
+
+    // 댓글 삭제
+    const [deleteComment, setDeleteComment] = useState();
+
+    const PostDeleteComment = (deleteId) => {
+        axios.delete(
+            '/api/c/comment/{comment에 딸린 각 comment의 id값}',
+            {id : deleteId})
+            .then(function (response) {console.log(response);})
+            .catch(error => {console.log('error : ',error.response)}
+        );
+    }
+
+    const PostComment = async(inputs) => {
+        const data = {
+            content: inputs.comment
+        }
+        try {
+            axios
+            .post(`/api/c/{클래스 주소에 맨끝에 달린 id}/comment`, data)
+        }
+        catch(e) {
+            console.log("error");
+        }
+    };
+
+    const [inputs, setInputs] = useState({newComment:""});
+    const { newComment } = inputs;
+
+    const onChange = (e)=>{
+        const {name, value} = e.target;
+        setInputs({[name]:value});
+    };
+
+
     if(props.tab === 1){
         return (
                 <Info>
@@ -178,17 +224,34 @@ function Changed_Menu(props) {
         return (
             <Comment>
                 <p>댓글</p>
+                <CommentScroll>
                 {
                     // 원래는 classData.comments.map((comment, i) 임
                     props.classData.commentList.map((comment, i)=>{
                         return(
                             <div>
                                 <h1>• {comment.userName}</h1>
+                                <button onClick={()=> {
+                                    PostDeleteComment(comment.id)
+                                }}>X</button>
                                 <h2>{comment.content}</h2>
                             </div>
                         );
                     })
                 }
+                </CommentScroll>
+                {/* 댓글 추가 방법 1 */}
+                <textarea 
+                name="comment" 
+                type="comment" 
+                placeholder="댓글을 입력해주세요." 
+                onChange={onChange}
+                value={newComment}
+                required
+                />
+                <button onClick={() => PostComment(inputs)}>댓글 등록</button>
+                {/* 댓글 추가 방법 2 */}
+                {/* <input placeholder="댓글을 입력해주세요" onChange={()=>{setNewComment(e.target.value)}} /> */}
             </Comment>
         );
     }
@@ -381,8 +444,6 @@ h4 {
 
 // Comment
 const Comment = styled.div`
-height: 600px;
-overflow: scroll;
 p {
     padding: 10px 0px 30px 20px;
     text-align: left;
@@ -391,8 +452,6 @@ p {
 }
 div {
     margin: 0px 10px 30px 10px;
-    border: 1px solid rgb(233, 233, 233);
-    border-radius: 10px;
 }
 h1 {
     width: 100%;
@@ -407,8 +466,43 @@ h2 {
     font-size: 15px;
     text-align: left;
 }
+textarea {
+    width: 70%;
+    display: inline-block;
+}
+button {
+    width: 20%;
+    display: inline-block;
+    margin-top: -20px;
+    border: none;
+}
 `
-
+const UploadB = styled.div`
+width: 70%;
+float: right;
+padding: 0px 10px;
+background-color: pink;
+top: -30px;
+`
+const CommentScroll = styled.div`
+height: 600px;
+overflow: scroll;
+border: 1px solid rgb(233, 233, 233);
+border-radius: 10px;
+h1 {
+    width: 50%;
+    display: inline-block;
+}
+button {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+    font-size: 15px;
+    padding-right: 30px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+`
 // Right
 const RightContent = styled.div`
 width: 450px;
