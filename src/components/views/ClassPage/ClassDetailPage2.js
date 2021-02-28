@@ -24,8 +24,6 @@ function ClassDetailPage({match}) {
     }, []);
 
     console.log(classData);
-    console.log(classData.imageList);      
-
 
     return (
         <ClassDetail>
@@ -34,13 +32,13 @@ function ClassDetailPage({match}) {
                 <img src={IMG1} />
                 <IMGS_C>
                 {
-                    classData.imageList != null ?
-                    classData.imageList.map((inputImg, i) => {
+                    classData.imageList.map((img, i) => {
                         return (
-                            <img src={inputImg} />
+                            <div>
+                                <img src={img.i} />
+                            </div>
                         );
                     })
-                    : null
                 }
                 {/* <img src={IMG1} />
                 <img src={IMG1} />
@@ -102,8 +100,8 @@ function Changed_Menu(props) {
     const [deleteComment, setDeleteComment] = useState();
 
     const PostDeleteComment = (deleteId) => {
-        axios.delete(
-            '/api/c/comment/{comment에 딸린 각 comment의 id값}',
+        axios.post(
+            '/api/t/w/product/{product_id}',
             {id : deleteId})
             .then(function (response) {console.log(response);})
             .catch(error => {console.log('error : ',error.response)}
@@ -112,11 +110,11 @@ function Changed_Menu(props) {
 
     const PostComment = async(inputs) => {
         const data = {
-            content: inputs.comment
+            comment: inputs.comment
         }
         try {
             axios
-            .post(`/api/c/{클래스 주소에 맨끝에 달린 id}/comment`, data)
+            .post(`/api/{class_id}/comment`, data)
         }
         catch(e) {
             console.log("error");
