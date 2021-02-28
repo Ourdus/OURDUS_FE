@@ -376,7 +376,7 @@ height: 10%;
 .infogroup{
   
   border-radius: 0.25rem;
-  width: max-content;
+  width: 450px;
 }
 .date_price{
   display: flex;
@@ -399,6 +399,7 @@ height: 10%;
 }
 .workinfodetail{
   width: 120%;
+  
 }
 .workinfodetail{
   
@@ -411,4 +412,18 @@ height: 10%;
 .reveiwbuttongroup{
   width: 30%;
   border: 1px solid lightgray;
+}
+.firstreveiwbutton{
+
+  background-color: orange;
+  color: white;
+  border-radius: 5%;
+  border:brown;
+}
+.secondinfobutton{
+  margin: 5%;
+  background-color: white;
+  border-radius: 5%;
+  border: solid 1px lightgray;
+
 }

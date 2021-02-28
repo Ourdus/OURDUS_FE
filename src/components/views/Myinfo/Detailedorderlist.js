@@ -6,25 +6,31 @@ import sidebarimage from '../../img/sidebarimage.png';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 
-function Detailedorderlist({match}){
-    const order_id = match.params.id; //주문내역 (work/detail/:id) 중 id 값 받아온 것
-    const [orderlist, setOrderlist] = useState([]);
-
+function Detailedorderlist(){
+    //const order_id = props.params.id; //주문내역 (work/detail/:id) 중 id 값 받아온 것
+   /* const [orderlist, setOrderlist] = useState([]);
     useEffect(() => {
+        try {
         axios
-          .get(`/api/t/w/me/order/payment/detail/${order_id}`)
-        //   .then((result) => console.log(result.data.response));
-          .then((result) => setOrderlist(result.data.response));
-      }, []);
+        .get('/api/t/w/me/order/payment/detail/1')
+        .then(function(response) {
+            setOrderlist(response.data.response);
+        })
+        } catch (e) {
+        console.log('error');
+        }
+    }, []);*/
+
     return(
         <div>
 
         <h5>배송 정보</h5>{' '}
+  
         <div>
-            <div>받는분 : {orderlist.name} </div>
-            <div>전화 :  {orderlist.phone}</div>
-            <div>주소 :  {orderlist.addressMain}</div>
-        </div>
+            <div>받는분 : {/*orderlist.name*/} </div>
+            <div>전화 :  {/*orderlist.phone*/}</div>
+            <div>주소 :  {/*orderlist.addressMain*/}</div>
+    </div>
         
         <h5>결제 정보</h5>{' '}
         <div>
@@ -32,7 +38,7 @@ function Detailedorderlist({match}){
 
             
             </div>
-            <div>결제방법 : {orderlist.account} </div>
+            <div>결제방법 : {/*orderlist.account*/} </div>
         </div>
         <div>
             <div>
