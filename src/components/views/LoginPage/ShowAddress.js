@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
 import AuthenticationService from './ AuthenticationService';
+import {getJwt} from './TokenConfig';
 
 const BoxDiv = styled.div`
   width: 800px;
@@ -50,12 +51,11 @@ const UpdataBtn = styled.button`
 
 // showAddress는 주소(배송지)관리에 대한 정보를 저장 해놓은 곳
 function ShowDetail({match}) {
-  const i = match.params.id;
   const [product, setProduct] = useState([
     {
       id: 1,
       name: '김동현',
-      tel:'',
+      phone:'',
       zipCode:'',
       address: '',
       addDetail:'',
@@ -63,7 +63,7 @@ function ShowDetail({match}) {
     {
       id:2,
       name: '',
-      tel:'',
+      phone:'',
       zipCode:'',
       address: '',
       addDetail:'',
@@ -71,17 +71,25 @@ function ShowDetail({match}) {
     {
       id:3,
       name: '',
-      tel:'',
+      phone:'',
       zipCode:'',
       address: '',
       addDetail:'',
     },
   ]);
   useEffect(() => {
-    AuthenticationService
-    .sendUserToken(i)
-    .then((result) => setProduct(result.data.response));
+    const url = '/api/t/user/address';
+    getJwt(url)
+    .then(function (response) {
+      const data = response.data.response;
+      setProduct(data);
+      console.log(data);
+    })
+    .catch( (error) =>{
+      console.log(error)
+    })
   }, []);
+
   return (
     <div>
       <BoxDiv>
@@ -100,11 +108,11 @@ function ShowDetail({match}) {
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{product[0].address}</span>
+            <span className="DataSpan">{product[0].addressMain}</span>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{product[0].addDetail}</span>
+            <span className="DataSpan">{product[0].addressSub}</span>
           </p>
           <Link to="./addad">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<UpdataBtn>수정</UpdataBtn>
@@ -128,11 +136,11 @@ function ShowDetail({match}) {
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{product[1].address}</span>
+            <span className="DataSpan">{product[1].addressMain}</span>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{product[1].addDetail}</span>
+            <span className="DataSpan">{product[1].addressSub}</span>
           </p>
           <Link to="./addad">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<UpdataBtn>수정</UpdataBtn>
@@ -156,11 +164,11 @@ function ShowDetail({match}) {
           </AddAd>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{product[2].address}</span>
+            <span className="DataSpan">{product[2].addressMain}</span>
           </p>
           <p>
             &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;
-            <span className="DataSpan">{product[2].addDetail}</span>
+            <span className="DataSpan">{product[2].addressSub}</span>
           </p>
           <Link to="./addad">
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &nbsp;<UpdataBtn>수정</UpdataBtn>

@@ -40,14 +40,13 @@ const BtnSign = styled.button`
   background-color: coral;
 `;
 
-
-
-
+const LogoBtn = styled.button`
+  margin: 0% 0% 0% 30%;
+`;
 
 function SignForm() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {
-      console.log("axios보내기 전 확인");
       const data = {
         name: inputs.name,
         email: inputs.email,
@@ -58,10 +57,8 @@ function SignForm() {
       try {
         axios
           .post('/api/user/join',data)
-          .then((response) => {
-            console.log("axios보낸 후 확인");
-            console.log(response);
-            history.push('/main');      
+          .then(function(response)  {
+            history.push('../main/work');      
           })
           .catch((error) => {
             console.log('error : ', error.response);

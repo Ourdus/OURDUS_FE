@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import Silder from '../ImgSlider/Silder';
+// CSS
 import '../../css/WorkPage.css';
 import '../../css/Product.css';
-import categoryData from '../../data/categoryData';
-import data from '../../data/WorkData';
-import styled from 'styled-components';
-import Product from '../Section/Product/Product';
-import Silder from '../ImgSlider/Silder';
-import Category from '../Section/Product/Category'
+// 메인 페이지 섹션 별 Components 
+import Hit from'../LoginPage/WorkMainCategory/Hit.js';
+import Price from'../LoginPage/WorkMainCategory/Price.js';
+import Purchase from'../LoginPage/WorkMainCategory/Purchase.js';
+import Rate from'../LoginPage/WorkMainCategory/MainRate.js';
+import MainCategory from'../LoginPage/WorkMainCategory/MainCategory';
 
 const ContentDiv = styled.div`
   padding: 2% 20%;
@@ -44,21 +46,6 @@ const CategoryTag = styled.a`
 `;
 
 function WorkPage() {
-  let [product, setProduct] = useState([]);
-  let [category, setCategory] = useState(categoryData);
-  const url = 'api/user/main';
-  useEffect(() => {
-    axios
-      .get('/api/user/join')
-      .then(function (response) {
-        setProduct(response);
-        setCategory(response);
-      })
-      .catch(function (error) {
-        console.log('실패');
-      });
-  }, []);
-
   return (
     <div className="WorkPage">
       <nav className="promotion">
@@ -67,54 +54,23 @@ function WorkPage() {
 
       <ContentDiv>
         <ContentDetailDiv>
-          <h4>추천상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Rate></Rate>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>최신상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            최신상품 더보기
-          </button>
+          <Price></Price>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>상품후기</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            상품후기 더보기{' '}
-          </button>
+          <Hit></Hit>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>인기상품</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
-          })}
-          <button className="showMore" onClick>
-            {' '}
-            인기상품 더보기{' '}
-          </button>
+          <Purchase></Purchase>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>전체 카테고리</h4>
-          {category.map((a, i) => {
-            return <Category category={category[i]} key={i} />;
-          })}
+          <MainCategory></MainCategory>
         </ContentDetailDiv>
       </ContentDiv>
     </div>

@@ -10,8 +10,10 @@ export const checkHeader = () => {
 }
 
 export const setJwt = (token) => {
+    // 'jwt-auth-token' 자리는 백엔드에서 설정한 토큰 명을 삽입 해주어야 한다.
     instance.defaults.headers.common['jwt-auth-token'] = token;
     console.log("setJwt:  " + instance.defaults.headers.common['jwt-auth-token']);
+    // 새로고침을 할 때마다, 날라가는 것을 방지하기 위해 쿠기에 저장
     setCookie('jwt-auth-token', token);
     console.log("set에서 확인한 cookie는: " + document.cookie);
     //cookie setting
@@ -39,9 +41,18 @@ export const PostJwt = (uri, data) => {
     })
 }
 
-export const deleteJwt = () =>{
-    deleteCookie('jwt-auth-token');
-    delete instance.defaults.headers.common['jwt-auth-token'];
+export const deleteJwt = (uri) =>{
+    instance.defaults.headers.common['jwt-auth-token'] = getCookie('jwt-auth-token');
+    return axios.delete(uri, {
+      headers: {
+          'jwt-auth-token': instance.defaults.headers.common['jwt-auth-token']
+      }
+  })
+}
+
+export const LogoutJwt = () =>{
+  deleteCookie('jwt-auth-token');
+  delete instance.defaults.headers.common['jwt-auth-token'];
 }
 
 
