@@ -215,7 +215,7 @@ function LoginPage() {
             <ShopTag> 아이디 </ShopTag>
           </Link>
           &nbsp;/&nbsp;
-          <Link to="./auth">
+          <Link to="./authP">
             <ShopTag> 비밀번호 </ShopTag>
           </Link>
           를 잊으셨나요?

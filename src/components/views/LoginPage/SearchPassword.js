@@ -39,14 +39,15 @@ const TextDiv = styled.div`
 
   h5 {
     margin: 0% 3% 10% 22%;
-    font-size: 13px;
+    font-size: 12px;
   }
 `;
 
 const SignInput = styled.input`
-  width: 350px;
+  width: 400px;
   height: 50px;
   border: 1px solid lightgrey;
+  margin: 0% 0% 2% 0%;
 `;
 
 const BtnSign = styled.button`
@@ -56,41 +57,60 @@ const BtnSign = styled.button`
   border: none;
   font-weight: bold;
   background-color: #e9ecef;
-  margin: 0% 0% 0% 3%;
+  margin: 0% 0% 0% 75%;
 `;
 
 const FormDiv = styled.div`
   display: flex;
   form {
-    display: flex;
     margin: 0% 2% 0% 0%;
   }
 `;
 
-const PostUserInfo = async (tel) => {
-  const history = useHistory();
-  try {
-    axios
-      .post('/api/user/id-finding', {
-        tel: tel,
-      })
-      .then(function (response) {
-        const data = response.response;
-        alert({data});
-      })
-      .catch((error) => {
-        console.log('error : ', error.response);
-      });
-  } catch (e) {
-    console.log('error');
-  }
-};
 
 function SignForm() {
-  const [tel, setTel] = useState('');
+  const history = useHistory();
+  // 백에서 가져온 비밀번호 저장
+  const [pw, setPw] = useState('');
+  // 입력받은 데이터 저장
+  const [inputs, setInputs] = useState({
+    email: '',
+    tel: '',
+  });
+
+  const PostUserInfo = async (inputs) => {
+    const data = {
+      email: inputs.email,
+      tel: inputs.tel
+    }
+    try {
+      axios
+        .post('/api/user/pw-finding', data)
+        .then(function (response) {
+          const resData = response.data.response;
+          setPw(resData);
+          // push 했을 때, parameter를 함께 넘기는 방법
+          history.push({
+            pathname: '../',
+            state: {detail: pw}
+          });
+        })
+        .catch((error) => {
+          console.log('error : ', error.response);
+        });
+    } catch (e) {
+      console.log('error');
+    }
+  };
+
+  const { email, tel } = inputs;
 
   const onChange = (e) => {
-    setTel(e.target.value);
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   };
 
   return (
@@ -111,8 +131,9 @@ function SignForm() {
         </TextDiv>
         <FormDiv>
           <form method="submit">
-            <SignInput className="AuthInput" placeholder="010-1234-5678(숫자만 입력하세요)" onChange={onChange} value={tel} required />
-            <BtnSign onClick={() => PostUserInfo(tel)}>인증요청</BtnSign>
+            <SignInput name="email" placeholder="사용 중인 아이디를 입력해주세요" onChange={onChange} value={email} required />
+            <SignInput name="tel" placeholder="010-1234-5678 (숫자만 입력하세요)" onChange={onChange} value={tel} required />
+            <BtnSign onClick={() => PostUserInfo(inputs)}>인증요청</BtnSign>
           </form>
         </FormDiv>
       </StageInfo>

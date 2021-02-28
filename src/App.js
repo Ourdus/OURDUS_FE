@@ -24,6 +24,7 @@ import LoginPage from './components/views/LoginPage/LoginPage';
 import LoginInput from './components/views/LoginPage/LoginInput';
 import SignupForm from './components/views/LoginPage/SignupForm';
 import SearchID from './components/views/LoginPage/SearchID';
+import SearchPW from './components/views/LoginPage/SearchPassword'
 import Personal from './components/views/LoginPage/Personal';
 import PersonalInfo from './components/views/LoginPage/PersonalInfo';
 import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
@@ -70,6 +71,7 @@ function App() {
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
           <Route exact path="/user/personal/addad" component={AddAddress} />
           <Route exact path="/user/join/auth" component={SearchID} />
+          <Route exact path="/user/join/authP" component={SearchPW} />
           <Route exact path="/user/leave" component={ExpireID} />
           <Route exact path="/main/myInfo/showmore" component={Showmyinfo} />
           <Route exact path="/main/myInfo/showmore2" component={Showmyinfoclass} />
