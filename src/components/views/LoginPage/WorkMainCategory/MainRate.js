@@ -27,10 +27,12 @@ useEffect(() => {
           {rate.slice(0, 10).map((a, i) => {
             return <Product product={rate[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Link to ='./rate'>
+            <button className="showMore" onclick>
+              {' '}
+              추천상품 더보기{' '}
+            </button>
+          </Link>
         </ContentDetailDiv>
     )
 }
