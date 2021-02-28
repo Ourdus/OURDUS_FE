@@ -27,10 +27,12 @@ useEffect(() => {
           {price.slice(0, 10).map((a, i) => {
             return <Product product={price[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Link to='./price'>
+            <button className="showMore" onclick>
+              {' '}
+              추천상품 더보기{' '}
+            </button>
+          </Link>
         </ContentDetailDiv>
     )
 }

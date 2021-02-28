@@ -27,10 +27,12 @@ function Purchase() {
           {purchase.slice(0, 10).map((a, i) => {
             return <Product product={purchase[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Link to='./purchase'>
+            <button className="showMore" onclick>
+              {' '}
+              추천상품 더보기{' '}
+            </button>
+          </Link>
         </ContentDetailDiv>
     )
 }

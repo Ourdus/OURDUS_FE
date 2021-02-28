@@ -27,10 +27,12 @@ function Hit() {
           {hit.slice(0, 10).map((a, i) => {
             return <Product product={hit[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
+          <Link to ='./hit'>
+          <button className="showMore">
             {' '}
             추천상품 더보기{' '}
           </button>
+          </Link>
         </ContentDetailDiv>
     )
 }
