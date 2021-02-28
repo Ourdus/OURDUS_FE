@@ -25,13 +25,13 @@
 .menu {
     padding: 0px 0px 0px 0px;
     margin: 40px 0px 100px 0px;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid rgb(233, 233, 233);
 }
 .menu h5 {
     text-align: left;
-    padding: 10px 20px 10px 30px;
-    font-size: 18px;
-    font-weight: 400;
+    padding: 20px 20px 20px 30px;
+    font-size: 20px;
+    font-weight: 500;
 }
 .menu p {
     text-align: center;
@@ -39,26 +39,36 @@
 /* MenuBar */
 .menubar_W {
     margin: auto;
-    padding: 20px 0px 20px 0px;
+    padding: 5px 0px 5px 0px;
+    z-index: 99;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
 }
-.menubar_W div {
+.menubar_W button {
     width: 25%;
-    display: inline-block;
-    text-align: center;
+    height: 50px;
     padding: 0px 10px 0px 10px;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid white;
+    text-align: center;
 }
 .menu_1, .menu_2, .menu_3, .menu_4 {
     width: 100%;
     padding: 20px 0px 30px 0px;
-    border-top: 1px solid rgb(91, 89, 87);
+    border-top: 1px solid rgb(171, 171, 171);
 }
-.menu_4 {
-    border-bottom: 1px solid rgb(91, 89, 87);
-}
+/* .menu_4 {
+    border-bottom: 1px solid rgb(167, 167, 167);
+} */
 /* 작품 정보 */
 .menu_1 {
     width: 100%;
 }
+
 /* 배송 교환 환불 */
 .menu_2 {
     width: 100%;
@@ -91,6 +101,75 @@
     padding: 15px 0px 15px 20px;
 }
 
+/* 구매 후기 */
+.menu_3 {
+    height: 700px;
+    overflow: scroll;
+    border-bottom: 2mm ridge rgba(216, 216, 216, .8);
+}
+.menu_3 h1 {
+    width: 50%;
+    padding: 30px 20px 0px 20px;
+    display: inline-block;
+    text-align: left;
+    font-size: 18px;
+    border-top: 1px solid lightgray;
+}
+.menu_3 h2 {
+    width: 50%;
+    padding: 30px 20px 0px 20px;
+    display: inline-block;
+    text-align: right;
+    font-size: 18px;
+    border-top: 1px solid lightgray;
+}
+.menu_3 img {
+    width: 100px;
+}
+.menu_3 h3 {
+    width: 100%;
+    padding: 10px 20px 0px 20px;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+}
+.menu_3 h4 {
+    width: 100%;
+    padding: 20px 20px 30px 20px;
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+}
+.menu_3 h5 {
+    padding-bottom: 30px;
+}
+
+/* 댓글 */
+.menu_4 {
+    height: 600px;
+    overflow: scroll;
+    border-bottom: 2mm ridge rgba(216, 216, 216, .8);
+}
+.menu_4 h1 {
+    width: 100%;
+    padding: 20px 10px 0px 20px;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 500;
+}
+.menu_4 h2 {
+    width: 100%;
+    padding: 10px 10px 20px 30px;
+    font-size: 15px;
+    text-align: left;
+}
+.menu_4 div {
+    margin-bottom: 30px;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 10px;
+}
+
 /* Content 2 = page's right side */
 .Content2 {
     width: 25%;
@@ -103,12 +182,21 @@
 }
 .Content2 p {
     display: inline-block;
-    padding: 5px 15px 5px 20px;
+    padding: 5px 15px 0px 20px;
     font-size: 15px;
 }
 .made_by {
+    width: 50%;
     font-size: 15px;
+    display: inline-block;
     padding: 20px 10px 10px 20px;
+}
+.category_right {
+    width: 50%;
+    padding-right: 30px;
+    display: inline-block;
+    font-size: 15px;
+    text-align: right;
 }
 .title {
     font-size: 23px;
