@@ -25,7 +25,7 @@ useEffect(() => {
         <ContentDetailDiv>
           <h4>높은 별점 상품</h4>
           {rate.slice(0, 10).map((a, i) => {
-            return <Product rate={rate[i]} i={i} key={i} />;
+            return <Product product={rate[i]} i={i} key={i} />;
           })}
           <button className="showMore" onclick>
             {' '}

@@ -8,8 +8,8 @@ import {deleteJwt, LogoutJwt} from './TokenConfig';
 
 const EntireDiv = styled.div`
   width: 100%;
-  height: 60vh;
-  margin: 2% 0% 0% 25%;
+  height: 100vh;
+  margin: 8% 0% 0% 25%;
   form {
     margin: 0.5% 0% 0% 0%;
   }
@@ -56,7 +56,7 @@ const SaveBtn = styled.button`
   border-radius: 5%;
   color: white;
   background-color: #fd7e14;
-  margin: 0.5% 0% 0px 18%;
+  margin: 0.5% 0% 0px 19%;
   font-size: 13px;
 `;
 
@@ -64,8 +64,9 @@ const SaveBtn = styled.button`
 function ExpireID() {
   const history = useHistory();
   const WithDraw = async () => {
-      deleteJwt()
+      deleteJwt('/api/user/delete')
         .then(() => { 
+          LogoutJwt();
           history.push('../main/work')
         })
         .catch( (error) =>{

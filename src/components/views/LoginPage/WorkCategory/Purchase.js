@@ -25,7 +25,7 @@ function Purchase() {
         <ContentDetailDiv>
            <h4>인기 상품</h4>
           {purchase.slice(0, 10).map((a, i) => {
-            return <Product purchase={purchase[i]} i={i} key={i} />;
+            return <Product product={purchase[i]} i={i} key={i} />;
           })}
           <button className="showMore" onclick>
             {' '}
