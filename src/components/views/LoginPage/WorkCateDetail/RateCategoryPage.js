@@ -7,7 +7,7 @@ import '../../../css/Product.css';
 function RateCategorypage() {
   const [input, setInput] = useState([]);
   const [loading, setLoading] = useState(true); // 로딩중인지 아닌지를 담기위한 state
-  
+
   function GetUserInfo () {
     setLoading(true); 
     try {
@@ -28,7 +28,7 @@ function RateCategorypage() {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
     const clientHeight = document.documentElement.clientHeight;
-    if (scrollTop + clientHeight >= scrollHeight && fetching === false) {
+    if (scrollTop + clientHeight >= scrollHeight) {
       GetUserInfo();
     }
    };
@@ -37,7 +37,6 @@ function RateCategorypage() {
     window.addEventListener("scroll", handleScroll);
     GetUserInfo();
     return () => {
-      // scroll event listener 해제
       window.removeEventListener("scroll", handleScroll);
     };
 
