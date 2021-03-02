@@ -6,19 +6,44 @@ import '../../../css/Product.css';
 
 function RateCategorypage() {
   const [input, setInput] = useState([]);
-  useEffect(() => {
+  const [loading, setLoading] = useState(true); // 로딩중인지 아닌지를 담기위한 state
+  
+  function GetUserInfo () {
+    setLoading(true); 
     try {
-    axios
-    .get(`/api/w/category/1`)
-    .then(function(response) {
-      const resData = response.data.response;
-      setInput(resData);
-    })
-    } catch (e) {
-    console.log('error');
+      axios
+      .get(`/api/w/category/1`)
+      .then(function(response) {
+        const resData = response.data.response;
+        const mergedData = input.concat(...resData);
+        setInput(mergedData);
+      })
+      } catch (e) {
+      console.log('error');
+      }
+    setLoading(false);
+  }
+
+  const handleScroll = () => {
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = document.documentElement.scrollTop;
+    const clientHeight = document.documentElement.clientHeight;
+    if (scrollTop + clientHeight >= scrollHeight && fetching === false) {
+      GetUserInfo();
     }
+   };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    GetUserInfo();
+    return () => {
+      // scroll event listener 해제
+      window.removeEventListener("scroll", handleScroll);
+    };
+
   }, []);
   return (
+    <EntireWrapper>
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
@@ -30,6 +55,7 @@ function RateCategorypage() {
             return <Product product={input[i]} i={i} key={i} />;
           })}
         </ContentDetailDiv>
+    </EntireWrapper>
   );
 }
 
@@ -55,3 +81,6 @@ const ContentDiv = styled.div`
   }
 `;
 
+const EntireWrapper = styled.div`
+  padding: 2% 20%;
+`;
