@@ -20,6 +20,7 @@ function PurchCategorypage({match}) {
     }
   }, []);
   return (
+      <EntireWrapper>
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
@@ -31,6 +32,7 @@ function PurchCategorypage({match}) {
             return <Product product={input[i]} i={i} key={i} />;
           })}
         </ContentDetailDiv>
+      </EntireWrapper>
   );
 }
 
@@ -56,3 +58,6 @@ const ContentDiv = styled.div`
   }
 `;
 
+const EntireWrapper = styled.div`
+  padding: 2% 20%;
+`;

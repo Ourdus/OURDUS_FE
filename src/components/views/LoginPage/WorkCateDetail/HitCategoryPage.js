@@ -20,6 +20,7 @@ function HitCategorypage({match}) {
     }
   }, []);
   return (
+    <ContentDiv>
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
@@ -31,6 +32,7 @@ function HitCategorypage({match}) {
             return <Product product={input[i]} i={i} key={i} />;
           })}
         </ContentDetailDiv>
+    </ContentDiv>
   );
 }
 
@@ -56,3 +58,6 @@ const ContentDiv = styled.div`
   }
 `;
 
+const ContentDiv = styled.div`
+  padding: 2% 20%;
+`;
