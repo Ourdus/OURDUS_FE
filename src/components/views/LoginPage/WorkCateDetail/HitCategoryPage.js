@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import Product from '../Section/Product/Product';
-import '../../css/Product.css';
+import Product from '../../Section/Product/Product';
+import '../../../css/Product.css';
 
-function WorkCategorypage({match}) {
+function HitCategorypage({match}) {
   const i = match.params.id;
   const [input, setInput] = useState([]);
   useEffect(() => {
     try {
     axios
-    .get(`/api/w/category/${i}`)
+    .get(`/api/w/category/4`)
     .then(function(response) {
       const resData = response.data.response;
       setInput(resData);
@@ -20,21 +20,23 @@ function WorkCategorypage({match}) {
     }
   }, []);
   return (
+    <ContentDiv>
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
-              <h4>오늘의 발견</h4>
-              <h5>아이디어스가 추천하는 작품을 추천드려요</h5>
+              <h4>높은 조회 수</h4>
+              <h5>인기가 많은 작품을 추천드려요</h5>
               </ContentDiv>
           </div>
-          {input.slice(0, 10).map((a, i) => {
+          {input.map((a, i) => {
             return <Product product={input[i]} i={i} key={i} />;
           })}
         </ContentDetailDiv>
+    </ContentDiv>
   );
 }
 
-export default WorkCategorypage;
+export default HitCategorypage;
 
 
 const ContentDetailDiv = styled.div`
@@ -56,3 +58,6 @@ const ContentDiv = styled.div`
   }
 `;
 
+const ContentDiv = styled.div`
+  padding: 2% 20%;
+`;

@@ -14,23 +14,22 @@ border-right: 2px solid lightgray;
 border-bottom: 2px solid lightgray;
 `;
 
-function Notice_id1(){
+function Notice_id5(){
     return(
         <Noticelist>
             <h2>공지사항</h2>
 
-            ❑  [쿠폰💌] 최애 작가님을 캐스팅하시겠습니까❓<br/>
+            ❑  [오늘만 할인] 딱 24시간만 할인! 확인해보세요⏰<br/><br/><br/>
+            2월 28일, 오늘만 할인😘<br/>
+매일 0시부터 24시까지!<br/>
+고민하는 순간 할인이 끝나요⏰<br/><br/>
 
-
-WHO'S NEXT?<br/>
-<br/>
-❤내 최애 작가님❤ 클래스 데뷔시키기 도전!<br/>
-<br/>
-내가 듣고 싶은 작가님 추천만해도 할인 쿠폰💸<br/>
-진짜 데뷔하면 클래스 공짜라던데..?!👀<br/>
+최대 76% 할인되는 [오늘만 할인]으로<br/>
+이번 주 행복하게 마무리하세요🌼<br/>
+<a href="https://www.idus.com/w/showroom/1087">오늘의 할인 바로가기</a>
 
 <br/>
         </Noticelist>
     );
 }
-export default Notice_id1
+export default Notice_id5

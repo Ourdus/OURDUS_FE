@@ -36,19 +36,23 @@ export const showMoreorder2 = styled.div`
   line-height: 1.5;
   `;
   
-function Orderlist({match}){
-  const [product, setProduct] = useState([]);
-  const i = match.params.id; //주소 (work/detail/:id) 중 id 값 받아온 것
+function Orderlist(){
+    const [product, setProduct] = useState([]);
+    useEffect(() => {
+       try {
+       axios
+       .get('/api/t/w/me/order/payment')
+       .then(function(response) {
+          setProduct(response.data.response);
+       })
+       } catch (e) {
+       console.log('error');
+       }
+    }, []);
 
-  useEffect(() => {
-    axios
-      .get(`/api/t/w/me/order/payment`)
-    //   .then((result) => console.log(result.data.response));
-      .then((result) => setProduct(result.data.response));
-      
-  }, []);
+  //const i = match.params.id; //주소 (work/detail/:id) 중 id 값 받아온 것
   
-  if (product.length > 0){
+
     return(
    
       <div className="showtopic">
@@ -137,37 +141,37 @@ function Orderlist({match}){
          </button>
          <div className="shoplist">
   
-  
-       
-       <div className="infogroup">
-          <div className="date_price">
-            <div className="info_date"> get orderDate 2020-10-25</div>
-            <div className="info_price"> get price 7,8000원</div>
-          </div>
-          <div className="date_price">
-            <div className="info_date"> {product[i].orderDate}</div>
-            <div className="info_price"> {product[i].price}</div>
-          </div>
-  
-          <div className="workinfolist">
-          <div className="workinfodetail">
+   
+            <div className="infogroup">
+            <div className="date_price">
+              <div className="info_date"> get orderDate 2020-10-25</div>
+              <div className="info_price"> get price 7,8000원</div>
+            </div>
+            <div className="date_price">
+              <div className="info_date"> product[i].orderDate</div>
+              <div className="info_price"> product[i].price</div>
+            </div>
           
-          {product[i].productName} <br />
-          {product[i].optionInfo}
+            <div className="workinfolist">
+            <div className="workinfodetail">
+            
+            product[i].productName[j] <br />
+            product[i].optionInfo[j]
+            </div>
+            <div className="workauthor">
+                <div>product[i].optionInfo[j]</div>
+               <div><button class="secondinfobutton">메시지로 문의</button></div>
+            </div>
+            <div className="reveiwbuttongroup">
+              <div><button class="firstreveiwbutton">구매후기 작성</button></div>
+              <div><button class="secondinfobutton">발송 정보 조회</button></div>
+            </div>
+            </div>
+
+
           </div>
-          <div className="workauthor">
-              <div>{product[i].optionInfo}</div>
-             <div><button class="secondinfobutton">메시지로 문의</button></div>
-          </div>
-          <div className="reveiwbuttongroup">
-            <div><button class="firstreveiwbutton">구매후기 작성</button></div>
-            <div><button class="secondinfobutton">발송 정보 조회</button></div>
-          </div>
-          </div>
-        </div>
-  
-  
-  
+ 
+
          </div>
          <Link to={'/main/work'} >
          <button className="showMoreorder2" onClick>
@@ -182,9 +186,6 @@ function Orderlist({match}){
          </div>
        </div>
       </div>
-      
    );
   }
-  
-}
 export default Orderlist

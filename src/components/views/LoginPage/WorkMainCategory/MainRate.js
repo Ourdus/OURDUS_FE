@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import Product from '../../Section/Product/Product';
+import {Link} from 'react-router-dom';
 
 const ContentDetailDiv = styled.div`
   width: 1130px;
@@ -27,10 +28,12 @@ useEffect(() => {
           {rate.slice(0, 10).map((a, i) => {
             return <Product product={rate[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Link to ='./rate'>
+            <button className="showMore" onclick>
+              {' '}
+              추천상품 더보기{' '}
+            </button>
+          </Link>
         </ContentDetailDiv>
     )
 }

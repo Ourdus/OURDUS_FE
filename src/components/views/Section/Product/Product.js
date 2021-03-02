@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import img1 from '../../../img/Test.jpg';
+import starImg from '../../../img/stars.png';
 
 const Wrapper = styled.div`
   width: 16%;
@@ -48,6 +48,34 @@ const ImageBox = styled.div`
     overflow: visible;
   }
 `;
+
+const Stars = styled.div`
+width: 100px;
+/* height: 20px; */
+display: inline-block;
+`
+const Star_out = styled.span`
+img {
+    width: 100px;
+    /* height: 20px; */
+    position: relative;
+    z-index: 2;
+    left: -15px;
+}
+`
+const Star_in = styled.span`
+h4 {
+    width: ${props => props.width}%;
+    height: 16px;
+    float: left;
+    position: relative;
+    background-color: rgb(240, 221, 6);
+    z-index: 1;
+    top: -18px;
+    left: -15px;
+}
+`
+
 function Product(props) {
   return (
     <Wrapper>
@@ -60,6 +88,14 @@ function Product(props) {
       <h5>{props.product.name}</h5>
       <hr></hr>
       <p>{props.product.categoryName}</p>
+      <Stars>
+        <Star_out>
+          <img src={starImg} />
+          <Star_in width={props.product.rate}>
+            <h4></h4>
+          </Star_in>
+        </Star_out>
+      </Stars>
     </Wrapper>
   );
 }

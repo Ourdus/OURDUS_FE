@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import Silder from '../ImgSlider/Silder';
+// CSS
 import '../../css/WorkPage.css';
 import '../../css/Product.css';
-import categoryData from '../../data/categoryData';
-import data from '../../data/WorkData';
-import styled from 'styled-components';
-import Product from '../Section/Product/Product';
-import Silder from '../ImgSlider/Silder';
-import Category from '../Section/Product/Category'
-import Hit from'../LoginPage/WorkCategory/Hit.js';
-import Price from'../LoginPage/WorkCategory/Price.js';
-import Purchase from'../LoginPage/WorkCategory/Purchase.js';
-import Rate from'../LoginPage/WorkCategory/MainRate.js';
-import MainCategory from'../LoginPage/WorkCategory/MainCategory';
+// 메인 페이지 섹션 별 Components 
+import Hit from'../LoginPage/WorkMainCategory/Hit.js';
+import Price from'../LoginPage/WorkMainCategory/Price.js';
+import Purchase from'../LoginPage/WorkMainCategory/Purchase.js';
+import Rate from'../LoginPage/WorkMainCategory/MainRate.js';
+import MainCategory from'../LoginPage/WorkMainCategory/MainCategory';
 
 const ContentDiv = styled.div`
   padding: 2% 20%;

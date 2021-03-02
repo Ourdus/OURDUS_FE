@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components'
 import Product from '../../Section/Product/Product';
@@ -27,10 +28,12 @@ function Purchase() {
           {purchase.slice(0, 10).map((a, i) => {
             return <Product product={purchase[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
-            {' '}
-            추천상품 더보기{' '}
-          </button>
+          <Link to='./purchase'>
+            <button className="showMore" onclick>
+              {' '}
+              추천상품 더보기{' '}
+            </button>
+          </Link>
         </ContentDetailDiv>
     )
 }
