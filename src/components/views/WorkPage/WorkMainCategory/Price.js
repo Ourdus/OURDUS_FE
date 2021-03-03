@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD:src/components/views/WorkPage/WorkMainCategory/Price.js
 import {Link} from 'react-router-dom';
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> main:src/components/views/LoginPage/WorkMainCategory/Price.js
 import axios from 'axios';
 import styled from 'styled-components'
 import Product from '../../Section/Product/Product';

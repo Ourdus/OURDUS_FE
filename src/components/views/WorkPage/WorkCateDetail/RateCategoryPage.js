@@ -7,7 +7,7 @@ import '../../../css/Product.css';
 function RateCategorypage() {
   const [input, setInput] = useState([]);
   const [loading, setLoading] = useState(true); // 로딩중인지 아닌지를 담기위한 state
-  
+
   function GetUserInfo () {
     setLoading(true); 
     try {
@@ -28,13 +28,18 @@ function RateCategorypage() {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
     const clientHeight = document.documentElement.clientHeight;
+<<<<<<< HEAD:src/components/views/WorkPage/WorkCateDetail/RateCategoryPage.js
+=======
+    if (scrollTop + clientHeight >= scrollHeight) {
+      GetUserInfo();
+    }
+>>>>>>> main:src/components/views/LoginPage/WorkCateDetail/RateCategoryPage.js
    };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     GetUserInfo();
     return () => {
-      // scroll event listener 해제
       window.removeEventListener("scroll", handleScroll);
     };
 

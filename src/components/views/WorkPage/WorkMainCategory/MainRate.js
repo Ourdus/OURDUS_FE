@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components'
 import Product from '../../Section/Product/Product';
+import {Link} from 'react-router-dom';
 
 const ContentDetailDiv = styled.div`
   width: 1130px;

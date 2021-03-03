@@ -20,7 +20,7 @@ function HitCategorypage({match}) {
     }
   }, []);
   return (
-    <ContentDiv>
+    <EntireWrapper>
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
@@ -32,12 +32,11 @@ function HitCategorypage({match}) {
             return <Product product={input[i]} i={i} key={i} />;
           })}
         </ContentDetailDiv>
-    </ContentDiv>
+    </EntireWrapper>
   );
 }
 
 export default HitCategorypage;
-
 
 const ContentDetailDiv = styled.div`
   width: 1130px;
@@ -45,7 +44,6 @@ const ContentDetailDiv = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  margin: 0% 0% 0% 0%;
   padding: 2.5% 0% 0% 31%;
   font-weight: bold;
   h4 {
@@ -56,4 +54,11 @@ const ContentDiv = styled.div`
     padding: 0% 0% 0% 6%;
     font-size: 17px;
   }
+<<<<<<< HEAD:src/components/views/WorkPage/WorkCateDetail/HitCategoryPage.js
+=======
+`;
+
+const EntireWrapper = styled.div`
+  padding: 2% 20%;
+>>>>>>> main:src/components/views/LoginPage/WorkCateDetail/HitCategoryPage.js
 `;

@@ -14,7 +14,7 @@ border-right: 2px solid lightgray;
 border-bottom: 2px solid lightgray;
 `;
 
-function Notice_id1(){
+function Notice_id9(){
     return(
         <Noticelist>
             <h2>공지사항</h2>
@@ -33,4 +33,4 @@ WHO'S NEXT?<br/>
         </Noticelist>
     );
 }
-export default Notice_id1
+export default Notice_id9
