@@ -40,11 +40,7 @@ function ClassPage() {
         <ContentDetailDiv>
           <h4> Hot! 주목받는 무제한 수강 클래스 </h4>
           {product.slice(0, 4).map((a, i) => {
-<<<<<<< HEAD:src/components/views/ClassPage/ClassOnMain.js
             return <Class product={product[i]} i={i} key={i} />;
-=======
-            return <Product product={product[i]} i={i} key={i} />;
->>>>>>> main:src/components/views/ClassPage/ClassPage.js
           })}
           <button className="showMore" onClick>
             {' '}
