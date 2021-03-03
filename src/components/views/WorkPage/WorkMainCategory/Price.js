@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components'
 import Product from '../../Section/Product/Product';
@@ -7,14 +8,14 @@ const ContentDetailDiv = styled.div`
   width: 1130px;
 `;
 
-function Mainrate() {
-const [rate, setRate] = useState([]);
+function Price() {
+const [price, setPrice] = useState([]);
 useEffect(() => {
     try {
       axios
-      .get("/api/w/product/rate")
+      .get("/api/w/product/price")
       .then(function(response) {
-        setRate(response.data.response);
+        setPrice(response.data.response);
       })
     } catch (e) {
       console.log('error');
@@ -23,11 +24,11 @@ useEffect(() => {
 
     return (
         <ContentDetailDiv>
-          <h4>높은 별점 상품</h4>
-          {rate.slice(0, 10).map((a, i) => {
-            return <Product product={rate[i]} i={i} key={i} />;
+          <h4>낮은 가격 상품</h4>
+          {price.slice(0, 10).map((a, i) => {
+            return <Product product={price[i]} i={i} key={i} />;
           })}
-          <Link to ='./rate'>
+          <Link to='./price'>
             <button className="showMore" onclick>
               {' '}
               추천상품 더보기{' '}
@@ -37,5 +38,5 @@ useEffect(() => {
     )
 }
 
-export default Mainrate;
+export default Price;
 

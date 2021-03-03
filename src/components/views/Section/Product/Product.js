@@ -88,14 +88,14 @@ function Product(props) {
       <h5>{props.product.name}</h5>
       <hr></hr>
       <p>{props.product.categoryName}</p>
-      <Stars>
+      {/* <Stars>
         <Star_out>
           <img src={starImg} />
           <Star_in width={props.product.rate}>
             <h4></h4>
           </Star_in>
         </Star_out>
-      </Stars>
+      </Stars> */}
     </Wrapper>
   );
 }

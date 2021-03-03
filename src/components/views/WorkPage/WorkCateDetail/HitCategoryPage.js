@@ -57,7 +57,3 @@ const ContentDiv = styled.div`
     font-size: 17px;
   }
 `;
-
-const ContentDiv = styled.div`
-  padding: 2% 20%;
-`;

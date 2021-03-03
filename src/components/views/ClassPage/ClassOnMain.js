@@ -37,9 +37,9 @@ function ClassPage() {
 
       <ContentDiv>
         <ContentDetailDiv>
-          <h4> 얼리버드 할인 클래스</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+          <h4> Hot! 주목받는 무제한 수강 클래스 </h4>
+          {product.slice(0, 4).map((a, i) => {
+            return <Class product={product[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
             {' '}
