@@ -33,7 +33,7 @@ import '../../css/Product.css';
 import classcategoryData from '../../data/classcategoryData';
 import data from '../../data/WorkData';
 import styled from 'styled-components';
-import Class from '../Section/Product/Class';
+import Class from '../Section/Class/Class';
 
 const ContentDiv = styled.div`
   padding: 2% 20%;

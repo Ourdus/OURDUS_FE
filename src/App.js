@@ -1,6 +1,9 @@
 ﻿import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+// viewport importing 
+import handleViewport from "react-in-viewport";
+
 // Header & Footer
 import Header from './components/views/Section/Header/Header';
 import Header_class from './components/views/Section/Header/Header_class';
@@ -16,7 +19,8 @@ import WorkCategoryPage from './components/views/WorkPage/WorkCategoryPage';
 import WorkDetailPage from './components/views/WorkPage/WorkDetailPage';
 
 // Class Page
-import ClassPage from './components/views/ClassPage/ClassPage';
+import ClassOn from './components/views/ClassPage/ClassOnMain';
+import ClassOff from './components/views/ClassPage/ClassOffMain';
 import Popular from './components/views/ClassPage/PopularClass';
 import ClassDetailPage from './components/views/ClassPage/ClassDetailPage';
 import MyPage from './components/views/MyPage/MyPage';
@@ -36,10 +40,10 @@ import PersonalInfo from './components/views/LoginPage/PersonalInfo'; // 개인�
 import MyInfo from './components/views/Myinfo/Myinfo';
 
 // 작품 카테고리 별 디테일 화면 리스트
-import RateCategoryPage from './components/views/LoginPage/WorkCateDetail/RateCategoryPage';
-import HitCategoryPage from './components/views/LoginPage/WorkCateDetail/HitCategoryPage';
-import PriceCategoryPage from './components/views/LoginPage/WorkCateDetail/PriceCategoryPage';
-import PurchCategoryPage from './components/views/LoginPage/WorkCateDetail/PurchCategoryPage';
+import RateCategoryPage from './components/views/WorkPage/WorkCateDetail/RateCategoryPage';
+import HitCategoryPage from './components/views/WorkPage/WorkCateDetail/HitCategoryPage';
+import PriceCategoryPage from './components/views/WorkPage/WorkCateDetail/PriceCategoryPage';
+import PurchCategoryPage from './components/views/WorkPage/WorkCateDetail/PurchCategoryPage';
 
 // Cart 관련 category
 import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
@@ -76,6 +80,7 @@ import Notice_18 from './components/views/Notice/Notice_id18'; //게시판 보�
 import Notice_19 from './components/views/Notice/Notice_id19'; //게시판 보기
 import Notice_20 from './components/views/Notice/Notice_id20'; //게시판 보기
 
+
 function App() {
   return (
     <Router>
@@ -90,7 +95,8 @@ function App() {
           <Route exact path="/main/work/category/purchase" component={PurchCategoryPage} />
           <Route exact path="/main/work/category/price" component={PriceCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
-          <Route exact path="/main/class" component={ClassPage} />
+          <Route exact path="/main/classon" component={ClassOn} />
+          <Route exact path="/main/classoff" component={ClassOff} />
           <Route exact path="/main/class/detail/:id" component={ClassDetailPage} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />

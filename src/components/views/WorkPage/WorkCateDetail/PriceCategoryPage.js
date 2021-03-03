@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Product from '../../Section/Product/Product';
 import '../../../css/Product.css';
 
-function HitCategorypage({match}) {
+function PriceCategorypage({match}) {
   const i = match.params.id;
   const [input, setInput] = useState([]);
   useEffect(() => {
     try {
     axios
-    .get(`/api/w/category/4`)
+    .get(`/api/w/category/2`)
     .then(function(response) {
       const resData = response.data.response;
       setInput(resData);
@@ -24,8 +25,8 @@ function HitCategorypage({match}) {
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
-              <h4>높은 조회 수</h4>
-              <h5>인기가 많은 작품을 추천드려요</h5>
+              <h4>가격 순 상품</h4>
+              <h5>합리적인 가격으로 인기가 많은 상품을 추천드려요</h5>
               </ContentDiv>
           </div>
           {input.map((a, i) => {
@@ -36,7 +37,8 @@ function HitCategorypage({match}) {
   );
 }
 
-export default HitCategorypage;
+export default PriceCategorypage;
+
 
 const ContentDetailDiv = styled.div`
   width: 1130px;
@@ -44,6 +46,7 @@ const ContentDetailDiv = styled.div`
 `;
 
 const ContentDiv = styled.div`
+  margin: 0% 0% 0% 0%;
   padding: 2.5% 0% 0% 31%;
   font-weight: bold;
   h4 {

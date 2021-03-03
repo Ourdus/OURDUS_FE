@@ -28,9 +28,12 @@ function RateCategorypage() {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
     const clientHeight = document.documentElement.clientHeight;
+<<<<<<< HEAD:src/components/views/WorkPage/WorkCateDetail/RateCategoryPage.js
+=======
     if (scrollTop + clientHeight >= scrollHeight) {
       GetUserInfo();
     }
+>>>>>>> main:src/components/views/LoginPage/WorkCateDetail/RateCategoryPage.js
    };
 
   useEffect(() => {

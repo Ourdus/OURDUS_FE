@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import Product from '../../Section/Product/Product';
 import '../../../css/Product.css';
 
-function PriceCategorypage({match}) {
+function HitCategorypage({match}) {
   const i = match.params.id;
   const [input, setInput] = useState([]);
   useEffect(() => {
     try {
     axios
-    .get(`/api/w/category/2`)
+    .get(`/api/w/category/4`)
     .then(function(response) {
       const resData = response.data.response;
       setInput(resData);
@@ -24,8 +24,8 @@ function PriceCategorypage({match}) {
         <ContentDetailDiv>
           <div className="TextWrapper">
             <ContentDiv>
-              <h4>가격 순 상품</h4>
-              <h5>합리적인 가격으로 인기가 많은 상품을 추천드려요</h5>
+              <h4>높은 조회 수</h4>
+              <h5>인기가 많은 작품을 추천드려요</h5>
               </ContentDiv>
           </div>
           {input.map((a, i) => {
@@ -36,8 +36,7 @@ function PriceCategorypage({match}) {
   );
 }
 
-export default PriceCategorypage;
-
+export default HitCategorypage;
 
 const ContentDetailDiv = styled.div`
   width: 1130px;
@@ -45,7 +44,6 @@ const ContentDetailDiv = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  margin: 0% 0% 0% 0%;
   padding: 2.5% 0% 0% 31%;
   font-weight: bold;
   h4 {
@@ -56,8 +54,11 @@ const ContentDiv = styled.div`
     padding: 0% 0% 0% 6%;
     font-size: 17px;
   }
+<<<<<<< HEAD:src/components/views/WorkPage/WorkCateDetail/HitCategoryPage.js
+=======
 `;
 
 const EntireWrapper = styled.div`
   padding: 2% 20%;
+>>>>>>> main:src/components/views/LoginPage/WorkCateDetail/HitCategoryPage.js
 `;
