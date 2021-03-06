@@ -6,13 +6,12 @@ import styled from 'styled-components';
 import data from '../../data/ClassData';
 import Product from '../Section/Product/Product';
 import Class from '../Section/Class/Class';
+import ClassHot from '../Section/Class/ClassHot';
 import Silder from '../ImgSlider/Silder';
-
+import ClassEnroll from '../Section/Class/ClassEnroll';
+import ClassOpen from '../Section/Class/ClassOpen';
 const ContentDiv = styled.div`
-  margin: 4% 0% 0% 20.5%;
-  hr {
-    width: 90%;
-  }
+  margin: 4% 0% 0% 18%;
   h4 {
     font-weight: bold;
     font-size: 25px;
@@ -38,54 +37,38 @@ function ClassPage() {
 
       <ContentDiv>
         <ContentDetailDiv>
-          <h4> Hot! 주목받는 무제한 수강 클래스 </h4>
+          <h4>Hot! 주목받는 무제한 수강 클래스</h4>
           {product.slice(0, 4).map((a, i) => {
-            return <Class product={product[i]} i={i} key={i} />;
+            return <ClassHot class={product[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onClick>
-            {' '}
-            할인 클래스 더보기{' '}
-          </button>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>지금 주목받는 클래스</h4>
-          {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+          <h4>Coming Soon 오픈 예정 클래스</h4>
+          {product.slice(0, 4).map((a, i) => {
+            return <ClassOpen class={product[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onclick>
-            {' '}
-            주목 상품 더보기{' '}
-          </button>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
-          <h4>관심있는 클래스가 있나요?</h4>
-          <hr />
+          <h4>100% 달성 시 클래스 제작!</h4>
           {product.slice(0, 4).map((a, i) => {
-            return <Class product={product[i]} i={i} key={i} />;
+            return <ClassEnroll class={product[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onClick>
-            {' '}
-            관심 클래스 더보기
-          </button>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
           <h4>베스트 후기</h4>
           {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+            return <Class class={product[i]} i={i} key={i} />;
           })}
-          <button className="showMore" onClick>
-            {' '}
-            베스트 후기 더보기{' '}
-          </button>
         </ContentDetailDiv>
 
         <ContentDetailDiv>
+          {/* 10개씩 우선적으로 출력 -> 이후에 무한 스크롤로 변경 */}
           <h4>전체 클래스</h4>
           {product.slice(0, 10).map((a, i) => {
-            return <Product product={product[i]} i={i} key={i} />;
+            return <Class class={product[i]} i={i} key={i} />;
           })}
           <button className="showMore" onClick>
             {' '}

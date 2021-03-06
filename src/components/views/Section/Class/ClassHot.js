@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import starImg from '../../../img/stars.png';
 
 
-function Class(props) {
+function ClassHot(props) {
   return (
     <Wrapper>
       <ImageBox>
@@ -26,12 +26,12 @@ function Class(props) {
   );
 }
 
-export default Class;
+export default ClassHot;
 
 
 
 const Wrapper = styled.div`
-  width: 16%;
+  width: 20%;
   margin: 0% 1% 5% 1%;
   padding: 10px;
   display: inline-block;
@@ -59,7 +59,9 @@ const ImageBox = styled.div`
   margin: 0% 0%; 0% 0%;
   overflow: hidden;
   border-radius: 4px;
-  border: 1px lightgrey;
+  transform: scale(1.14);
+  transition: transform 0.5s ease;
+
 `;
 
 const Stars = styled.div`

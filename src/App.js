@@ -95,8 +95,8 @@ function App() {
           <Route exact path="/main/work/category/purchase" component={PurchCategoryPage} />
           <Route exact path="/main/work/category/price" component={PriceCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
-          <Route exact path="/main/classon" component={ClassOn} />
-          <Route exact path="/main/classoff" component={ClassOff} />
+          <Route exact path="/main/oc" component={ClassOn} />
+          <Route exact path="/main/c" component={ClassOff} />
           <Route exact path="/main/class/detail/:id" component={ClassDetailPage} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
