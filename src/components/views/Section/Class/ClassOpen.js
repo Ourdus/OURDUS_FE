@@ -15,7 +15,9 @@ function ClassHot(props) {
         <DeadlineDiv>오픈임박! 00:00:00 남음</DeadlineDiv>
         <ShopTag>바느질/재봉 - 스태리라운지</ShopTag>
         <h5>펀치니들로 만드는 유니크한 미니매트</h5>
-        <h5>80% 9900원 / 월</h5>
+        <PriceDiv>
+          <h5> <span className="Discount">80%</span> 9900원 <span className="Month">/ 월</span></h5>
+        </PriceDiv>
       </TextWrapper>
       </BoxWrapper>
     </EntireWrapper>
@@ -32,7 +34,7 @@ const EntireWrapper = styled.div`
   margin: 0% 1% 5% 1%;
   padding: 10px;
   display: inline-block;
-  background-color: rgb(247, 246, 250);
+  background-color: white;
   border: none;
   hr {
     width: 100%;
@@ -62,6 +64,7 @@ const ImageBox = styled.div`
   margin: 0% 0%; 0% 0%;
   overflow: hidden;
   border-radius: 4px;
+  border: none;
   transform: scale(1.14);
   transition: transform 0.5s ease;
 `;
@@ -69,12 +72,25 @@ const ImageBox = styled.div`
 const TextWrapper = styled.div`
   margin: 0% 0% 0% 4.5%;
   h5{
-    margin: 0.5% 0% 0% 0%;
+    margin: 0.5% 0% 6% 0%;
     font-weight: bold;
     font-size: 13.5px;
   }
 `;
 
+const PriceDiv = styled.div`
+  margin: 0% 0% 0% 0%;
+  h5 {
+    font-size: 15px;
+  }
+  .Discount{
+    color: red;
+  }
+  .Month {
+    font-size: 11px;
+    color : #adb5bd;
+  }
+`;
 
 const ShopTag = styled.a`
   color: #adb5bd;
