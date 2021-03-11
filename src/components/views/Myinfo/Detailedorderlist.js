@@ -6,7 +6,7 @@ import sidebarimage from '../../img/sidebarimage.png';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 
-function Detailedorderlist(){
+function Detailedorderlist({match}){
     //const order_id = props.params.id; //주문내역 (work/detail/:id) 중 id 값 받아온 것
    /* const [orderlist, setOrderlist] = useState([]);
     useEffect(() => {
@@ -20,14 +20,26 @@ function Detailedorderlist(){
         console.log('error');
         }
     }, []);*/
+    const i = match.params.id; 
+    const [detailorderlist, setDetailorderlist] = useState([]);
+    useEffect(() => {
+        axios
+        .get(`/api/t/w/me/order/payment/detail/${i}`)
+        .then((result) => (setDetailorderlist(result.data.response)))
+      }, [])
+      console.log(detailorderlist);
 
+
+
+
+      product.map((a, i) => {
     return(
         <div>
 
         <h5>배송 정</h5>{' '}
-  
+            
         <div>
-            <div>받는분 : {/*orderlist.name*/} </div>
+            <div>받는분 : {orderlist.name} </div>
             <div>전화 :  {/*orderlist.phone*/}</div>
             <div>주소 :  {/*orderlist.addressMain*/}</div>
     </div>
@@ -58,10 +70,10 @@ function Detailedorderlist(){
                  </div>
             <div>총 결제금액 : </div>
         </div>
-       
-
+           
             
         </div>
-    )
+        
+    ) })
 }
 export default Detailedorderlist();
