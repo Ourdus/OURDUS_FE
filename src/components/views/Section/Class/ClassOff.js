@@ -13,14 +13,6 @@ function ClassEnroll(props) {
       <br />
       <h5>{props.class.name}</h5>
       <p>{props.class.categoryName}</p>
-      {/* <Stars>
-        <Star_out>
-          <img src={starImg} />
-          <Star_in width={props.product.rate}>
-            <h4></h4>
-          </Star_in>
-        </Star_out>
-      </Stars> */}
     </Wrapper>
   );
 }
