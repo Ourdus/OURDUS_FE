@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../../css/personalInfo.css";
-import SideBar from "./SideBar";
 import sidebarimage from "../../img/sidebarimage.png";
 import myinfo1 from "../../img/myinfo1.png";
 import myinfo2 from "../../img/myinfo2.png";
@@ -13,6 +12,7 @@ import { Link } from "react-router-dom";
 import categoryData from "../../data/categoryData";
 import data from "../../data/MyinfoData";
 import Product from "../Section/Product/MyinfoProduct";
+import SideBar from "../Sidebar/SideBar";
 
 function onclickwork() {}
 function onclickoffline() {}
