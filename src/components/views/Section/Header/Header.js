@@ -19,8 +19,6 @@ import React, {useEffect, useState} from 'react';
 
 function Header({match}) {
   const [username, setUsername] = useState([]);
-
-
   useEffect(() => {
       axios
         .get(`/api/t/user/info`)
@@ -28,7 +26,7 @@ function Header({match}) {
         .then((result) => setUsername(result.data.response));
     }
     , []);
-    if(username.length > 0)
+    if(username.length > 0 ) 
     //로그인한상태
                 {
                   return (
@@ -151,14 +149,14 @@ function Header({match}) {
                   
                   <section className="header-top__navigation">
                     
-                  <a href="/" className="idusappdown">
-                  아이디어스 앱 설치하기
-                </a>
+                  <a href="../" className="idusappdown">
+                    아이디어스 앱 설치하기
+                  </a>
               
-                    <a href="/" className="header-bottom">
+                    <a href="../user/join/input" className="header-bottom">
                       로그인
                     </a>
-                    <a href="/" className="header-bottom">
+                    <a href="/user/join/signup" className="header-bottom">
                       회원가입
                     </a>
                     <a href="/" className="header-bottom">
@@ -196,10 +194,10 @@ function Header({match}) {
               </button>
     
               <div className="leftSide">
-                <a href="/class" className="linka">
+                <a href="../main/work" className="linka">
                   작품
                 </a>
-                <a href="/work" className="linkf">
+                <a href="../main/oc" className="linkf">
                   클래스
                 </a>
               </div>
