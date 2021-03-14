@@ -1,72 +1,110 @@
-﻿import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+﻿import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// viewport importing
+import handleViewport from "react-in-viewport";
 
 // Header & Footer
-import Header from './components/views/Section/Header/Header';
-import Header_class from './components/views/Section/Header/Header_class';
-import LoginHeader_class from './components/views/Section/Header/LoginHeader_class';
-import LoginHeader_work from './components/views/Section/Header/LoginHeader_work';
+import Header from "./components/views/Section/Header/Header";
+import Header_class from "./components/views/Section/Header/Header_class";
+import LoginHeader_class from "./components/views/Section/Header/LoginHeader_class";
+import LoginHeader_work from "./components/views/Section/Header/LoginHeader_work";
 
-import Footer from './components/views/Section/Footer/Footer';
+import Footer from "./components/views/Section/Footer/Footer";
 
 // Work Page
-import IdusPage from './components/views/IdusPage/IdusPage';
-import WorkPage from './components/views/WorkPage/WorkPage';
-import WorkCategoryPage from './components/views/WorkPage/WorkCategoryPage';
-import WorkDetailPage from './components/views/WorkPage/WorkDetailPage';
+import IdusPage from "./components/views/IdusPage/IdusPage";
+import WorkPage from "./components/views/WorkPage/WorkPage";
+import WorkCategoryPage from "./components/views/WorkPage/WorkCategoryPage";
+import WorkDetailPage from "./components/views/WorkPage/WorkDetailPage";
 
 // Class Page
+import ClassOn from "./components/views/ClassPage/ClassOnMain";
+import ClassOff from "./components/views/ClassPage/ClassOffMain";
+import Popular from "./components/views/ClassPage/PopularClass";
+import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
+import MyPage from "./components/views/MyPage/MyPage";
 import ClassPage from './components/views/ClassPage/ClassPage';
-import Popular from './components/views/ClassPage/PopularClass';
-import ClassDetailPage from './components/views/ClassPage/ClassDetailPage';
-import MyPage from './components/views/MyPage/MyPage';
+
+//클래스 지역별로
+import Classlocal from "./components/views/ClassPage/Classlocal";
+import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
+import Classlocalkyunggi from "./components/views/ClassPage/Classlocal/Classlocalkyunggi";
+import Classlocalincheon from "./components/views/ClassPage/Classlocal/Classlocalincheon";
+import Classlocalbusan from "./components/views/ClassPage/Classlocal/Classlocalbusan";
+import Classlocaldaegu from "./components/views/ClassPage/Classlocal/Classlocaldaegu";
+import Classlocalgwangju from "./components/views/ClassPage/Classlocal/Classlocalgwangju";
+import Classlocalsejong from "./components/views/ClassPage/Classlocal/Classlocalsejong";
+import Classlocalgwangwon from "./components/views/ClassPage/Classlocal/Classlocalgwangwon";
+import Classlocalgyeongbook from "./components/views/ClassPage/Classlocal/Classlocalgyeongbook";
+import Classlocalulsan from "./components/views/ClassPage/Classlocal/Classlocalulsan";
+import Classlocaldaejun from "./components/views/ClassPage/Classlocal/Classlocaldaejun";
+import Classlocalchoongnam from "./components/views/ClassPage/Classlocal/Classlocalchoongnam";
+
+import ClassCategory from "./components/views/ClassPage/ClassCategory";
+
+//클래스 카테고리
+import Classart from "./components/views/ClassPage/Classcategory/Classart";
+import Classbeauty from "./components/views/ClassPage/Classcategory/Classbeauty";
+import Classcooking from "./components/views/ClassPage//Classcategory/Classcooking";
+import Classcraft from "./components/views/ClassPage/Classcategory/Classcraft";
+import Classexperienceandothers from "./components/views/ClassPage/Classcategory/Classexperienceandothers";
+import Classflower from "./components/views/ClassPage/Classcategory/Classflower";
 
 // 로그인 및 회원정보 Directory
-import SignUpPage from './components/views/LoginPage/SignUpPage';
-import AddAddress from './components/views/LoginPage/AddAddress';
-import LoginPage from './components/views/LoginPage/LoginPage';
-import LoginInput from './components/views/LoginPage/LoginInput';
-import SignupForm from './components/views/LoginPage/SignupForm';
-import SearchID from './components/views/LoginPage/SearchID';
-import Personal from './components/views/LoginPage/Personal';
-import PersonalInfo from './components/views/LoginPage/PersonalInfo';
-import DeliveryAdd from './components/views/LoginPage/DeliveryAdd';
-import MyInfo from './components/views/Myinfo/Myinfo';
-import ExpireID from './components/views/LoginPage/ExpireID';
+import AddAddress from "./components/views/LoginPage/AddAddress"; // 주소정보 추가
+import DeliveryAdd from "./components/views/LoginPage/DeliveryAdd"; // 주소정보 보여주느 화면
+import LoginPage from "./components/views/LoginPage/LoginPage"; // 로그인 연결 화면
+import LoginInput from "./components/views/LoginPage/LoginInput"; // 실제 로그인 화면
+import SignUpPage from "./components/views/LoginPage/SignUpPage"; // 회원가입 연결 화면
+import SignupForm from "./components/views/LoginPage/SignupForm"; // 실제 회원가입 화면
+import SearchID from "./components/views/LoginPage/SearchID"; // 아이디 찾기 화면
+import ExpireID from "./components/views/LoginPage/ExpireID"; // 회원 탈퇴 화면
+import SearchPW from "./components/views/LoginPage/SearchPassword"; // 비밀번호 찾기 화면
+import Personal from "./components/views/LoginPage/Personal"; // 개인정보 보여주는 화면
+import PersonalInfo from "./components/views/LoginPage/PersonalInfo"; // 개인정보 입력하는 화면
+import MyInfo from "./components/views/Myinfo/Myinfo";
+
+// 작품 카테고리 별 디테일 화면 리스트
+import RateCategoryPage from "./components/views/WorkPage/WorkCateDetail/RateCategoryPage";
+import HitCategoryPage from "./components/views/WorkPage/WorkCateDetail/HitCategoryPage";
+import PriceCategoryPage from "./components/views/WorkPage/WorkCateDetail/PriceCategoryPage";
+import PurchCategoryPage from "./components/views/WorkPage/WorkCateDetail/PurchCategoryPage";
 
 // Cart 관련 category
-import Cart_W from './components/views/CartPage/CartPage_W'; //장바구니
-import DirectPay_W from './components/views/CartPage/DirectPay_W';  //바로결제
-import Payment_W from './components/views/CartPage/Payment_W';  //주문결제
+import Cart_W from "./components/views/CartPage/CartPage_W"; //장바구니
+import DirectPay_W from "./components/views/CartPage/DirectPay_W"; //바로결제
+import Payment_W from "./components/views/CartPage/Payment_W"; //주문결제
+
 //myinfo 내정보 관련
-import Sidebar from './components/views/Sidebar/Sidebar'; //sidebar 구성
-import Showmyinfo from './components/views/Myinfo/Orderlist'; //주문내역 더보기
-import Showmyinfoclass from './components/views/Myinfo/Orderlistonline'; //주문내역 더보기
-import Showmyinfoclassoff from './components/views/Myinfo/Orderlistoffline'; //주문내역 더보기
-import Detailedorderlist from './components/views/Myinfo/Detailedorderlist'; //주문내역 상세보기
+//import SideBar from "./components/views/Sidebar/SideBar"; //sidebar 구성
+import Showmyinfo from "./components/views/Myinfo/Orderlist"; //주문내역 더보기
+import Showmyinfoclass from "./components/views/Myinfo/Orderlistonline"; //주문내역 더보기
+import Showmyinfoclassoff from "./components/views/Myinfo/Orderlistoffline"; //주문내역 더보기
+import Detailedorderlist from "./components/views/Myinfo/Detailedorderlist"; //주문내역 상세보기
+import Detailedorderlist2 from "./components/views/Myinfo/Detailedorderlist2"; //주문내역 상세보기
 
-
-import Notice from './components/views/Notice/Notice'; //게시판 보기
-import Notice_1 from './components/views/Notice/Notice_id1'; //게시판 보기
-import Notice_2 from './components/views/Notice/Notice_id2'; //게시판 보기
-import Notice_3 from './components/views/Notice/Notice_id3'; //게시판 보기
-import Notice_4 from './components/views/Notice/Notice_id4'; //게시판 보기
-import Notice_5 from './components/views/Notice/Notice_id5'; //게시판 보기
-import Notice_6 from './components/views/Notice/Notice_id6'; //게시판 보기
-import Notice_7 from './components/views/Notice/Notice_id7'; //게시판 보기
-import Notice_8 from './components/views/Notice/Notice_id8'; //게시판 보기
-import Notice_9 from './components/views/Notice/Notice_id9'; //게시판 보기
-import Notice_10 from './components/views/Notice/Notice_id10'; //게시판 보기
-import Notice_11 from './components/views/Notice/Notice_id11'; //게시판 보기
-import Notice_12 from './components/views/Notice/Notice_id12'; //게시판 보기
-import Notice_13 from './components/views/Notice/Notice_id13'; //게시판 보기
-import Notice_14 from './components/views/Notice/Notice_id14'; //게시판 보기
-import Notice_15 from './components/views/Notice/Notice_id15'; //게시판 보기
-import Notice_16 from './components/views/Notice/Notice_id16'; //게시판 보기
-import Notice_17 from './components/views/Notice/Notice_id17'; //게시판 보기
-import Notice_18 from './components/views/Notice/Notice_id18'; //게시판 보기
-import Notice_19 from './components/views/Notice/Notice_id19'; //게시판 보기
-import Notice_20 from './components/views/Notice/Notice_id20'; //게시판 보기
+import Notice from "./components/views/Notice/Notice"; //게시판 보기
+import Notice_1 from "./components/views/Notice/Notice_id1"; //게시판 보기
+import Notice_2 from "./components/views/Notice/Notice_id2"; //게시판 보기
+import Notice_3 from "./components/views/Notice/Notice_id3"; //게시판 보기
+import Notice_4 from "./components/views/Notice/Notice_id4"; //게시판 보기
+import Notice_5 from "./components/views/Notice/Notice_id5"; //게시판 보기
+import Notice_6 from "./components/views/Notice/Notice_id6"; //게시판 보기
+import Notice_7 from "./components/views/Notice/Notice_id7"; //게시판 보기
+import Notice_8 from "./components/views/Notice/Notice_id8"; //게시판 보기
+import Notice_9 from "./components/views/Notice/Notice_id9"; //게시판 보기
+import Notice_10 from "./components/views/Notice/Notice_id10"; //게시판 보기
+import Notice_11 from "./components/views/Notice/Notice_id11"; //게시판 보기
+import Notice_12 from "./components/views/Notice/Notice_id12"; //게시판 보기
+import Notice_13 from "./components/views/Notice/Notice_id13"; //게시판 보기
+import Notice_14 from "./components/views/Notice/Notice_id14"; //게시판 보기
+import Notice_15 from "./components/views/Notice/Notice_id15"; //게시판 보기
+import Notice_16 from "./components/views/Notice/Notice_id16"; //게시판 보기
+import Notice_17 from "./components/views/Notice/Notice_id17"; //게시판 보기
+import Notice_18 from "./components/views/Notice/Notice_id18"; //게시판 보기
+import Notice_19 from "./components/views/Notice/Notice_id19"; //게시판 보기
+import Notice_20 from "./components/views/Notice/Notice_id20"; //게시판 보기
 
 function App() {
   return (
@@ -76,10 +114,37 @@ function App() {
         <Switch>
           <Route exact path="/main" component={IdusPage} />
           <Route exact path="/main/work" component={WorkPage} />
+          {/* 작품 메인 -> 더보기 를 했을 때 이동하는 페이지 */}
+          <Route
+            exact
+            path="/main/work/category/hit"
+            component={HitCategoryPage}
+          />
+          <Route
+            exact
+            path="/main/work/category/Rate"
+            component={RateCategoryPage}
+          />
+          <Route
+            exact
+            path="/main/work/category/purchase"
+            component={PurchCategoryPage}
+          />
+          <Route
+            exact
+            path="/main/work/category/price"
+            component={PriceCategoryPage}
+          />
           <Route exact path="/main/work/category/:id" component={WorkCategoryPage} />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
+          <Route exact path="/main/oc" component={ClassOn} />
+          <Route exact path="/main/c" component={ClassOff} />
           <Route exact path="/main/class" component={ClassPage} />
-          <Route exact path="/main/class/detail/:id" component={ClassDetailPage} />
+          <Route
+            exact
+            path="/main/class/detail/:id"
+            component={ClassDetailPage}
+          />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
           <Route exact path="/w/directPay" component={DirectPay_W} />
@@ -95,11 +160,46 @@ function App() {
           <Route exact path="/user/personal/address" component={DeliveryAdd} />
           <Route exact path="/user/personal/addad" component={AddAddress} />
           <Route exact path="/user/join/auth" component={SearchID} />
+          <Route exact path="/user/join/authP" component={SearchPW} />
           <Route exact path="/user/leave" component={ExpireID} />
           <Route exact path="/main/myInfo/showmore" component={Showmyinfo} />
-          <Route exact path="/main/myInfo/showmore2" component={Showmyinfoclass} />
-          <Route exact path="/main/myInfo/showmore3" component={Showmyinfoclassoff} />
+          <Route
+            exact
+            path="/main/myInfo/showmore2"
+            component={Showmyinfoclass}
+          />
+          <Route
+            exact
+            path="/main/myInfo/showmore3"
+            component={Showmyinfoclassoff}
+          />
           <Route exact path="/main/showmyorderdetail" component={Detailedorderlist} />
+          <Route exact path="/main/showmyorderdetail2" component={Detailedorderlist2} />
+          
+          <Route exact path="/main/class/classlocal" component={Classlocal} />
+
+          <Route exact path="/main/class/classlocal/seoul" component={Classlocalseoul} />
+          <Route exact path="/main/class/classlocal/kyunggi" component={Classlocalkyunggi} />
+          <Route exact path="/main/class/classlocal/incheon" component={Classlocalincheon} />
+          <Route exact path="/main/class/classlocal/busan" component={Classlocalbusan} />
+          <Route exact path="/main/class/classlocal/daegu" component={Classlocaldaegu} />
+          <Route exact path="/main/class/classlocal/gwangju" component={Classlocalgwangju} />
+          <Route exact path="/main/class/classlocal/sejong" component={Classlocalsejong} />
+          <Route exact path="/main/class/classlocal/gwangwon" component={Classlocalgwangwon} />
+          <Route exact path="/main/class/classloca/gyeongbook" component={Classlocalgyeongbook} />
+          <Route exact path="/main/class/classlocal/daejun" component={Classlocaldaejun} />
+          <Route exact path="/main/class/classlocal/choongnam" component={Classlocalchoongnam} />
+          <Route exact path="/main/class/classlocal/ulsan" component={Classlocalulsan} />
+
+          <Route exact path="/main/class/classcategory" component={ClassCategory} />
+
+          <Route exact path="/main/class/classcategory/Classcraft" component={Classcraft} />
+          <Route exact path="/main/class/classcategory/Classart" component={Classart} />
+          <Route exact path="/main/class/classcategory/Classbeauty" component={Classbeauty} />
+          <Route exact path="/main/class/classcategory/Classcooking" component={Classcooking} />
+          <Route exact path="/main/class/classcategory/Classexperienceandothers" component={Classexperienceandothers} />
+          <Route exact path="/main/class/classcategory/Classflower" component={Classflower} />
+
           <Route exact path="/main/notice" component={Notice} />
           <Route exact path="/main/Notice_id1" component={Notice_1} />
           <Route exact path="/main/Notice_id2" component={Notice_2} />
@@ -121,8 +221,6 @@ function App() {
           <Route exact path="/main/Notice_id18" component={Notice_18} />
           <Route exact path="/main/Notice_id19" component={Notice_19} />
           <Route exact path="/main/Notice_id20" component={Notice_20} />
-          
-          
         </Switch>
         <Footer />
       </div>

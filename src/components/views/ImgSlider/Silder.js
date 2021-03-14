@@ -64,18 +64,18 @@ const photos = [
 const Wrap = styled.div`
   width: 100%;
   .slides .slick-prev {
-    background-image: "../../img/LeftBtn.png";
+    background: url("../../img/RightBtn.png");
     background-repeat: no-repeat;
-    width: 200px;
+    width: 8%;
     height: 50px;
     position: absolute;
     top: 50%;
     left: 200px;
   }
   .slides .slick-next {
-    background-image: url("../../img/RightBtn.png");
+    background: url("../../img/RightBtn.png");
     background-repeat: no-repeat;
-    width: 100px;
+    width: 0.5%;
     height: 50px;
     margin : 0% 0% 0% 0%
     opacity: 1;

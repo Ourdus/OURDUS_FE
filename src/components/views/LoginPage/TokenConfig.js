@@ -41,11 +41,9 @@ export const PostJwt = (uri, data) => {
     })
 }
 
-export const deleteJwt = () =>{
-    deleteCookie('jwt-auth-token');
+export const deleteJwt = (uri) =>{
     instance.defaults.headers.common['jwt-auth-token'] = getCookie('jwt-auth-token');
-    delete instance.defaults.headers.common['jwt-auth-token'];
-    return axios.delete({
+    return axios.delete(uri, {
       headers: {
           'jwt-auth-token': instance.defaults.headers.common['jwt-auth-token']
       }

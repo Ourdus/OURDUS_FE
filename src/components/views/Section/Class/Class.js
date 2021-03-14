@@ -1,6 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-import img1 from '../../../img/Test.jpg';
+import starImg from '../../../img/stars.png';
+
+
+function Class(props) {
+  return (
+    <Wrapper>
+      <ImageBox>
+        <img src={props.class.mainImage} /> {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
+      </ImageBox>
+      <br />
+      <ShopTag>{props.class.authorName}</ShopTag>
+      <br />
+      <h5>{props.class.name}</h5>
+      <p>{props.class.categoryName}</p>
+      {/* <Stars>
+        <Star_out>
+          <img src={starImg} />
+          <Star_in width={props.product.rate}>
+            <h4></h4>
+          </Star_in>
+        </Star_out>
+      </Stars> */}
+    </Wrapper>
+  );
+}
+
+export default Class;
+
+
 
 const Wrapper = styled.div`
   width: 16%;
@@ -8,25 +36,13 @@ const Wrapper = styled.div`
   padding: 10px;
   display: inline-block;
   background-color: rgb(247, 246, 250);
-  border: 1px solid lightgrey;
-  border-radius: 3%;
-  align-content: space-evenly;
-`;
-
-const InterestBtn = styled.button`
-  width: 100%;
-  height: 4vh;
-  border-radius: 3%;
-  display: inline-block;
   border: none;
-  background-color: #ffe8cc;
-  h5 {
-    font-size: 11px;
-    color: #fd7e14;
-    font-weight: bold;
-    padding: 6% 0% 0% 0%;
+  hr {
+    width: 100%;
   }
 `;
+
+
 const ShopTag = styled.a`
   color: black;
   font-size: 12px;
@@ -43,34 +59,32 @@ const ImageBox = styled.div`
   margin: 0% 0%; 0% 0%;
   overflow: hidden;
   border-radius: 4px;
-  transform: scale(1.14);
-  transition: transform 0.5s ease;
-  img {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  &:hover {
-    overflow: hidden;
-    transform: (-50%, -50%);
-    transform: scale(1.15);
-  }
+  border: 1px lightgrey;
 `;
 
-function Class(props) {
-  return (
-    <Wrapper>
-      <ImageBox>
-        <img src={props.images} />
-      </ImageBox>
-      <br />
-      <ShopTag>{props.product.made_by}</ShopTag>
-      <h5>{props.product.title}</h5>
-      <p>{props.product.review}</p>
-      <InterestBtn>
-        <h5>관심 등록하고 알림받자!</h5>
-      </InterestBtn>
-    </Wrapper>
-  );
+const Stars = styled.div`
+width: 100px;
+/* height: 20px; */
+display: inline-block;
+`
+const Star_out = styled.span`
+img {
+    width: 100px;
+    /* height: 20px; */
+    position: relative;
+    z-index: 2;
+    left: -15px;
 }
-export default Class;
+`
+const Star_in = styled.span`
+h4 {
+    width: ${props => props.width}%;
+    height: 16px;
+    float: left;
+    position: relative;
+    background-color: rgb(240, 221, 6);
+    z-index: 1;
+    top: -18px;
+    left: -15px;
+}
+`

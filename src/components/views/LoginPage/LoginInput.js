@@ -131,7 +131,6 @@ const LinkDiv = styled.div`
 function LoginPage() {
   const history = useHistory();
   const PostUserInfo = async (inputs) => {  
-    
     const data = {
       email: inputs.email,
       password:inputs.password,
@@ -215,7 +214,7 @@ function LoginPage() {
             <ShopTag> 아이디 </ShopTag>
           </Link>
           &nbsp;/&nbsp;
-          <Link to="./auth">
+          <Link to="./authP">
             <ShopTag> 비밀번호 </ShopTag>
           </Link>
           를 잊으셨나요?

@@ -68,6 +68,7 @@ const FormDiv = styled.div`
 `;
 
 function SignForm() {
+  const [id, setId] = useState('');
   const [tel, setTel] = useState('');
   const history = useHistory();
   const PostUserInfo = async (tel) => {
@@ -78,9 +79,12 @@ function SignForm() {
       axios
         .post('/api/user/id-finding', data)
         .then(function (response) {
-          const data = response.data.response;
-          console.log(data);
-          history.push('../main/work');
+          const resData = response.data.response;
+          setId(resData);
+          history.push({
+            pathname: '../mainwork',
+            state: {detail: id}
+          });
         })
         .catch((error) => {
           console.log('error : ', error.response);
