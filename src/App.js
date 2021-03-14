@@ -25,6 +25,29 @@ import Popular from "./components/views/ClassPage/PopularClass";
 import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
 import MyPage from "./components/views/MyPage/MyPage";
 
+import Classlocal from "./components/views/ClassPage/Classlocal";//지역별 클래스 보기
+import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
+import Classlocalkyunggi from "./components/views/ClassPage/Classlocal/Classlocalkyunggi";
+import Classlocalincheon from "./components/views/ClassPage/Classlocal/Classlocalincheon";
+import Classlocalbusan from "./components/views/ClassPage/Classlocal/Classlocalbusan";
+import Classlocaldaegu from "./components/views/ClassPage/Classlocal/Classlocaldaegu";
+import Classlocalgwangju from "./components/views/ClassPage/Classlocal/Classlocalgwangju";
+import Classlocalsejong from "./components/views/ClassPage/Classlocal/Classlocalsejong";
+import Classlocalgwangwon from "./components/views/ClassPage/Classlocal/Classlocalgwangwon";
+import Classlocalgyeongbook from "./components/views/ClassPage/Classlocal/Classlocalgyeongbook";
+import Classlocalulsan from "./components/views/ClassPage/Classlocal/Classlocalulsan";
+import Classlocaldaejun from "./components/views/ClassPage/Classlocal/Classlocaldaejun";
+import Classlocalchoongnam from "./components/views/ClassPage/Classlocal/Classlocalchoongnam";
+
+import ClassCategory from "./components/views/ClassPage/ClassCategory";
+
+import Classart from "./components/views/ClassPage/Classcategory/Classart";
+import Classbeauty from "./components/views/ClassPage/Classcategory/Classbeauty";
+import Classcooking from "./components/views/ClassPage//Classcategory/Classcooking";
+import Classcraft from "./components/views/ClassPage/Classcategory/Classcraft";
+import Classexperienceandothers from "./components/views/ClassPage/Classcategory/Classexperienceandothers";
+import Classflower from "./components/views/ClassPage/Classcategory/Classflower";
+
 // 로그인 및 회원정보 Directory
 import AddAddress from "./components/views/LoginPage/AddAddress"; // 주소정보 추가
 import DeliveryAdd from "./components/views/LoginPage/DeliveryAdd"; // 주소정보 보여주느 화면
@@ -51,7 +74,7 @@ import DirectPay_W from "./components/views/CartPage/DirectPay_W"; //바로결�
 import Payment_W from "./components/views/CartPage/Payment_W"; //주문결제
 
 //myinfo 내정보 관련
-import SideBar from "./components/views/Sidebar/SideBar"; //sidebar 구성
+//import SideBar from "./components/views/Sidebar/SideBar"; //sidebar 구성
 import Showmyinfo from "./components/views/Myinfo/Orderlist"; //주문내역 더보기
 import Showmyinfoclass from "./components/views/Myinfo/Orderlistonline"; //주문내역 더보기
 import Showmyinfoclassoff from "./components/views/Myinfo/Orderlistoffline"; //주문내역 더보기
@@ -116,6 +139,35 @@ function App() {
             path="/main/class/detail/:id"
             component={ClassDetailPage}
           />
+
+
+          <Route exact path="/main/class/classlocal" component={Classlocal} />
+
+
+
+          <Route exact path="/main/class/classlocal/seoul" component={Classlocalseoul} />
+          <Route exact path="/main/class/classlocal/kyunggi" component={Classlocalkyunggi} />
+          <Route exact path="/main/class/classlocal/incheon" component={Classlocalincheon} />
+          <Route exact path="/main/class/classlocal/busan" component={Classlocalbusan} />
+          <Route exact path="/main/class/classlocal/daegu" component={Classlocaldaegu} />
+          <Route exact path="/main/class/classlocal/gwangju" component={Classlocalgwangju} />
+          <Route exact path="/main/class/classlocal/sejong" component={Classlocalsejong} />
+          <Route exact path="/main/class/classlocal/gwangwon" component={Classlocalgwangwon} />
+          <Route exact path="/main/class/classloca/gyeongbook" component={Classlocalgyeongbook} />
+          <Route exact path="/main/class/classlocal/daejun" component={Classlocaldaejun} />
+          <Route exact path="/main/class/classlocal/choongnam" component={Classlocalchoongnam} />
+          <Route exact path="/main/class/classlocal/ulsan" component={Classlocalulsan} />
+
+          <Route exact path="/main/class/classcategory" component={ClassCategory} />
+
+          <Route exact path="/main/class/classcategory/Classcraft" component={Classcraft} />
+          <Route exact path="/main/class/classcategory/Classart" component={Classart} />
+          <Route exact path="/main/class/classcategory/Classbeauty" component={Classbeauty} />
+          <Route exact path="/main/class/classcategory/Classcooking" component={Classcooking} />
+          <Route exact path="/main/class/classcategory/Classexperienceandothers" component={Classexperienceandothers} />
+          <Route exact path="/main/class/classcategory/Classflower" component={Classflower} />
+
+          
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
           <Route exact path="/w/directPay" component={DirectPay_W} />

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../../css/WorkPage.css';
-import '../../css/Product.css';
-import '../../css/Class.css';
+import '../../../css/WorkPage.css';
+import '../../../css/Product.css';
+import '../../../css/Class.css';
 import styled from 'styled-components';
-import data from '../../data/ClassData';
-import Product from '../Section/Product/Product';
-import ClassOff from '../Section/Class/ClassOff';
+import data from '../../../data/ClassData';
+import Product from '../../Section/Product/Product';
+import ClassOff from '../../Section/Class/ClassOff';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 const BtnDetailDiv = styled.div`
@@ -41,14 +41,14 @@ margin-left: 10%;
 const Classproductlist = styled.div`
 margin: 1%;
 `;
-function ClassCategory() {
-  const [product, setProduct] = useState([]);
-  // var classcategory = craft
-  // useEffect(() => {
-  //   axios
-  //   .get('/api/c/{class_id}/${classcategory}}')
-  //   .then((result) => (setProduct(result.data.response)))
-  // }, [])
+function Classcraft() {
+  //const [product, setProduct] = useState([]);
+
+//   useEffect(() => {
+//     axios
+//     .get('/api/c/{class_id}/${classcategory}}')
+//     .then((result) => (setProduct(result.data.response)))
+//   }, [])
   return (
     <Allclasspage>
 
@@ -102,6 +102,7 @@ function ClassCategory() {
     <LocaldetailedDiv>기타&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▶</LocaldetailedDiv>
      </Link>
+     
      <Link to={"/main/class/classcategory/Classcooking"}>
      <LocaltitleDiv>요리</LocaltitleDiv>
      </Link>
@@ -126,4 +127,4 @@ function ClassCategory() {
   );
 }
 
-export default ClassCategory;
+export default Classcraft;
