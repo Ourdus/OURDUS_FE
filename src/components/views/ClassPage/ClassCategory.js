@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import data from '../../data/ClassData';
 import Product from '../Section/Product/Product';
 import ClassOff from '../Section/Class/ClassOff';
+//import ClassOff from '../Section/C'
+
 import { Link } from "react-router-dom";
 import axios from 'axios';
 const BtnDetailDiv = styled.div`

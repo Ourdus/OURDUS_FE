@@ -3,6 +3,7 @@ import React from "react";
 import myinfobanner from "../../img/myinfocf.png";
 import { Link } from "react-router-dom";
 import SideBar from "../Sidebar/Sidebar";
+
 /*sidebar 디자인을 위한 css*/
 import "../../css/personalInfo.css";
 import sidebarimage from "../../img/sidebarimage.png";
@@ -38,6 +39,7 @@ export const btn4 = styled.div`
 function Orderlistoffline() {
   return (
     <div className="showtopic">
+
       <SideBar></SideBar>
       <h2>최근 주문내역</h2>
       <div className="myorderlist">
