@@ -25,9 +25,7 @@ import Popular from "./components/views/ClassPage/PopularClass";
 import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
 import MyPage from "./components/views/MyPage/MyPage";
 import ClassPage from './components/views/ClassPage/ClassPage';
-
-//클래스 지역별로
-import Classlocal from "./components/views/ClassPage/Classlocal";
+import Classlocal from "./components/views/ClassPage/Classlocal";//지역별 클래스 보기
 import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
 import Classlocalkyunggi from "./components/views/ClassPage/Classlocal/Classlocalkyunggi";
 import Classlocalincheon from "./components/views/ClassPage/Classlocal/Classlocalincheon";
@@ -42,7 +40,6 @@ import Classlocaldaejun from "./components/views/ClassPage/Classlocal/Classlocal
 import Classlocalchoongnam from "./components/views/ClassPage/Classlocal/Classlocalchoongnam";
 
 import ClassCategory from "./components/views/ClassPage/ClassCategory";
-
 //클래스 카테고리
 import Classart from "./components/views/ClassPage/Classcategory/Classart";
 import Classbeauty from "./components/views/ClassPage/Classcategory/Classbeauty";
@@ -83,6 +80,7 @@ import Showmyinfoclass from "./components/views/Myinfo/Orderlistonline"; //주�
 import Showmyinfoclassoff from "./components/views/Myinfo/Orderlistoffline"; //주문내역 더보기
 import Detailedorderlist from "./components/views/Myinfo/Detailedorderlist"; //주문내역 상세보기
 import Detailedorderlist2 from "./components/views/Myinfo/Detailedorderlist2"; //주문내역 상세보기
+
 
 import Notice from "./components/views/Notice/Notice"; //게시판 보기
 import Notice_1 from "./components/views/Notice/Notice_id1"; //게시판 보기
@@ -145,6 +143,31 @@ function App() {
             path="/main/class/detail/:id"
             component={ClassDetailPage}
           />
+
+
+          <Route exact path="/main/class/classlocal" component={Classlocal} />
+
+
+
+          <Route exact path="/main/class/classlocal/seoul" component={Classlocalseoul} />
+          <Route exact path="/main/class/classlocal/kyunggi" component={Classlocalkyunggi} />
+          <Route exact path="/main/class/classlocal/incheon" component={Classlocalincheon} />
+          <Route exact path="/main/class/classlocal/busan" component={Classlocalbusan} />
+          <Route exact path="/main/class/classlocal/daegu" component={Classlocaldaegu} />
+          <Route exact path="/main/class/classlocal/gwangju" component={Classlocalgwangju} />
+          <Route exact path="/main/class/classlocal/sejong" component={Classlocalsejong} />
+          <Route exact path="/main/class/classlocal/gwangwon" component={Classlocalgwangwon} />
+          <Route exact path="/main/class/classloca/gyeongbook" component={Classlocalgyeongbook} />
+          <Route exact path="/main/class/classlocal/daejun" component={Classlocaldaejun} />
+          <Route exact path="/main/class/classlocal/choongnam" component={Classlocalchoongnam} />
+          <Route exact path="/main/class/classlocal/ulsan" component={Classlocalulsan} />
+          <Route exact path="/main/class/classcategory" component={ClassCategory} />
+          <Route exact path="/main/class/classcategory/Classcraft" component={Classcraft} />
+          <Route exact path="/main/class/classcategory/Classart" component={Classart} />
+          <Route exact path="/main/class/classcategory/Classbeauty" component={Classbeauty} />
+          <Route exact path="/main/class/classcategory/Classcooking" component={Classcooking} />
+          <Route exact path="/main/class/classcategory/Classexperienceandothers" component={Classexperienceandothers} />
+          <Route exact path="/main/class/classcategory/Classflower" component={Classflower} />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
           <Route exact path="/w/directPay" component={DirectPay_W} />
@@ -199,6 +222,7 @@ function App() {
           <Route exact path="/main/class/classcategory/Classcooking" component={Classcooking} />
           <Route exact path="/main/class/classcategory/Classexperienceandothers" component={Classexperienceandothers} />
           <Route exact path="/main/class/classcategory/Classflower" component={Classflower} />
+
 
           <Route exact path="/main/notice" component={Notice} />
           <Route exact path="/main/Notice_id1" component={Notice_1} />

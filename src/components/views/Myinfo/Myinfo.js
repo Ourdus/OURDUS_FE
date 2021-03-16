@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../../css/personalInfo.css";
-//import SideBar from "../Sidebar/Sidebar";
+import SideBar from "../Sidebar/Sidebar";
 import sidebarimage from "../../img/sidebarimage.png";
 import myinfo1 from "../../img/myinfo1.png";
 import myinfo2 from "../../img/myinfo2.png";
@@ -23,7 +23,8 @@ function Myinfo() {
   let [category, setCategory] = useState(categoryData);
   return (
     <div className="infoall">
-      {/* <SideBar></SideBar> */}
+
+      <SideBar></SideBar>
       <div className="infowrapper">
         <div className="infotopic">내 정보</div>
         <div className="tableRow">

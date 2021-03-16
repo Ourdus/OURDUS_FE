@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../../css/personalInfo.css";
-//import sidebarimage from "../../img/sidebarimage.png";
+import sidebarimage from "../../img/sidebarimage.png";
 import myinfo1 from "../../img/myinfo1.png";
 import myinfo2 from "../../img/myinfo2.png";
 import myinfo3 from "../../img/myinfo3.png";
@@ -23,7 +23,9 @@ function Myorderlist() {
   let [category, setCategory] = useState(categoryData);
   return (
     <div className="infoall">
-      {/* <SideBar></SideBar> */}
+
+      <SideBar></SideBar>
+
       <div className="infowrapper">
         <div className="infotopic">내 정보</div>
         <div className="tableRow">
