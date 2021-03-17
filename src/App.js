@@ -24,6 +24,30 @@ import ClassOff from "./components/views/ClassPage/ClassOffMain";
 import Popular from "./components/views/ClassPage/PopularClass";
 import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
 import MyPage from "./components/views/MyPage/MyPage";
+import ClassCategory from "./components/views/ClassPage/ClassCategory";
+
+// import ClassPage from './components/views/ClassPage/ClassPage';
+import Classlocal from "./components/views/ClassPage/Classlocal"; //지역별 클래스 보기
+import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
+import Classlocalkyunggi from "./components/views/ClassPage/Classlocal/Classlocalkyunggi";
+import Classlocalincheon from "./components/views/ClassPage/Classlocal/Classlocalincheon";
+import Classlocalbusan from "./components/views/ClassPage/Classlocal/Classlocalbusan";
+import Classlocaldaegu from "./components/views/ClassPage/Classlocal/Classlocaldaegu";
+import Classlocalgwangju from "./components/views/ClassPage/Classlocal/Classlocalgwangju";
+import Classlocalsejong from "./components/views/ClassPage/Classlocal/Classlocalsejong";
+import Classlocalgwangwon from "./components/views/ClassPage/Classlocal/Classlocalgwangwon";
+import Classlocalgyeongbook from "./components/views/ClassPage/Classlocal/Classlocalgyeongbook";
+import Classlocalulsan from "./components/views/ClassPage/Classlocal/Classlocalulsan";
+import Classlocaldaejun from "./components/views/ClassPage/Classlocal/Classlocaldaejun";
+import Classlocalchoongnam from "./components/views/ClassPage/Classlocal/Classlocalchoongnam";
+
+//클래스 카테고리
+import Classart from "./components/views/ClassPage/Classcategory/Classart";
+import Classbeauty from "./components/views/ClassPage/Classcategory/Classbeauty";
+import Classcooking from "./components/views/ClassPage//Classcategory/Classcooking";
+import Classcraft from "./components/views/ClassPage/Classcategory/Classcraft";
+import Classexperienceandothers from "./components/views/ClassPage/Classcategory/Classexperienceandothers";
+import Classflower from "./components/views/ClassPage/Classcategory/Classflower";
 
 // 로그인 및 회원정보 Directory
 import AddAddress from "./components/views/LoginPage/AddAddress"; // 주소정보 추가

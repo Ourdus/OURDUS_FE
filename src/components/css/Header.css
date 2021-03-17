@@ -2,6 +2,7 @@
   margin-top: 0px;
   display: flex;
   flex: 1;
+  border: none;
   flex-direction: column;
 }
 .header-top {
@@ -35,13 +36,7 @@
   height: 2px;
   margin-top: 2px;
 }
-.logobutton {
-  margin-left: 15%;
-  background: white;
-  text-decoration: none;
-  border: 0;
-  outline: 0;
-}
+
 .header-top__navigation {
   display: flex;
   flex: 1;
@@ -62,12 +57,19 @@
   font: x-large;
   color: slategray;
 }
+
+.header-bottom-wrapper {
+  display: flex;
+  margin: 0% 0% 0% 10%;
+  font-size: 13px;
+}
 .header-bottom__shop {
   margin-right: 15%;
 }
 .header-bottom__info {
-  margin-bottom: 10px;
+  margin: 0% 0% 0% 12%;
 }
+
 .header-bottom__bag {
   position: absolute;
   display: flex;
@@ -101,8 +103,8 @@
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   margin-bottom: 1%;
-  border-top: 1px solid gray;
 }
+
 .Navbar2 {
   background-color: white;
   width: 100%;
@@ -110,15 +112,14 @@
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   margin-bottom: 1%;
-  border-top: 1px solid gray;
+  border: 1px solid lightgray;
 }
+
 .leftSide {
-  margin-top: 1.1%;
-  margin-left: 0%;
+  width: 150px;
+  margin: 1.2% 0% 0% 0%;
   border: none;
-  flex: 50%;
   display: flex;
-  justify-content: left;
   align-items: center;
 }
 
@@ -157,17 +158,14 @@
 }
 
 .rightSide {
-  margin-right: 15%;
-  flex: 50%;
+  margin: 1.1% 0% 0% 0%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 33%;
-  margin-top: 0.5%;
 }
 
 .input {
-  width: 300px;
+  width: 450px;
   height: 35px;
   border-radius: 5px;
   font-size: 16px;
@@ -176,18 +174,14 @@
   margin-top: 20%;
 }
 .inputstyleclass {
-  color: orange;
-  border-color: orange;
-  border: 1;
-  outline: 1;
-  height: 77%;
+  width: 330px;
+  height: 40px;
+  border: 1px solid coral;
+  border-radius: 3px;
+  align-items: center;
+  position: relative;
 }
-.inputbtn3 {
-  background: white;
-  text-decoration: none;
-  border: 0;
-  outline: 0;
-}
+
 .btn2 {
   color: orange;
   background-color: white;
@@ -200,14 +194,12 @@
 }
 .idusappdown {
   display: flex;
-  margin-right: 48%;
+  margin-right: 61%;
   justify-content: flex-end;
   align-items: right;
   margin-top: 0.5%;
   text-decoration: none;
-  font-style: bold;
-  font-weight: bold;
-  font-size: smaller;
+  font-size: 12px;
   font: x-large;
-  color: slategray;
+  color: #495057;
 }
