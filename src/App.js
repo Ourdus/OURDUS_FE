@@ -24,6 +24,28 @@ import ClassOff from "./components/views/ClassPage/ClassOffMain";
 import Popular from "./components/views/ClassPage/PopularClass";
 import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
 import MyPage from "./components/views/MyPage/MyPage";
+// import ClassPage from './components/views/ClassPage/ClassPage';
+import Classlocal from "./components/views/ClassPage/Classlocal"; //지역별 클래스 보기
+import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
+import Classlocalkyunggi from "./components/views/ClassPage/Classlocal/Classlocalkyunggi";
+import Classlocalincheon from "./components/views/ClassPage/Classlocal/Classlocalincheon";
+import Classlocalbusan from "./components/views/ClassPage/Classlocal/Classlocalbusan";
+import Classlocaldaegu from "./components/views/ClassPage/Classlocal/Classlocaldaegu";
+import Classlocalgwangju from "./components/views/ClassPage/Classlocal/Classlocalgwangju";
+import Classlocalsejong from "./components/views/ClassPage/Classlocal/Classlocalsejong";
+import Classlocalgwangwon from "./components/views/ClassPage/Classlocal/Classlocalgwangwon";
+import Classlocalgyeongbook from "./components/views/ClassPage/Classlocal/Classlocalgyeongbook";
+import Classlocalulsan from "./components/views/ClassPage/Classlocal/Classlocalulsan";
+import Classlocaldaejun from "./components/views/ClassPage/Classlocal/Classlocaldaejun";
+import Classlocalchoongnam from "./components/views/ClassPage/Classlocal/Classlocalchoongnam";
+
+//클래스 카테고리
+import Classart from "./components/views/ClassPage/Classcategory/Classart";
+import Classbeauty from "./components/views/ClassPage/Classcategory/Classbeauty";
+import Classcooking from "./components/views/ClassPage//Classcategory/Classcooking";
+import Classcraft from "./components/views/ClassPage/Classcategory/Classcraft";
+import Classexperienceandothers from "./components/views/ClassPage/Classcategory/Classexperienceandothers";
+import Classflower from "./components/views/ClassPage/Classcategory/Classflower";
 
 // 로그인 및 회원정보 Directory
 import AddAddress from "./components/views/LoginPage/AddAddress"; // 주소정보 추가
@@ -56,6 +78,7 @@ import Showmyinfo from "./components/views/Myinfo/Orderlist"; //주문내역 더
 import Showmyinfoclass from "./components/views/Myinfo/Orderlistonline"; //주문내역 더보기
 import Showmyinfoclassoff from "./components/views/Myinfo/Orderlistoffline"; //주문내역 더보기
 import Detailedorderlist from "./components/views/Myinfo/Detailedorderlist"; //주문내역 상세보기
+import Detailedorderlist2 from "./components/views/Myinfo/Detailedorderlist2"; //주문내역 상세보기
 
 import Notice from "./components/views/Notice/Notice"; //게시판 보기
 import Notice_1 from "./components/views/Notice/Notice_id1"; //게시판 보기
@@ -108,13 +131,117 @@ function App() {
             path="/main/work/category/price"
             component={PriceCategoryPage}
           />
+          <Route
+            exact
+            path="/main/work/category/:id"
+            component={WorkCategoryPage}
+          />
           <Route exact path="/work/detail/:id" component={WorkDetailPage} />
           <Route exact path="/main/oc" component={ClassOn} />
           <Route exact path="/main/c" component={ClassOff} />
+          {/* <Route exact path="/main/class" component={ClassPage} /> */}
           <Route
             exact
             path="/main/class/detail/:id"
             component={ClassDetailPage}
+          />
+
+          <Route exact path="/main/class/classlocal" component={Classlocal} />
+
+          <Route
+            exact
+            path="/main/class/classlocal/seoul"
+            component={Classlocalseoul}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/kyunggi"
+            component={Classlocalkyunggi}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/incheon"
+            component={Classlocalincheon}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/busan"
+            component={Classlocalbusan}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/daegu"
+            component={Classlocaldaegu}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/gwangju"
+            component={Classlocalgwangju}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/sejong"
+            component={Classlocalsejong}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/gwangwon"
+            component={Classlocalgwangwon}
+          />
+          <Route
+            exact
+            path="/main/class/classloca/gyeongbook"
+            component={Classlocalgyeongbook}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/daejun"
+            component={Classlocaldaejun}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/choongnam"
+            component={Classlocalchoongnam}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/ulsan"
+            component={Classlocalulsan}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory"
+            component={ClassCategory}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classcraft"
+            component={Classcraft}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classart"
+            component={Classart}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classbeauty"
+            component={Classbeauty}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classcooking"
+            component={Classcooking}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classexperienceandothers"
+            component={Classexperienceandothers}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classflower"
+            component={Classflower}
           />
           <Route exact path="/main/mypage" component={MyPage} />
           <Route exact path="/w/cart/:id" component={Cart_W} />
@@ -149,6 +276,112 @@ function App() {
             path="/main/showmyorderdetail"
             component={Detailedorderlist}
           />
+          <Route
+            exact
+            path="/main/showmyorderdetail2"
+            component={Detailedorderlist2}
+          />
+
+          <Route exact path="/main/class/classlocal" component={Classlocal} />
+
+          <Route
+            exact
+            path="/main/class/classlocal/seoul"
+            component={Classlocalseoul}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/kyunggi"
+            component={Classlocalkyunggi}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/incheon"
+            component={Classlocalincheon}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/busan"
+            component={Classlocalbusan}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/daegu"
+            component={Classlocaldaegu}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/gwangju"
+            component={Classlocalgwangju}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/sejong"
+            component={Classlocalsejong}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/gwangwon"
+            component={Classlocalgwangwon}
+          />
+          <Route
+            exact
+            path="/main/class/classloca/gyeongbook"
+            component={Classlocalgyeongbook}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/daejun"
+            component={Classlocaldaejun}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/choongnam"
+            component={Classlocalchoongnam}
+          />
+          <Route
+            exact
+            path="/main/class/classlocal/ulsan"
+            component={Classlocalulsan}
+          />
+
+          <Route
+            exact
+            path="/main/class/classcategory"
+            component={ClassCategory}
+          />
+
+          <Route
+            exact
+            path="/main/class/classcategory/Classcraft"
+            component={Classcraft}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classart"
+            component={Classart}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classbeauty"
+            component={Classbeauty}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classcooking"
+            component={Classcooking}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classexperienceandothers"
+            component={Classexperienceandothers}
+          />
+          <Route
+            exact
+            path="/main/class/classcategory/Classflower"
+            component={Classflower}
+          />
+
           <Route exact path="/main/notice" component={Notice} />
           <Route exact path="/main/Notice_id1" component={Notice_1} />
           <Route exact path="/main/Notice_id2" component={Notice_2} />
