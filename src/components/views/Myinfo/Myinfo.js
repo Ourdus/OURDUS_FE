@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../../css/personalInfo.css";
-import SideBar from "../Sidebar/Sidebar";
+import SideBar from "../Sidebar/SidebarCompo";
 import sidebarimage from "../../img/sidebarimage.png";
 import myinfo1 from "../../img/myinfo1.png";
 import myinfo2 from "../../img/myinfo2.png";
