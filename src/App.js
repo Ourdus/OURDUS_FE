@@ -24,6 +24,7 @@ import ClassOff from "./components/views/ClassPage/ClassOffMain";
 import Popular from "./components/views/ClassPage/PopularClass";
 import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
 import MyPage from "./components/views/MyPage/MyPage";
+import ClassCategory from "./components/views/ClassPage/ClassCategory";
 // import ClassPage from './components/views/ClassPage/ClassPage';
 import Classlocal from "./components/views/ClassPage/Classlocal"; //지역별 클래스 보기
 import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
