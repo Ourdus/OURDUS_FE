@@ -23,6 +23,7 @@ function Myinfo() {
   let [category, setCategory] = useState(categoryData);
   return (
     <div className="infoall">
+
       <SideBar></SideBar>
       <div className="infowrapper">
         <div className="infotopic">내 정보</div>

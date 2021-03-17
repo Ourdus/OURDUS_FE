@@ -7,6 +7,8 @@ import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { BeenhereSharp } from "@material-ui/icons";
 //npm install --save react-hover-observer hover 기능 활용을 위한 npm 설치!
 
 //import Jumbotron from 'react-bootstrap/Jumbotron'
@@ -30,10 +32,10 @@ function Header({ match }) {
     return (
       <div>
         <header>
-          <section className="header">
-            <section className="header-top">
-              <section className="header-top__navbar">
-                <section className="header-top__navigation">
+          <div className="header">
+            <div className="header-top">
+              <div className="header-top__navbar">
+                <div className="header-top__navigation">
                   <a href="/" className="header-bottom">
                     알림
                   </a>
@@ -43,38 +45,38 @@ function Header({ match }) {
                   <a href="/" className="header-bottom">
                     고객센터
                   </a>
-                </section>
+                </div>
                 <hr className="header-top__seperator" />
-              </section>
-            </section>
+              </div>
+            </div>
 
-            <section className="header-bottom">
+            <div className="header-bottom">
               <a href="/" className="idusappdown">
                 아이디어스 앱 설치하기
               </a>
 
-              <section className="header-bottom__info">
-                &nbsp;&nbsp;
-                <BsPerson size="20" color="steelblue" />
-                <Link to={"/main/myinfo/"} className="_category_button">
-                  <a href="/" className="header-bottom">
+              <div className="header-bottom-wrapper">
+                <div className="header-bottom__info">
+                  &nbsp;&nbsp;
+                  <BsPerson size="20" color="steelblue" />
+                  <Link to="../main/myinfo/" className="_category_button">
                     내정보
-                  </a>
-                </Link>
-              </section>
-              <section className="header-bottom__shop">
-                &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
-                <a href="/" className="header-bottom">
-                  장바구니
-                </a>
-              </section>
-            </section>
-          </section>
+                  </Link>
+                </div>
+                <div className="header-bottom__shop">
+                  &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
+                  <Link to="../main/myinfo/" className="_category_button">
+                    장바구니
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <div className="Navbar">
-            <button className="logobutton">
+          <div>
+            <LogoBtn>
               <img src={idusimage} />
-            </button>
+            </LogoBtn>
 
             <div className="leftSide">
               <a href="/class" className="linka">
@@ -136,14 +138,14 @@ function Header({ match }) {
     return (
       <div>
         <header>
-          <section className="header">
-            <section className="header-top">
-              <section className="header-top__navbar">
-                <section className="header-top__navigation">
+          <div className="header">
+            <div className="header-top">
+              <div className="header-top__navbar">
+                <div className="header-top__navigation">
                   <a href="../" className="idusappdown">
                     아이디어스 앱 설치하기
                   </a>
-                  <Link to="../user/join/input">
+                  <Link to="../user/join/login">
                     <a className="header-bottom">로그인</a>
                   </Link>
 
@@ -153,34 +155,18 @@ function Header({ match }) {
                   <a href="/" className="header-bottom">
                     고객센터
                   </a>
-                </section>
+                </div>
                 <hr className="header-top__seperator" />
-              </section>
-            </section>
-
-            <section className="header-bottom">
-              <section className="header-bottom__info">
-                &nbsp;&nbsp;
-                <BsPerson size="20" color="steelblue" />
-                <Link to={"/main/myinfo/"} className="_category_button">
-                  <a href="/" className="header-bottom">
-                    내정보
-                  </a>
-                </Link>
-              </section>
-              <section className="header-bottom__shop">
-                &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
-                <a href="/" className="header-bottom">
-                  장바구니
-                </a>
-              </section>
-            </section>
-          </section>
+              </div>
+            </div>
+          </div>
 
           <div className="Navbar">
-            <button className="logobutton">
-              <img src={idusimage} />
-            </button>
+            <LogoBtn>
+              <Link to="../main/oc">
+                <img src={idusimage} />
+              </Link>
+            </LogoBtn>
 
             <div className="leftSide">
               <a href="../main/work" className="linka">
@@ -190,19 +176,37 @@ function Header({ match }) {
                 클래스
               </a>
             </div>
-            <div className="rightSide">
+            <RightSide>
               <input
                 type="text"
                 placeholder="신학기를 검색해보세요."
                 className="inputstyleclass"
               />
-              <button className="inputbtn3">
+              <SearchBtn>
                 <img src={inputsearch} />
-              </button>
-            </div>
+              </SearchBtn>
+            </RightSide>
+            <HeaderBottomWrapper>
+              <HeaderBottomInfo>
+                &emsp;&nbsp;
+                <BsPerson size="20" color="steelblue" />
+                <Link to={"/main/myinfo/"} className="_category_button">
+                  <a href="/" className="header-bottom">
+                    내정보
+                  </a>
+                </Link>
+              </HeaderBottomInfo>
+              <HeaderBottomInfo>
+                &nbsp;&nbsp;&nbsp;
+                <FiShoppingCart size="20" color="steelblue" />
+                <a href="/" className="header-bottom">
+                  장바구니
+                </a>
+              </HeaderBottomInfo>
+            </HeaderBottomWrapper>
           </div>
 
-          <div className="Navbar">
+          <div className="Navbar2">
             <div className="links">
               <a href="/category" className="linkb">
                 카테고리
@@ -246,3 +250,59 @@ function Header({ match }) {
 }
 
 export default Header;
+
+const HeaderBottomWrapper = styled.div`
+  display: flex;
+  margin: 1.1% 0% 0% 20%;
+  background: none;
+`;
+
+const HeaderBottomDiv = styled.div`
+  width: 100px;
+  height: 30px;
+`;
+
+const HeaderBottomInfo = styled.div`
+  width: 80px;
+  margin: 0% 0% 0% 1%;
+`;
+
+const RightSide = styled.div`
+  margin: 0% 0% 0% 0%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  input {
+    margin: 5% 0% 0% 0%;
+    width: 380px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 15px;
+    align-items: center;
+  }
+`;
+
+const SearchBtn = styled.button`
+  width: 40px;
+  margin: 5% 0% 0% 85%;
+  background: white;
+  border: none;
+  position: absolute;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const LogoBtn = styled.button`
+  width: 100px;
+  height: 50px;
+  margin: 0.6% 0% 0% 15%;
+  background: white;
+  border: none;
+  object-fit: cover;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
