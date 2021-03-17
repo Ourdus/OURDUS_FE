@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import categoryData from "../../data/categoryData";
 import data from "../../data/MyinfoData";
 import Product from "../Section/Product/MyinfoProduct";
-import SideBar from "../Sidebar/SideBar";
+import SideBar from "../Sidebar/Sidebar";
 
 function onclickwork() {}
 function onclickoffline() {}

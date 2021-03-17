@@ -51,7 +51,7 @@ import DirectPay_W from "./components/views/CartPage/DirectPay_W"; //바로결�
 import Payment_W from "./components/views/CartPage/Payment_W"; //주문결제
 
 //myinfo 내정보 관련
-import SideBar from "./components/views/Sidebar/SideBar"; //sidebar 구성
+import SideBar from "./components/views/Sidebar/Sidebar";
 import Showmyinfo from "./components/views/Myinfo/Orderlist"; //주문내역 더보기
 import Showmyinfoclass from "./components/views/Myinfo/Orderlistonline"; //주문내역 더보기
 import Showmyinfoclassoff from "./components/views/Myinfo/Orderlistoffline"; //주문내역 더보기

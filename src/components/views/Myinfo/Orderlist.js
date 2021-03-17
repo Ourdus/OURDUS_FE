@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import myinfobanner from "../../img/myinfocf.png";
 import { Link } from "react-router-dom";
-import SideBar from "../Sidebar/SideBar";
+import SideBar from "../Sidebar/Sidebar";
 import "../../css/personalInfo.css";
 import sidebarimage from "../../img/sidebarimage.png";
 import axios from "axios";
