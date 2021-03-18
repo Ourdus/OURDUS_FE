@@ -1,12 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import img1 from '../../../img/Test.jpg';
+import React from "react";
+import styled from "styled-components";
+import img1 from "../../../img/Test.jpg";
 
-function ClassEnroll(props) {
+function ClassOff(props) {
   return (
     <Wrapper>
       <ImageBox>
-        <img src={props.class.mainImage} /> {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
+        <img src={props.class.mainImage} />{" "}
+        {/* 이미지를 받아와서, hover impact를 주어야 한다. */}
       </ImageBox>
       <br />
       <ShopTag>{props.class.authorName}</ShopTag>
@@ -16,8 +17,7 @@ function ClassEnroll(props) {
     </Wrapper>
   );
 }
-export default ClassEnroll;
-
+export default ClassOff;
 
 const Wrapper = styled.div`
   width: 20%;
@@ -30,7 +30,6 @@ const Wrapper = styled.div`
     width: 100%;
   }
 `;
-
 
 const ShopTag = styled.a`
   color: black;
@@ -54,22 +53,22 @@ const ImageBox = styled.div`
 `;
 
 const Stars = styled.div`
-width: 100px;
-/* height: 20px; */
-display: inline-block;
-`
+  width: 100px;
+  /* height: 20px; */
+  display: inline-block;
+`;
 const Star_out = styled.span`
-img {
+  img {
     width: 100px;
     /* height: 20px; */
     position: relative;
     z-index: 2;
     left: -15px;
-}
-`
+  }
+`;
 const Star_in = styled.span`
-h4 {
-    width: ${props => props.width}%;
+  h4 {
+    width: ${(props) => props.width}%;
     height: 16px;
     float: left;
     position: relative;
@@ -77,8 +76,8 @@ h4 {
     z-index: 1;
     top: -18px;
     left: -15px;
-}
-`
+  }
+`;
 const InterestBtn = styled.button`
   width: 100%;
   height: 4vh;

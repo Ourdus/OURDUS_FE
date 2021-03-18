@@ -25,6 +25,7 @@ import Popular from "./components/views/ClassPage/PopularClass";
 import ClassDetailPage from "./components/views/ClassPage/ClassDetailPage";
 import MyPage from "./components/views/MyPage/MyPage";
 import ClassCategory from "./components/views/ClassPage/ClassCategory";
+
 // import ClassPage from './components/views/ClassPage/ClassPage';
 import Classlocal from "./components/views/ClassPage/Classlocal"; //지역별 클래스 보기
 import Classlocalseoul from "./components/views/ClassPage/Classlocal/Classlocalseoul";
@@ -74,7 +75,6 @@ import DirectPay_W from "./components/views/CartPage/DirectPay_W"; //바로결�
 import Payment_W from "./components/views/CartPage/Payment_W"; //주문결제
 
 //myinfo 내정보 관련
-import SideBar from "./components/views/Sidebar/Sidebar";
 import Showmyinfo from "./components/views/Myinfo/Orderlist"; //주문내역 더보기
 import Showmyinfoclass from "./components/views/Myinfo/Orderlistonline"; //주문내역 더보기
 import Showmyinfoclassoff from "./components/views/Myinfo/Orderlistoffline"; //주문내역 더보기
