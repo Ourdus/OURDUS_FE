@@ -61,14 +61,15 @@
 .header-bottom-wrapper {
   display: flex;
   margin: 0% 0% 0% 10%;
-  font-size: 13px;
+  font-size: 12px;
 }
-.header-bottom__shop {
+
+/* .header-bottom__shop {
   margin-right: 15%;
 }
 .header-bottom__info {
-  margin: 0% 0% 0% 12%;
-}
+  margin: 0% 0% 0% 10%;
+} */
 
 .header-bottom__bag {
   position: absolute;
@@ -108,10 +109,10 @@
 .Navbar2 {
   background-color: white;
   width: 100%;
-  height: 56px;
+  height: 42px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  margin-bottom: 1%;
+  align-items: center;
   border: 1px solid lightgray;
 }
 
@@ -121,13 +122,6 @@
   border: none;
   display: flex;
   align-items: center;
-}
-
-.links {
-  max-height: 80px;
-  margin-left: 20%;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .linka {
@@ -148,12 +142,24 @@
   font-size: 18px;
   text-decoration: none;
 }
+
+.linkz {
+  text-decoration: none;
+  color: #868e96;
+  font-weight: bolder;
+  font-size: 14px;
+  margin-left: 400px;
+  margin-top: 25px;
+  margin-bottom: 3px;
+}
+
 .linkb {
   text-decoration: none;
-  color: orange;
+  color: #868e96;
+  font-weight: bolder;
   font-size: 14px;
-  margin-left: 21px;
-  margin-top: 100px;
+  margin-left: 22px;
+  margin-top: 25px;
   margin-bottom: 3px;
 }
 

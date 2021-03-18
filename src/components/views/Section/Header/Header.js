@@ -55,21 +55,24 @@ function Header({ match }) {
                 아이디어스 앱 설치하기
               </a>
 
-              <div className="header-bottom-wrapper">
-                <div className="header-bottom__info">
-                  &nbsp;&nbsp;
+              <HeaderBottomWrapper>
+                <HeaderBottomInfo>
+                  &emsp;&nbsp;
                   <BsPerson size="20" color="steelblue" />
-                  <Link to="../main/myinfo/" className="_category_button">
-                    내정보
+                  <Link to={"/main/myinfo/"} className="_category_button">
+                    <a href="/" className="header-bottom">
+                      내정보
+                    </a>
                   </Link>
-                </div>
-                <div className="header-bottom__shop">
-                  &nbsp;&nbsp; <FiShoppingCart size="20" color="steelblue" />
-                  <Link to="../main/myinfo/" className="_category_button">
+                </HeaderBottomInfo>
+                <HeaderBottomInfo>
+                  &nbsp;&nbsp;&nbsp;
+                  <FiShoppingCart size="20" color="steelblue" />
+                  <a href="/" className="header-bottom">
                     장바구니
-                  </Link>
-                </div>
-              </div>
+                  </a>
+                </HeaderBottomInfo>
+              </HeaderBottomWrapper>
             </div>
           </div>
 
@@ -92,8 +95,8 @@ function Header({ match }) {
             </div>
           </div>
 
-          <div className="Navbar">
-            <div className="links">
+          <div className="Navbar2">
+            <LinksDiv>
               <a href="/category" className="linkb">
                 카테고리
               </a>
@@ -127,7 +130,7 @@ function Header({ match }) {
               <a href="/popularartist" className="linkb">
                 인기작가
               </a>
-            </div>
+            </LinksDiv>
           </div>
         </header>
       </div>
@@ -186,9 +189,10 @@ function Header({ match }) {
                 <img src={inputsearch} />
               </SearchBtn>
             </RightSide>
+
             <HeaderBottomWrapper>
               <HeaderBottomInfo>
-                &emsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <BsPerson size="20" color="steelblue" />
                 <Link to={"/main/myinfo/"} className="_category_button">
                   <a href="/" className="header-bottom">
@@ -197,7 +201,7 @@ function Header({ match }) {
                 </Link>
               </HeaderBottomInfo>
               <HeaderBottomInfo>
-                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <FiShoppingCart size="20" color="steelblue" />
                 <a href="/" className="header-bottom">
                   장바구니
@@ -207,8 +211,8 @@ function Header({ match }) {
           </div>
 
           <div className="Navbar2">
-            <div className="links">
-              <a href="/category" className="linkb">
+            <LinksDiv>
+              <a href="/category" className="linkz">
                 카테고리
               </a>
               <a href="/home" className="linkb">
@@ -241,7 +245,7 @@ function Header({ match }) {
               <a href="/popularartist" className="linkb">
                 인기작가
               </a>
-            </div>
+            </LinksDiv>
           </div>
         </header>
       </div>
@@ -255,11 +259,7 @@ const HeaderBottomWrapper = styled.div`
   display: flex;
   margin: 1.1% 0% 0% 20%;
   background: none;
-`;
-
-const HeaderBottomDiv = styled.div`
-  width: 100px;
-  height: 30px;
+  font-size: 14px;
 `;
 
 const HeaderBottomInfo = styled.div`
@@ -280,6 +280,11 @@ const RightSide = styled.div`
     padding-left: 15px;
     align-items: center;
   }
+`;
+
+const LinksDiv = styled.div`
+  max-height: 80px;
+  font-size: calc(10px + 2vmin);
 `;
 
 const SearchBtn = styled.button`
