@@ -1,18 +1,20 @@
-import React from 'react';
-import '../../../css/Footer.css';
-import kakaoimage from '../../../img/kakao.png';
-import twitterimage from '../../../img/twitter.png';
-import instagramimage from '../../../img/instagram.png';
-import facebookimage from '../../../img/facebook.png';
-import blogimage from '../../../img/blog.png';
-import gumeimage from '../../../img/gume.png';
-import { IoLogoTwitter } from 'react-icons/io';
-import { IoLogoFacebook } from 'react-icons/io';
-import { IoLogoInstagram } from 'react-icons/io';
-import { IoLogoSlack } from 'react-icons/io';
-import { IoLogoGithub } from 'react-icons/io';
-import { ImBlogger2 } from 'react-icons/im';
-import { FaKickstarter } from 'react-icons/fa';
+import React from "react";
+import styled from "styled-components";
+import "../../../css/Footer.css";
+import kakaoimage from "../../../img/kakao.png";
+import twitterimage from "../../../img/twitter.png";
+import instagramimage from "../../../img/instagram.png";
+import facebookimage from "../../../img/facebook.png";
+import blogimage from "../../../img/blog.png";
+import gumeimage from "../../../img/gume.png";
+import bottomLogo from "../../../img/bottomLogo.png";
+import { IoLogoTwitter } from "react-icons/io";
+import { IoLogoFacebook } from "react-icons/io";
+import { IoLogoInstagram } from "react-icons/io";
+import { IoLogoSlack } from "react-icons/io";
+import { IoLogoGithub } from "react-icons/io";
+import { ImBlogger2 } from "react-icons/im";
+import { FaKickstarter } from "react-icons/fa";
 function Footer() {
   return (
     <div>
@@ -48,9 +50,12 @@ function Footer() {
           <div className="Title2"></div>
           <div className="Row">
             <div className="Column">
-              <div className="iduslogo">idus</div>
+              <IdusLogo>
+                <img src={bottomLogo} />
+              </IdusLogo>
             </div>
-            <div className="Column">
+
+            <FirstTextBox>
               <div className="Title">(주) 백패커</div>
               <h6 href="#">
                 대표이사 : 김동환
@@ -64,19 +69,25 @@ function Footer() {
               <div className="smallletter">
                 아이디어스는 통신판매중개자이며 통신판매의 당사자가 아닙니다.
                 <br />
-                따라서 아이디어스는 상품 거래정보 및 거래에 대하여 책임을 지지 않습니다.
+                따라서 아이디어스는 상품 거래정보 및 거래에 대하여 책임을 지지
+                않습니다.
               </div>
-            </div>
-            <div className="Column">
-              <div className="Title">고객센터(오전 10~ 저녁 10시)</div>
+            </FirstTextBox>
+            <TextBox>
+              <div className="Title">
+                고객센터
+                <span className="opTime">
+                  ( 주 7일 오전 10~ 저녁 10시까지 )
+                </span>
+              </div>
               <h6 href="#">
-                카카오톡 아이디어스
+                카카오톡 &nbsp;&nbsp;아이디어스
                 <br />
-                대표번호 02-6022-3651
+                대표번호 &nbsp;&nbsp;02-6022-3651
                 <br />
-                메일 support@backpac.kr
+                메일 &emsp;&nbsp;&nbsp;&nbsp;&nbsp; support@backpac.kr
                 <br />
-                제휴문의 biz@backpac.kr
+                제휴문의&nbsp;&nbsp;&nbsp;&nbsp;biz@backpac.kr
               </h6>
               <div className="smallletter">
                 아이디어스 이용 중 궁금하신 점이 있으신가요?
@@ -85,67 +96,79 @@ function Footer() {
                 <br />
                 최선을 다해 도와드리겠습니다.
               </div>
-            </div>
-            <div className="Column">
+            </TextBox>
+            <TextBox>
               <div className="Title">Follow Us</div>
               <div className="iconColumn">
-              <a href="https://story.kakao.com/ch/idusme" className="lineno">
-             
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={kakaoimage} />
-             </button>
-              </a>
+                <a href="https://story.kakao.com/ch/idusme" className="lineno">
+                  <button
+                    className="iconbutton"
+                    href="https://story.kakao.com/ch/idusme"
+                  >
+                    <img src={kakaoimage} />
+                  </button>
+                </a>
 
-              <a href="https://twitter.com/IDus_kr" className="lineno">
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={twitterimage} />
-             </button>
-              </a>
+                <a href="https://twitter.com/IDus_kr" className="lineno">
+                  <button
+                    className="iconbutton"
+                    href="https://story.kakao.com/ch/idusme"
+                  >
+                    <img src={twitterimage} />
+                  </button>
+                </a>
 
-              <a href="https://post.naver.com/idus_me" className="lineno">
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={blogimage} />
-             </button>
-              </a>
-              <a href="https://www.facebook.com/idus.me" className="lineno">
-              
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={facebookimage} />
-             </button>
-              </a>
+                <a href="https://post.naver.com/idus_me" className="lineno">
+                  <button
+                    className="iconbutton"
+                    href="https://story.kakao.com/ch/idusme"
+                  >
+                    <img src={blogimage} />
+                  </button>
+                </a>
+                <a href="https://www.facebook.com/idus.me" className="lineno">
+                  <button
+                    className="iconbutton"
+                    href="https://story.kakao.com/ch/idusme"
+                  >
+                    <img src={facebookimage} />
+                  </button>
+                </a>
 
-              
-              <a href="https://www.instagram.com/idus.me/" className="lineno">
-              <button className="iconbutton" href="https://story.kakao.com/ch/idusme">
-            <img src={instagramimage} />
-             </button>
-              </a>
+                <a href="https://www.instagram.com/idus.me/" className="lineno">
+                  <button
+                    className="iconbutton"
+                    href="https://story.kakao.com/ch/idusme"
+                  >
+                    <img src={instagramimage} />
+                  </button>
+                </a>
               </div>
-              <div className="Title3">구매안전거래사이트</div>
+              {/* <div className="Title3">구매안전거래사이트</div>
               <div className="sortgaip">
-              <button className="gaipbtn">가입사실 확인▶</button>
-              <button className="iconbutton2">
-                <img src={gumeimage} />
-              </button>
-
-              </div>
+                <button className="gaipbtn">가입사실 확인▶</button>
+                <button className="iconbutton2">
+                  <img src={gumeimage} />
+                </button>
+              </div> */}
               <div className="smallletter">
-                고객님은 현금 등으로 결제시 당사에서 가입한 구매안전서비스를 이용하실 수 있습니다.
+                고객님은 현금 등으로 결제시 당사에서 가입한 구매안전서비스를
+                이용하실 수 있습니다.
                 <br />
                 Copyright © 2021 Backpackr All right reserved.
               </div>
-            </div>
-            <div className="Column">
+            </TextBox>
+            {/* <TextBox>
               <div className="Title">OurdusSocial</div>
-              <IoLogoGithub size="24" color="orange" />{' '}
+              <IoLogoGithub size="24" color="orange" />{" "}
               <a href="https://github.com/orgs/Ourdus" className="lineno">
                 Git hub
               </a>
-              <IoLogoSlack size="24" color="orange" />{' '}
+              <IoLogoSlack size="24" color="orange" />{" "}
               <a href="https://ourdus.slack.com/" className="lineno">
                 Slack
               </a>
-            </div>
+            </TextBox> */}
           </div>
         </div>
       </footer>
@@ -154,3 +177,60 @@ function Footer() {
 }
 
 export default Footer;
+
+const IdusLogo = styled.div`
+  margin-left: 40%;
+  font-size: 40px;
+  width: 120px;
+  color: gray;
+  font-weight: bold;
+  font-style: initial;
+  text-align: right;
+  img {
+    width: 100%;
+    hegith: 100%;
+  }
+`;
+
+const FirstTextBox = styled.div`
+  width: 340px;
+  flex-direction: column;
+  text-align: left;
+  padding: 0% 0% 0% 10%;
+
+  .Title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  .opTime {
+    font-size: 10px;
+    margin: 0% 0% 0% 1%;
+    color: #495057;
+  }
+  h6 {
+    font-size: 12.5px;
+    color: #495057;
+  }
+`;
+
+const TextBox = styled.div`
+  width: 340px;
+  flex-direction: column;
+  text-align: left;
+  padding: 0% 0% 0% 40%;
+
+  .Title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+  span {
+    font-size: 10px;
+    margin: 0% 0% 0% 1%;
+    color: #495057;
+  }
+  h6 {
+    font-size: 12.5px;
+  }
+`;
