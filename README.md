@@ -4,7 +4,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 > [Idus](https://www.idus.com/) 의 Clone Project입니다.
 
-## User Interface
+## 💻 User Interface
 
 <img width="1667" alt="스크린샷 2021-03-19 오후 3 25 46" src="https://user-images.githubusercontent.com/49136186/111740106-823f7b80-88c7-11eb-9e46-8ed38912d281.png">
 
@@ -15,7 +15,7 @@
 - Webpack (..)
 
 
-## 프로젝트 구조
+## ⚙ 프로젝트 구조
 ```
 src
  ┣ components
@@ -201,7 +201,7 @@ src
  ┗ setupTests.js
 ```
 
-## 프로젝트 사용 방법
+## ✏️ 프로젝트 사용 방법
 
 
 1. cloning (window)
