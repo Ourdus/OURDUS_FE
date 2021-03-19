@@ -204,10 +204,21 @@ src
 ## ✏️ 프로젝트 사용 방법
 
 
-1. cloning (window)
+1. cloning
 ```
 git clone https://github.com/Ourdus/OURDUS_FE.git
+```
 
+2. install
+
+```
+ yarn install
+```
+
+3. Execute 
+
+```
+ yarn start
 ```
 
 ## Contributors ✨
