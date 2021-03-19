@@ -1,6 +1,6 @@
 # Ourdus Frontend
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 > [Idus](https://www.idus.com/) 의 Clone Project입니다.
 
@@ -221,6 +221,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://kimbangg.tistory.com/"><img src="https://avatars.githubusercontent.com/u/49136186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kimbangg</b></sub></a><br /><a href="https://github.com/Ourdus/OURDUS_FE/commits?author=Kimbangg" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dkeka0127"><img src="https://avatars.githubusercontent.com/u/39721950?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dkeka0127</b></sub></a><br /><a href="https://github.com/Ourdus/OURDUS_FE/commits?author=dkeka0127" title="Code">💻</a></td>
   </tr>
 </table>
 
