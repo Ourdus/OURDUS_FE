@@ -42,61 +42,6 @@ src
  ┃ ┃ ┣ WorkDetailData.js
  ┃ ┃ ┣ categoryData.js
  ┃ ┃ ┗ classcategoryData.js
- ┃ ┣ img
- ┃ ┃ ┣ OffCateBtns
- ┃ ┃ ┃ ┣ ArtImg.png
- ┃ ┃ ┃ ┣ BeautyImg.png
- ┃ ┃ ┃ ┣ CookImg.png
- ┃ ┃ ┃ ┣ CraftsImg.png
- ┃ ┃ ┃ ┣ ExpImg.png
- ┃ ┃ ┃ ┗ FlowerImg.png
- ┃ ┃ ┣ CategoryImg.png
- ┃ ┃ ┣ DetailIMG1.jpg
- ┃ ┃ ┣ DetailIMG2.jpg
- ┃ ┃ ┣ DetailIMG3.jpg
- ┃ ┃ ┣ LeftBtn.png
- ┃ ┃ ┣ Promo_login.png
- ┃ ┃ ┣ RightBtn.png
- ┃ ┃ ┣ Test.jpg
- ┃ ┃ ┣ blog.png
- ┃ ┃ ┣ bottomLogo.png
- ┃ ┃ ┣ classtest.png
- ┃ ┃ ┣ facebook.png
- ┃ ┃ ┣ fav_button_img.png
- ┃ ┃ ┣ gradation.png
- ┃ ┃ ┣ gume.png
- ┃ ┃ ┣ idus.png
- ┃ ┃ ┣ inputsearch.png
- ┃ ┃ ┣ instagram.png
- ┃ ┃ ┣ kakao.png
- ┃ ┃ ┣ kakaologo.svg
- ┃ ┃ ┣ login.png
- ┃ ┃ ┣ myinfo1.png
- ┃ ┃ ┣ myinfo2.png
- ┃ ┃ ┣ myinfo3.png
- ┃ ┃ ┣ myinfo4.png
- ┃ ┃ ┣ myinfo5.png
- ┃ ┃ ┣ myinfocf.png
- ┃ ┃ ┣ noticeid6.png
- ┃ ┃ ┣ promo1.jpg
- ┃ ┃ ┣ promo10.jpg
- ┃ ┃ ┣ promo11.jpg
- ┃ ┃ ┣ promo12.jpg
- ┃ ┃ ┣ promo2.jpg
- ┃ ┃ ┣ promo3.jpg
- ┃ ┃ ┣ promo4.jpg
- ┃ ┃ ┣ promo5.jpg
- ┃ ┃ ┣ promo6.jpg
- ┃ ┃ ┣ promo7.jpg
- ┃ ┃ ┣ promo8.jpg
- ┃ ┃ ┣ promo9.jpg
- ┃ ┃ ┣ share_button_img.png
- ┃ ┃ ┣ sidebarimage.png
- ┃ ┃ ┣ star.png
- ┃ ┃ ┣ star_show.png
- ┃ ┃ ┣ star_white.png
- ┃ ┃ ┣ stars.png
- ┃ ┃ ┗ twitter.png
  ┃ ┣ views
  ┃ ┃ ┣ CartPage
  ┃ ┃ ┃ ┣ CartPage_W.js
