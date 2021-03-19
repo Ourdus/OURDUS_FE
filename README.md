@@ -214,7 +214,6 @@ git clone https://github.com/Ourdus/OURDUS_FE.git
 - 2-1 yarn 최신 업데이트
    ```
    yarn install
-
   ```
 
 3. Execute 
