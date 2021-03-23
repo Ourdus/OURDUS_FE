@@ -3,6 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 > [IDUS](https://www.idus.com/) 의 Clone Project입니다.
+> 본 페이지의 UI를 바탕으로 자체적인 프론트엔드 개발을 진행 하였습니다.
 
 ## 💻 User Interface
 
