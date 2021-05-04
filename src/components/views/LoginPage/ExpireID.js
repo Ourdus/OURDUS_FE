@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import AuthenticationService from './ AuthenticationService';
+import AuthenticationService from './AuthenticationService2';
 import { PostJwt } from './TokenConfig';
 import {deleteJwt, LogoutJwt} from './TokenConfig';
 

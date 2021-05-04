@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import data from '../../data/AddressData';
-import AuthenticationService from './ AuthenticationService';
+import AuthenticationService from './AuthenticationService2';
 import {getJwt} from './TokenConfig';
 
 const BoxDiv = styled.div`

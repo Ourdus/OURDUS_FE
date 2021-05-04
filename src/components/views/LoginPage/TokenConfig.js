@@ -1,58 +1,60 @@
 import axios from 'axios';
 
+export const AUTH_HEADER = "Authorization";
+
 export const instance = axios.create({
     });
 // instance.defaults.headers['Content-Type'] = 'application/json';
         
 export const checkHeader = () => {
-    console.log("checkHeader:  " + instance.defaults.headers.common['jwt-auth-token']);
+    console.log("checkHeader:  " + instance.defaults.headers.common[AUTH_HEADER]);
     console.log("check에서 확인한 cookie는: " + document.cookie);
 }
 
 export const setJwt = (token) => {
-    // 'jwt-auth-token' 자리는 백엔드에서 설정한 토큰 명을 삽입 해주어야 한다.
-    instance.defaults.headers.common['jwt-auth-token'] = token;
-    console.log("setJwt:  " + instance.defaults.headers.common['jwt-auth-token']);
+    // AUTH_HEADER 자리는 백엔드에서 설정한 토큰 명을 삽입 해주어야 한다.
+    instance.defaults.headers.common[AUTH_HEADER] = token;
+    console.log("setJwt:  " + instance.defaults.headers.common[AUTH_HEADER]);
     // 새로고침을 할 때마다, 날라가는 것을 방지하기 위해 쿠기에 저장
-    setCookie('jwt-auth-token', token);
+    setCookie(AUTH_HEADER, token);
     console.log("set에서 확인한 cookie는: " + document.cookie);
     //cookie setting
 }
 
 export const getJwt = (uri) => {
     //cookie get, header에 새로 update
-    console.log("getJwt:  " + instance.defaults.headers.common['jwt-auth-token']);
-    instance.defaults.headers.common['jwt-auth-token'] = getCookie('jwt-auth-token');
-    console.log("get에서 cookie로 넣어준:  " + instance.defaults.headers.common['jwt-auth-token']);
+    console.log("getJwt:  " + instance.defaults.headers.common[AUTH_HEADER]);
+    instance.defaults.headers.common[AUTH_HEADER] = getCookie(AUTH_HEADER);
+    console.log("get에서 cookie로 넣어준:  " + instance.defaults.headers.common[AUTH_HEADER]);
     return axios
     .get(uri,{
       headers:{
-      'jwt-auth-token': instance.defaults.headers.common['jwt-auth-token']
+        Authorization: instance.defaults.headers.common[AUTH_HEADER]
       }
     })
 }
 
 export const PostJwt = (uri, data) => {
-    instance.defaults.headers.common['jwt-auth-token'] = getCookie('jwt-auth-token');
+    instance.defaults.headers.common[AUTH_HEADER] = getCookie(AUTH_HEADER);
     return axios.post(uri, data, {
         headers: {
-            'jwt-auth-token': instance.defaults.headers.common['jwt-auth-token']
+          Authorization: instance.defaults.headers.common[AUTH_HEADER]
         }
     })
 }
 
 export const deleteJwt = (uri) =>{
-    instance.defaults.headers.common['jwt-auth-token'] = getCookie('jwt-auth-token');
+    instance.defaults.headers.common[AUTH_HEADER] = getCookie(AUTH_HEADER);
     return axios.delete(uri, {
       headers: {
-          'jwt-auth-token': instance.defaults.headers.common['jwt-auth-token']
+        Authorization: instance.defaults.headers.common[AUTH_HEADER]
       }
   })
 }
 
 export const LogoutJwt = () =>{
-  deleteCookie('jwt-auth-token');
-  delete instance.defaults.headers.common['jwt-auth-token'];
+  deleteCookie(AUTH_HEADER);
+  delete instance.defaults.headers.common[AUTH_HEADER];
 }
 
 

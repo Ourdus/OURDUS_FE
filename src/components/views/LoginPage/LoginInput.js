@@ -8,7 +8,7 @@ import kakaoLogo from "../../img/kakaologo.svg";
 import PromoLogin from "../../img/Promo_login.png";
 import Loginbtn from "../../img/login.png";
 import { setJwt } from "./TokenConfig.js";
-import AuthenticationService from "./ AuthenticationService";
+import AuthenticationService from "./AuthenticationService2";
 
 function LoginPage() {
   const history = useHistory();

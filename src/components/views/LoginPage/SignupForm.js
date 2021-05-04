@@ -4,7 +4,7 @@ import '../../css/SignForm.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import Loginbtn from '../../img/login.png';
-import AuthenticationService from './ AuthenticationService';
+import AuthenticationService from './AuthenticationService2';
 
 const SignText = styled.div`
   width: 600px;

@@ -9,8 +9,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-axios.defaults.baseURL = 'http://localhost:3000/';
-axios.defaults.withCredentials = true;
+if(process.env.REACT_APP_NODE_ENV === "docker") {
+  axios.defaults.baseURL = 'http://localhost';
+}
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

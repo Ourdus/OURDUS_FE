@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AUTH_HEADER } from './TokenConfig';
 
 class AuthenticationService {
     // send username, password to the SERVER
@@ -47,7 +48,7 @@ class AuthenticationService {
             config => {
                 const token = localStorage.getItem('token');
                 if (token) {
-                    config.headers['jwt-auth-token'] = 'Bearer ' + token;
+                    config.headers[AUTH_HEADER] = 'Bearer ' + token;
                 }
                 // config.headers['Content-Type'] = 'application/json';
                 return config;
