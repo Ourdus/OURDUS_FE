@@ -148,11 +148,11 @@ function Header({ match }) {
                   <a href="../" className="idusappdown">
                     아이디어스 앱 설치하기
                   </a>
-                  <Link to="../user/join/login">
+                  <Link to="/user/join/login">
                     <a className="header-bottom">로그인</a>
                   </Link>
 
-                  <Link to="../user/join/signup">
+                  <Link to="/user/join/signup">
                     <a className="header-bottom">회원가입</a>
                   </Link>
                   <a href="/" className="header-bottom">

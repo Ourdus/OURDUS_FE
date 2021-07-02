@@ -12,6 +12,7 @@ import AuthenticationService from "./ AuthenticationService";
 
 function LoginPage() {
   const history = useHistory();
+
   const PostUserInfo = async (inputs) => {
     const data = {
       email: inputs.email,
@@ -23,7 +24,7 @@ function LoginPage() {
         .then((response) => {
           // console.log(response);
           const accessToken = response.data.response.data;
-          console.log("accessToken:" + accessToken);
+          // console.log("accessToken:" + accessToken);
           setJwt(accessToken);
           history.push("/main");
         })
